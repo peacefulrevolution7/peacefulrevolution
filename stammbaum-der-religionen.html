@@ -1,0 +1,1220 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Der Stammbaum der Religionen - Alle Wege führen zum Einen</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+            background-size: 400% 400%;
+            animation: gradientShift 20s ease infinite;
+            color: #fff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 80px 20px 60px;
+            background: rgba(0,0,0,0.4);
+            margin-bottom: 60px;
+            border-radius: 25px;
+            backdrop-filter: blur(15px);
+            border: 2px solid rgba(255,215,0,0.2);
+        }
+        
+        h1 {
+            font-size: 3.8em;
+            margin-bottom: 25px;
+            background: linear-gradient(45deg, #FFD700, #FFA500, #FF69B4, #87CEEB);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 4s ease-in-out infinite;
+        }
+        
+        @keyframes shimmer {
+            0%, 100% { filter: brightness(1); }
+            50% { filter: brightness(1.4); }
+        }
+        
+        .subtitle {
+            font-size: 1.6em;
+            color: #b0b0b0;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+        
+        .quote-box {
+            max-width: 900px;
+            margin: 35px auto;
+            padding: 35px;
+            background: rgba(255,215,0,0.12);
+            border-left: 5px solid #FFD700;
+            border-radius: 12px;
+            font-size: 1.25em;
+            line-height: 1.9;
+        }
+        
+        .nav-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 18px;
+            margin-bottom: 55px;
+            flex-wrap: wrap;
+        }
+        
+        .tab-btn {
+            padding: 16px 32px;
+            background: rgba(255,255,255,0.1);
+            border: 2px solid rgba(255,255,255,0.25);
+            color: white;
+            cursor: pointer;
+            border-radius: 35px;
+            font-size: 1.05em;
+            transition: all 0.35s;
+            backdrop-filter: blur(8px);
+        }
+        
+        .tab-btn:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-4px);
+            box-shadow: 0 6px 25px rgba(255,215,0,0.35);
+        }
+        
+        .tab-btn.active {
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            border-color: transparent;
+            box-shadow: 0 6px 30px rgba(255,215,0,0.6);
+            font-weight: bold;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.65s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(35px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .card {
+            background: rgba(255,255,255,0.06);
+            border-radius: 22px;
+            padding: 45px;
+            margin-bottom: 45px;
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255,255,255,0.12);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.35);
+        }
+        
+        .card h2 {
+            color: #FFD700;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            text-align: center;
+        }
+        
+        .card h3 {
+            color: #FFA500;
+            margin-top: 35px;
+            margin-bottom: 18px;
+            font-size: 1.9em;
+        }
+        
+        /* Tree Visualization */
+        .tree-container {
+            position: relative;
+            padding: 60px 20px;
+            margin: 50px 0;
+        }
+        
+        .source {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+        
+        .source-circle {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 25px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255,215,0,0.4), rgba(255,165,0,0.2));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 4px solid #FFD700;
+            box-shadow: 0 0 60px rgba(255,215,0,0.5);
+            animation: pulse 3s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 60px rgba(255,215,0,0.5); }
+            50% { transform: scale(1.08); box-shadow: 0 0 90px rgba(255,215,0,0.8); }
+        }
+        
+        .source-text {
+            font-size: 2.2em;
+            font-weight: bold;
+            color: #FFD700;
+            text-shadow: 0 0 25px rgba(255,215,0,0.7);
+        }
+        
+        .source-description {
+            font-size: 1.35em;
+            color: #d0d0d0;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Religion Branches */
+        .branches {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
+            margin-top: 60px;
+        }
+        
+        .branch {
+            background: rgba(255,255,255,0.07);
+            padding: 32px;
+            border-radius: 18px;
+            border: 2px solid transparent;
+            transition: all 0.4s;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .branch::before {
+            content: '';
+            position: absolute;
+            top: -40px;
+            left: 50%;
+            width: 2px;
+            height: 40px;
+            background: linear-gradient(180deg, #FFD700, transparent);
+        }
+        
+        .branch:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 12px 40px rgba(255,215,0,0.35);
+        }
+        
+        .branch.hinduism { border-color: #FF6B35; }
+        .branch.buddhism { border-color: #FFA07A; }
+        .branch.taoism { border-color: #4ECDC4; }
+        .branch.judaism { border-color: #4169E1; }
+        .branch.christianity { border-color: #FFD700; }
+        .branch.islam { border-color: #32CD32; }
+        .branch.indigenous { border-color: #DDA15E; }
+        
+        .branch-icon {
+            font-size: 4em;
+            text-align: center;
+            margin-bottom: 18px;
+        }
+        
+        .branch-name {
+            font-size: 1.7em;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 12px;
+        }
+        
+        .hinduism .branch-name { color: #FF6B35; }
+        .buddhism .branch-name { color: #FFA07A; }
+        .taoism .branch-name { color: #4ECDC4; }
+        .judaism .branch-name { color: #4169E1; }
+        .christianity .branch-name { color: #FFD700; }
+        .islam .branch-name { color: #32CD32; }
+        .indigenous .branch-name { color: #DDA15E; }
+        
+        .branch-date {
+            text-align: center;
+            color: #a0a0a0;
+            font-size: 1.05em;
+            margin-bottom: 18px;
+        }
+        
+        .branch-core {
+            font-style: italic;
+            color: #d0d0d0;
+            text-align: center;
+            font-size: 1.08em;
+            margin-top: 18px;
+            padding-top: 18px;
+            border-top: 1px solid rgba(255,215,0,0.3);
+        }
+        
+        /* Detail Cards */
+        .detail-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            margin-top: 35px;
+        }
+        
+        .detail-card {
+            background: rgba(255,255,255,0.06);
+            padding: 35px;
+            border-radius: 16px;
+            border-left: 5px solid;
+        }
+        
+        .detail-card.hinduism { border-left-color: #FF6B35; }
+        .detail-card.buddhism { border-left-color: #FFA07A; }
+        .detail-card.taoism { border-left-color: #4ECDC4; }
+        .detail-card.judaism { border-left-color: #4169E1; }
+        .detail-card.christianity { border-left-color: #FFD700; }
+        .detail-card.islam { border-left-color: #32CD32; }
+        
+        .detail-header {
+            font-size: 1.6em;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        
+        .detail-quote {
+            font-style: italic;
+            color: #d0d0d0;
+            margin: 18px 0;
+            padding-left: 20px;
+            border-left: 3px solid rgba(255,215,0,0.5);
+            line-height: 1.8;
+            font-size: 1.08em;
+        }
+        
+        .detail-mystic {
+            color: #FFD700;
+            font-weight: bold;
+            margin-top: 12px;
+        }
+        
+        .detail-explanation {
+            color: #b0b0b0;
+            margin-top: 18px;
+            line-height: 1.75;
+        }
+        
+        /* Common Truth */
+        .common-truth {
+            background: linear-gradient(135deg, rgba(255,215,0,0.15), rgba(255,105,180,0.15));
+            padding: 55px;
+            border-radius: 25px;
+            margin: 55px 0;
+            border: 3px solid rgba(255,215,0,0.5);
+            text-align: center;
+        }
+        
+        .common-truth h3 {
+            font-size: 2.5em;
+            color: #FFD700;
+            margin-bottom: 30px;
+        }
+        
+        .truth-points {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 28px;
+            margin-top: 40px;
+        }
+        
+        .truth-point {
+            background: rgba(0,0,0,0.3);
+            padding: 28px;
+            border-radius: 16px;
+            border: 1px solid rgba(255,215,0,0.3);
+        }
+        
+        .truth-icon {
+            font-size: 3.2em;
+            margin-bottom: 16px;
+        }
+        
+        .truth-text {
+            font-size: 1.15em;
+            color: #d0d0d0;
+        }
+        
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding: 50px 0;
+            margin: 50px 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, #FFD700, #FFA500, #FF69B4, #87CEEB);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin: 55px 0;
+            padding: 0 55px;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            text-align: right;
+            padding-right: 54%;
+        }
+        
+        .timeline-item:nth-child(even) {
+            text-align: left;
+            padding-left: 54%;
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            border: 4px solid #000;
+            box-shadow: 0 0 25px rgba(255,215,0,0.7);
+            z-index: 10;
+        }
+        
+        .timeline-content {
+            background: rgba(255,255,255,0.08);
+            padding: 28px;
+            border-radius: 16px;
+            border: 1px solid rgba(255,215,0,0.3);
+            transition: all 0.35s;
+        }
+        
+        .timeline-content:hover {
+            background: rgba(255,255,255,0.13);
+            transform: scale(1.03);
+            box-shadow: 0 6px 28px rgba(255,215,0,0.35);
+        }
+        
+        .timeline-date {
+            font-size: 1.4em;
+            color: #FFD700;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+        
+        .timeline-title {
+            font-size: 1.6em;
+            color: #FFA500;
+            margin-bottom: 12px;
+        }
+        
+        .timeline-desc {
+            color: #d0d0d0;
+            font-size: 1.08em;
+            line-height: 1.7;
+        }
+        
+        /* Highlight Box */
+        .highlight-box {
+            background: rgba(255,215,0,0.16);
+            border: 2px solid #FFD700;
+            border-radius: 18px;
+            padding: 35px;
+            margin: 35px 0;
+            text-align: center;
+        }
+        
+        .highlight-text {
+            font-size: 1.35em;
+            color: #fff;
+            line-height: 1.85;
+        }
+        
+        /* Interactive Selector */
+        .religion-selector {
+            background: rgba(255,215,0,0.12);
+            padding: 45px;
+            border-radius: 22px;
+            margin: 45px 0;
+            border: 2px solid rgba(255,215,0,0.35);
+        }
+        
+        .religion-selector h3 {
+            text-align: center;
+            color: #FFD700;
+            margin-bottom: 35px;
+            font-size: 2.2em;
+        }
+        
+        .religion-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+            justify-content: center;
+            margin-bottom: 35px;
+        }
+        
+        .religion-btn {
+            padding: 16px 32px;
+            background: rgba(255,255,255,0.1);
+            border: 2px solid rgba(255,215,0,0.5);
+            border-radius: 28px;
+            cursor: pointer;
+            transition: all 0.35s;
+            font-size: 1.12em;
+        }
+        
+        .religion-btn:hover {
+            background: rgba(255,215,0,0.25);
+            transform: scale(1.07);
+        }
+        
+        .religion-btn.selected {
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            border-color: transparent;
+            color: #000;
+            font-weight: bold;
+        }
+        
+        .selected-display {
+            text-align: center;
+            font-size: 1.5em;
+            color: #FFD700;
+            margin-top: 25px;
+            min-height: 70px;
+        }
+        
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2em; }
+            
+            .timeline::before { left: 32px; }
+            
+            .timeline-item:nth-child(odd),
+            .timeline-item:nth-child(even) {
+                text-align: left;
+                padding-left: 75px;
+                padding-right: 22px;
+            }
+            
+            .timeline-dot { left: 32px; }
+            
+            .detail-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🌳 Der Stammbaum der Religionen 🌳</h1>
+            <p class="subtitle">Alle Finger zeigen auf denselben Mond</p>
+            
+            <div class="quote-box">
+                <em>"Die Wahrheit ist Eine – die Weisen nennen sie mit vielen Namen."</em><br>
+                — Rigveda (älteste heilige Schrift der Menschheit, ~1500 v.Chr.)
+            </div>
+        </header>
+        
+        <div class="nav-tabs">
+            <button class="tab-btn active" onclick="switchTab('tree')">🌳 Der Stammbaum</button>
+            <button class="tab-btn" onclick="switchTab('timeline')">⏳ Zeitlinie</button>
+            <button class="tab-btn" onclick="switchTab('mystics')">✨ Die Mystiker</button>
+            <button class="tab-btn" onclick="switchTab('unity')">☝️ Die Eine Wahrheit</button>
+        </div>
+        
+        <!-- TAB 1: Der Stammbaum -->
+        <div id="tree" class="tab-content active">
+            <div class="card">
+                <h2>Die Ur-Quelle aller Religionen</h2>
+                
+                <div class="tree-container">
+                    <div class="source">
+                        <div class="source-circle">
+                            <div class="source-text">DIE<br>QUELLE</div>
+                        </div>
+                        <div class="source-description">
+                            <strong>Die mystische Ur-Erfahrung</strong><br>
+                            Vor den Religionen gab es die direkte Erfahrung:<br>
+                            <em>"Ich bin nicht getrennt. Ich bin EINS mit allem."</em>
+                        </div>
+                    </div>
+                    
+                    <div class="branches">
+                        <div class="branch hinduism">
+                            <div class="branch-icon">🕉️</div>
+                            <div class="branch-name">Hinduismus</div>
+                            <div class="branch-date">~3.500 v.Chr.</div>
+                            <div class="branch-core">
+                                "Atman ist Brahman"<br>
+                                Dein Selbst IST das Göttliche
+                            </div>
+                        </div>
+                        
+                        <div class="branch buddhism">
+                            <div class="branch-icon">☸️</div>
+                            <div class="branch-name">Buddhismus</div>
+                            <div class="branch-date">~500 v.Chr.</div>
+                            <div class="branch-core">
+                                "Form ist Leere, Leere ist Form"<br>
+                                Alles ist miteinander verbunden
+                            </div>
+                        </div>
+                        
+                        <div class="branch taoism">
+                            <div class="branch-icon">☯️</div>
+                            <div class="branch-name">Taoismus</div>
+                            <div class="branch-date">~600 v.Chr.</div>
+                            <div class="branch-core">
+                                "Das Tao fließt durch alles"<br>
+                                Sei eins mit dem Fluss des Lebens
+                            </div>
+                        </div>
+                        
+                        <div class="branch judaism">
+                            <div class="branch-icon">✡️</div>
+                            <div class="branch-name">Judentum</div>
+                            <div class="branch-date">~2.000 v.Chr.</div>
+                            <div class="branch-core">
+                                "Höre Israel: Gott ist EINS"<br>
+                                Alles ist Ausdruck des Einen
+                            </div>
+                        </div>
+                        
+                        <div class="branch christianity">
+                            <div class="branch-icon">✝️</div>
+                            <div class="branch-name">Christentum</div>
+                            <div class="branch-date">~0 n.Chr.</div>
+                            <div class="branch-core">
+                                "Ich und der Vater sind eins"<br>
+                                Göttliches Bewusstsein in jedem
+                            </div>
+                        </div>
+                        
+                        <div class="branch islam">
+                            <div class="branch-icon">☪️</div>
+                            <div class="branch-name">Islam</div>
+                            <div class="branch-date">~600 n.Chr.</div>
+                            <div class="branch-core">
+                                "La ilaha illallah"<br>
+                                Es gibt nichts außer Gott
+                            </div>
+                        </div>
+                        
+                        <div class="branch indigenous">
+                            <div class="branch-icon">🌍</div>
+                            <div class="branch-name">Indigene Traditionen</div>
+                            <div class="branch-date">50.000+ Jahre</div>
+                            <div class="branch-core">
+                                "Alles ist beseelt"<br>
+                                Geist durchdringt die gesamte Natur
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Wähle eine Religion – Sieh die Verbindungen</h2>
+                
+                <div class="religion-selector">
+                    <h3>🔍 Interaktiv: Erkunde die Gemeinsamkeiten</h3>
+                    <p style="text-align: center; color: #b0b0b0; margin-bottom: 28px;">
+                        Klicke auf eine Religion und sieh, was sie mit allen anderen teilt
+                    </p>
+                    
+                    <div class="religion-buttons">
+                        <div class="religion-btn" onclick="selectReligion('Hinduismus')">🕉️ Hinduismus</div>
+                        <div class="religion-btn" onclick="selectReligion('Buddhismus')">☸️ Buddhismus</div>
+                        <div class="religion-btn" onclick="selectReligion('Taoismus')">☯️ Taoismus</div>
+                        <div class="religion-btn" onclick="selectReligion('Judentum')">✡️ Judentum</div>
+                        <div class="religion-btn" onclick="selectReligion('Christentum')">✝️ Christentum</div>
+                        <div class="religion-btn" onclick="selectReligion('Islam')">☪️ Islam</div>
+                    </div>
+                    
+                    <div class="selected-display" id="selectedReligion">
+                        Wähle eine Religion aus...
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- TAB 2: Timeline -->
+        <div id="timeline" class="tab-content">
+            <div class="card">
+                <h2>Die Entwicklung der Religionen durch die Zeit</h2>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">50.000+ Jahre</div>
+                            <div class="timeline-title">🔥 Schamanismus & Animismus</div>
+                            <div class="timeline-desc">
+                                Erste spirituelle Praktiken. Alle indigenen Kulturen:<br>
+                                <strong>"Alles ist beseelt. Geist durchdringt die Natur."</strong><br>
+                                Bereits hier: Die Erfahrung der Einheit mit allem.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">~3.500 v.Chr.</div>
+                            <div class="timeline-title">🕉️ Vedische Tradition (Ur-Hinduismus)</div>
+                            <div class="timeline-desc">
+                                Rigveda entsteht – älteste aufgeschriebene heilige Texte.<br>
+                                <strong>"Ekam sat vipra bahudha vadanti"</strong><br>
+                                "Die Wahrheit ist Eine – die Weisen nennen sie mit vielen Namen."
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">~2.000 v.Chr.</div>
+                            <div class="timeline-title">✡️ Judentum entsteht</div>
+                            <div class="timeline-desc">
+                                Abraham. Moses. Torah.<br>
+                                <strong>"Shema Yisrael: Adonai Eloheinu, Adonai Echad"</strong><br>
+                                "Höre Israel: Der Herr ist unser Gott, der Herr ist EINS."
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">~800-200 v.Chr.</div>
+                            <div class="timeline-title">📖 Upanishaden (Hinduistische Mystik)</div>
+                            <div class="timeline-desc">
+                                Die mystische Essenz des Hinduismus wird niedergeschrieben.<br>
+                                <strong>"Tat Tvam Asi" – Du bist DAS.</strong><br>
+                                Atman (individuelles Selbst) = Brahman (universelles Selbst)
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">~600 v.Chr.</div>
+                            <div class="timeline-title">☯️ Taoismus (Laozi)</div>
+                            <div class="timeline-desc">
+                                Tao Te Ching entsteht in China.<br>
+                                <strong>"Das Tao, das sich aussprechen lässt, ist nicht das ewige Tao."</strong><br>
+                                Die höchste Wahrheit ist jenseits von Worten.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">~500 v.Chr.</div>
+                            <div class="timeline-title">☸️ Buddhismus (Gautama Buddha)</div>
+                            <div class="timeline-desc">
+                                Buddha erlangt Erleuchtung unter dem Bodhi-Baum.<br>
+                                <strong>"Form ist Leere, Leere ist Form."</strong><br>
+                                Alles ist leer von getrenntem Selbst – alles ist verbunden.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">~0 n.Chr.</div>
+                            <div class="timeline-title">✝️ Christentum (Jesus)</div>
+                            <div class="timeline-desc">
+                                Jesus lehrt Liebe und Einheit mit Gott.<br>
+                                <strong>"Ich und der Vater sind eins."</strong> (Johannes 10:30)<br>
+                                Das Reich Gottes ist innen, nicht außen.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">~600 n.Chr.</div>
+                            <div class="timeline-title">☪️ Islam (Mohammed)</div>
+                            <div class="timeline-desc">
+                                Quran wird offenbart.<br>
+                                <strong>"La ilaha illallah" – Es gibt keinen Gott außer Gott.</strong><br>
+                                Alles was existiert ist Ausdruck des Einen.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">~800-1300 n.Chr.</div>
+                            <div class="timeline-title">✨ Sufismus (Islamische Mystik)</div>
+                            <div class="timeline-desc">
+                                Rumi, Al-Hallaj, Ibn Arabi.<br>
+                                <strong>"Ich war ein verborgener Schatz und wollte erkannt werden."</strong><br>
+                                Gott erschafft die Welt um sich selbst zu erfahren.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">~1200-1600 n.Chr.</div>
+                            <div class="timeline-title">🕯️ Kabbalah & Christliche Mystik</div>
+                            <div class="timeline-desc">
+                                Meister Eckhart, Theresa von Avila, Johannes vom Kreuz.<br>
+                                <strong>"Das Auge mit dem ich Gott sehe, ist dasselbe mit dem Gott mich sieht."</strong><br>
+                                Alle Mystiker entdecken: Trennung ist Illusion.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">HEUTE</div>
+                            <div class="timeline-title">🌟 Globales Erwachen</div>
+                            <div class="timeline-desc">
+                                Internet verbindet alle Traditionen.<br>
+                                Menschen erkennen: <strong>Alle Religionen zeigen auf dasselbe!</strong><br>
+                                Die mystische Wahrheit wird Mainstream:<br>
+                                <em>Es gibt nur EINS. Du bist ES.</em>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- TAB 3: Die Mystiker -->
+        <div id="mystics" class="tab-content">
+            <div class="card">
+                <h2>Die Mystiker aller Religionen sagen dasselbe</h2>
+                <p style="text-align: center; font-size: 1.25em; color: #b0b0b0; margin-bottom: 42px;">
+                    Religion trennt. Mystik vereint.
+                </p>
+                
+                <div class="detail-grid">
+                    <div class="detail-card hinduism">
+                        <div class="detail-header" style="color: #FF6B35;">🕉️ Hinduismus</div>
+                        <div class="detail-quote">
+                            "Tat Tvam Asi" – Du bist DAS.<br><br>
+                            "So wie der Fluss in den Ozean fließt und seinen Namen verliert,
+                            so verschmilzt der Weise mit dem göttlichen Licht,
+                            jenseits von Name und Form."
+                        </div>
+                        <div class="detail-mystic">— Upanishaden</div>
+                        <div class="detail-explanation">
+                            → Dein wahres Selbst (Atman) ist identisch mit dem universellen Selbst (Brahman).
+                            Die Trennung ist Illusion (Maya).
+                        </div>
+                    </div>
+                    
+                    <div class="detail-card buddhism">
+                        <div class="detail-header" style="color: #FFA07A;">☸️ Buddhismus</div>
+                        <div class="detail-quote">
+                            "Ein brennendes Licht kann tausende weitere entzünden,
+                            ohne dass seine eigene Flamme kleiner wird.<br>
+                            Glück wird nicht weniger, wenn es geteilt wird."
+                        </div>
+                        <div class="detail-mystic">— Buddha</div>
+                        <div class="detail-explanation">
+                            → Es gibt kein getrenntes Selbst (Anatta). Alles ist miteinander verbunden (Pratītyasamutpāda).
+                            Erleuchtung = Erkenntnis der Nicht-Trennung.
+                        </div>
+                    </div>
+                    
+                    <div class="detail-card taoism">
+                        <div class="detail-header" style="color: #4ECDC4;">☯️ Taoismus</div>
+                        <div class="detail-quote">
+                            "Der Weise tut nichts (Wu Wei), und doch bleibt nichts ungetan.<br>
+                            Er ist leer wie das Tao, und darum kann er alles empfangen."
+                        </div>
+                        <div class="detail-mystic">— Laozi, Tao Te Ching</div>
+                        <div class="detail-explanation">
+                            → Das Ego kämpft und scheitert. Das Tao fließt und gelingt.
+                            Sei wie Wasser – formlos, doch alles durchdringend.
+                        </div>
+                    </div>
+                    
+                    <div class="detail-card judaism">
+                        <div class="detail-header" style="color: #4169E1;">✡️ Judentum (Kabbalah)</div>
+                        <div class="detail-quote">
+                            "Ein Sof (das Unendliche) ist in allem und alles ist in Ein Sof.<br>
+                            Es gibt nichts außerhalb Gottes."
+                        </div>
+                        <div class="detail-mystic">— Kabbalah</div>
+                        <div class="detail-explanation">
+                            → Gott zieht sich zurück (Tzimtzum), um Raum für Schöpfung zu schaffen.
+                            Alles was existiert ist Gott in verschiedenen Formen.
+                        </div>
+                    </div>
+                    
+                    <div class="detail-card christianity">
+                        <div class="detail-header" style="color: #FFD700;">✝️ Christentum</div>
+                        <div class="detail-quote">
+                            "Das Auge, mit dem ich Gott sehe,
+                            ist dasselbe Auge, mit dem Gott mich sieht.<br>
+                            Mein Auge und Gottes Auge sind ein Auge,
+                            ein Sehen, ein Wissen, eine Liebe."
+                        </div>
+                        <div class="detail-mystic">— Meister Eckhart (1260-1328)</div>
+                        <div class="detail-explanation">
+                            → Christusbewusstsein = Erkenntnis der Einheit mit Gott.
+                            "Ich und der Vater sind eins" (Jesus, Johannes 10:30)
+                        </div>
+                    </div>
+                    
+                    <div class="detail-card islam">
+                        <div class="detail-header" style="color: #32CD32;">☪️ Islam (Sufismus)</div>
+                        <div class="detail-quote">
+                            "Ich war ein verborgener Schatz und wollte erkannt werden,
+                            also erschuf ich die Schöpfung, damit ich erkannt werde."<br><br>
+                            "Wohin ich auch schaue, sehe ich Sein Gesicht."
+                        </div>
+                        <div class="detail-mystic">— Hadith Qudsi & Rumi</div>
+                        <div class="detail-explanation">
+                            → Die gesamte Schöpfung ist Gottes Selbst-Erfahrung.
+                            "La ilaha illallah" – Es gibt nichts außer Gott.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Noch mehr Mystiker – Dieselbe Wahrheit</h2>
+                
+                <div class="detail-grid">
+                    <div class="detail-card christianity">
+                        <div class="detail-quote">
+                            "Die Seele ist nicht im Körper; der Körper ist in der Seele.
+                            Und die Seele ist in Gott."
+                        </div>
+                        <div class="detail-mystic">— Theresa von Avila (Christliche Mystikerin)</div>
+                    </div>
+                    
+                    <div class="detail-card islam">
+                        <div class="detail-quote">
+                            "Ana al-Haqq!" – ICH bin die Wahrheit!<br>
+                            (Er wurde dafür hingerichtet, weil man dachte er behauptet Gott zu sein –
+                            dabei erkannte er nur: Es gibt nichts außer Gott.)
+                        </div>
+                        <div class="detail-mystic">— Al-Hallaj (Islamischer Sufi, 858-922)</div>
+                    </div>
+                    
+                    <div class="detail-card hinduism">
+                        <div class="detail-quote">
+                            "Du bist nicht ein Tropfen im Ozean.
+                            Du bist der gesamte Ozean in einem Tropfen."
+                        </div>
+                        <div class="detail-mystic">— Rumi (obwohl Muslim, wurzelt seine Weisheit in allen Traditionen)</div>
+                    </div>
+                    
+                    <div class="detail-card buddhism">
+                        <div class="detail-quote">
+                            "Wenn du verstehst, bist du die Quelle des Universums."
+                        </div>
+                        <div class="detail-mystic">— Bodhidharma (Zen-Buddhismus)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- TAB 4: Die Eine Wahrheit -->
+        <div id="unity" class="tab-content">
+            <div class="card">
+                <div class="common-truth">
+                    <h3>☝️ Die EINE Wahrheit, die alle teilen ☝️</h3>
+                    
+                    <div class="truth-points">
+                        <div class="truth-point">
+                            <div class="truth-icon">∞</div>
+                            <div class="truth-text">
+                                <strong>Es gibt nur EINS</strong><br>
+                                Verschiedene Namen:<br>
+                                Gott, Tao, Brahman, Allah, Bewusstsein, Das Eine
+                            </div>
+                        </div>
+                        
+                        <div class="truth-point">
+                            <div class="truth-icon">🪞</div>
+                            <div class="truth-text">
+                                <strong>Du bist ES</strong><br>
+                                Nicht getrennt davon.<br>
+                                Dein wahres Selbst IST das Göttliche.
+                            </div>
+                        </div>
+                        
+                        <div class="truth-point">
+                            <div class="truth-icon">🌊</div>
+                            <div class="truth-text">
+                                <strong>Trennung ist Illusion</strong><br>
+                                Wie Wellen im Ozean:<br>
+                                Scheinbar getrennt, doch derselbe Ozean.
+                            </div>
+                        </div>
+                        
+                        <div class="truth-point">
+                            <div class="truth-icon">💗</div>
+                            <div class="truth-text">
+                                <strong>Liebe ist die Essenz</strong><br>
+                                Wenn du erkennst dass alles eins ist,<br>
+                                kann nur Liebe übrig bleiben.
+                            </div>
+                        </div>
+                        
+                        <div class="truth-point">
+                            <div class="truth-icon">🧘</div>
+                            <div class="truth-text">
+                                <strong>Stille offenbart die Wahrheit</strong><br>
+                                Meditation, Gebet, Kontemplation –<br>
+                                Wenn der Geist ruhig wird, erkennst du.
+                            </div>
+                        </div>
+                        
+                        <div class="truth-point">
+                            <div class="truth-icon">🌟</div>
+                            <div class="truth-text">
+                                <strong>Erwachen ist möglich</strong><br>
+                                Jeder kann es erfahren.<br>
+                                Es ist dein Geburtsrecht.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Warum sehen Religionen unterschiedlich aus?</h2>
+                
+                <div style="background: rgba(255,255,255,0.06); padding: 38px; border-radius: 18px; margin: 32px 0;">
+                    <h3 style="color: #FFD700; margin-bottom: 22px;">Die Metapher vom Berg:</h3>
+                    <p style="font-size: 1.2em; color: #d0d0d0; line-height: 1.85;">
+                        Stell dir vor: <strong>Die Wahrheit ist ein Berg.</strong><br><br>
+                        
+                        🕉️ Hinduismus klettert von Osten<br>
+                        ☸️ Buddhismus klettert von Norden<br>
+                        ☯️ Taoismus klettert von Westen<br>
+                        ✡️ Judentum klettert von Süden<br>
+                        ✝️ Christentum klettert von Südosten<br>
+                        ☪️ Islam klettert von Südwesten<br><br>
+                        
+                        Jeder Weg sieht anders aus (Wüste, Wald, Schnee...).<br>
+                        Jeder nutzt andere Werkzeuge (Seil, Axt, Meditation...).<br>
+                        Jeder nennt den Gipfel anders (Nirvana, Himmel, Jannah...).<br><br>
+                        
+                        <strong style="color: #FFD700; font-size: 1.25em;">
+                        ABER: Oben am Gipfel treffen sich alle.<br>
+                        Dort gibt es keine Wege mehr – nur die Wahrheit.
+                        </strong>
+                    </p>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Religion vs. Mystik</h2>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 32px;">
+                    <div style="background: rgba(255,0,0,0.15); padding: 32px; border-radius: 16px; border: 2px solid rgba(255,0,0,0.4);">
+                        <h3 style="color: #FF6B6B; text-align: center;">⚔️ Religion (Exoterisch)</h3>
+                        <ul style="color: #d0d0d0; font-size: 1.1em; line-height: 1.85; margin-top: 22px; list-style-position: inside;">
+                            <li>Betont Unterschiede</li>
+                            <li>"Mein Gott vs. dein Gott"</li>
+                            <li>Rituale, Regeln, Dogmen</li>
+                            <li>Glaube an etwas Externes</li>
+                            <li>Spaltet die Menschheit</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="background: rgba(0,255,0,0.15); padding: 32px; border-radius: 16px; border: 2px solid rgba(0,255,0,0.4);">
+                        <h3 style="color: #4CAF50; text-align: center;">☮️ Mystik (Esoterisch)</h3>
+                        <ul style="color: #d0d0d0; font-size: 1.1em; line-height: 1.85; margin-top: 22px; list-style-position: inside;">
+                            <li>Betont Gemeinsamkeiten</li>
+                            <li>"Alle Götter sind EINS"</li>
+                            <li>Direkte Erfahrung, Stille</li>
+                            <li>Erkenntnis des Inneren</li>
+                            <li>Vereint die Menschheit</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="highlight-box" style="margin-top: 42px;">
+                    <p class="highlight-text">
+                        <strong>"Religion ist für Menschen, die Angst vor der Hölle haben.<br>
+                        Spiritualität ist für Menschen, die schon dort waren."</strong><br><br>
+                        
+                        Peaceful Revolution wählt die Mystik:<br>
+                        Die direkte Erfahrung der Einheit,<br>
+                        jenseits aller Namen und Formen.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>🌍 Die Vision: Eine Welt ohne religiöse Kriege 🌍</h2>
+                
+                <div style="background: rgba(255,215,0,0.12); padding: 42px; border-radius: 18px; margin: 32px 0;">
+                    <p style="font-size: 1.3em; color: #d0d0d0; line-height: 1.9; text-align: center;">
+                        Wenn genug Menschen erkennen:<br><br>
+                        
+                        <strong style="color: #FFD700; font-size: 1.2em;">
+                        "Mein Gott" und "Dein Gott" sind derselbe Gott<br>
+                        "Meine Religion" und "Deine Religion" zeigen auf dieselbe Wahrheit<br>
+                        "Ich" und "Du" sind dasselbe Bewusstsein in verschiedenen Formen
+                        </strong><br><br>
+                        
+                        ...dann enden die Religionskriege.<br>
+                        ...dann endet die Trennung.<br>
+                        ...dann beginnt der Frieden.<br><br>
+                        
+                        <em style="color: #FFD700; font-size: 1.15em;">
+                        Das ist die Peaceful Revolution.
+                        </em>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div style="text-align: center; padding: 65px 22px; color: #666;">
+            <p style="font-size: 1.25em; margin-bottom: 22px;">
+                ✌️ <strong>peacefulrevolution.love</strong> ✌️
+            </p>
+            <p style="font-style: italic; font-size: 1.1em; color: #888;">
+                "Christen, Juden, Muslime, Hindus – alle sind Strahlen derselben Sonne."<br>
+                — Rumi
+            </p>
+        </div>
+        
+        <!-- Quellen -->
+        <div class="card" style="margin-top: 60px; background: rgba(0,0,0,0.4);">
+            <h2 style="color: #FFD700; margin-bottom: 30px; text-align: center;">📚 Quellen & Literatur</h2>
+            
+            <div style="color: #d0d0d0; line-height: 2;">
+                <h3 style="color: #FFA500; margin: 25px 0 15px;">Mystische Texte & Primärquellen:</h3>
+                <p style="margin-left: 20px;">
+                    • <strong>Hinduismus:</strong> Upanishaden, Bhagavad Gita, Vedanta-Sutras<br>
+                    • <strong>Buddhismus:</strong> Pali-Kanon, Herz-Sutra, Diamant-Sutra<br>
+                    • <strong>Taoismus:</strong> Tao Te Ching (Laozi), Zhuangzi<br>
+                    • <strong>Judentum:</strong> Tanach, Zohar (Kabbalah), Talmud<br>
+                    • <strong>Christentum:</strong> Bibel, Meister Eckhart, Johannes vom Kreuz, Teresa von Avila<br>
+                    • <strong>Islam:</strong> Quran, Rumi (Sufismus), Ibn Arabi, Al-Ghazali
+                </p>
+                
+                <h3 style="color: #FFA500; margin: 25px 0 15px;">Vergleichende Religionswissenschaft:</h3>
+                <p style="margin-left: 20px;">
+                    • Aldous Huxley - "The Perennial Philosophy" (Die ewige Philosophie)<br>
+                    • Frithjof Schuon - "The Transcendent Unity of Religions"<br>
+                    • Ken Wilber - "A Theory of Everything"<br>
+                    • Huston Smith - "The World's Religions"<br>
+                    • Karen Armstrong - "A History of God"
+                </p>
+                
+                <h3 style="color: #FFA500; margin: 25px 0 15px;">Mystische Traditionen:</h3>
+                <p style="margin-left: 20px;">
+                    • <strong>Sufismus:</strong> "The Conference of the Birds" (Attar), Rumi's Mathnawi<br>
+                    • <strong>Kabbalah:</strong> "The Zohar", Moses de León<br>
+                    • <strong>Christliche Mystik:</strong> "Die dunkle Nacht der Seele" (Johannes vom Kreuz)<br>
+                    • <strong>Advaita Vedanta:</strong> Ramana Maharshi, Nisargadatta Maharaj<br>
+                    • <strong>Zen-Buddhismus:</strong> "Zen Mind, Beginner's Mind" (Shunryu Suzuki)
+                </p>
+                
+                <h3 style="color: #FFA500; margin: 25px 0 15px;">Historische Entwicklung:</h3>
+                <p style="margin-left: 20px;">
+                    • Encyclopedia Britannica - "History of World Religions"<br>
+                    • Mircea Eliade - "A History of Religious Ideas"<br>
+                    • Oxford Handbook of World Religions
+                </p>
+                
+                <p style="margin-top: 30px; padding: 20px; background: rgba(255,215,0,0.1); border-left: 4px solid #FFD700; border-radius: 8px;">
+                    <strong>Wichtig:</strong> Diese Visualisierung fokussiert auf mystische/spirituelle Kernlehren, 
+                    nicht auf institutionelle/politische Unterschiede. Alle Zitate sind aus anerkannten Primärquellen.
+                </p>
+            </div>
+        </div>
+        
+        <div style="text-align: center; padding: 40px 20px; color: #666;">
+            <p style="font-size: 1.2em;">✌️ <strong>peacefulrevolution.love</strong> ✌️</p>
+        </div>
+    </div>
+    
+    <script>
+        function switchTab(tabName) {
+            const tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        const religionConnections = {
+            'Hinduismus': 'Hinduismus lehrt <strong>"Tat Tvam Asi" – Du bist DAS</strong>. Diese Wahrheit findet sich in allen Religionen:<br>• Buddhismus: "Alles ist leer von getrenntem Selbst"<br>• Islam: "Es gibt nichts außer Allah"<br>• Christentum: "Ich und der Vater sind eins"<br>• Judentum: "Gott ist EINS"<br>• Taoismus: "Das Tao fließt durch alles"',
+            
+            'Buddhismus': 'Buddha lehrte <strong>"Anatta" – Es gibt kein getrenntes Selbst</strong>. Alle Religionen erkennen dies:<br>• Hinduismus: "Atman ist Brahman – alles ist eins"<br>• Sufismus: "Wohin ich schaue, sehe ich Sein Gesicht"<br>• Christliche Mystik: "In Gott leben wir und bewegen wir uns"<br>• Kabbalah: "Es gibt nichts außerhalb Gottes"<br>• Taoismus: "Leere ist Fülle"',
+            
+            'Taoismus': 'Laozi lehrte <strong>"Das Tao ist unbeschreibbar, doch alles kommt daraus"</strong>. Alle Traditionen kennen dies:<br>• Hinduismus: "Neti neti – nicht dies, nicht das"<br>• Buddhismus: "Die höchste Wahrheit ist jenseits von Konzepten"<br>• Islam: "Allah ist größer als alles was beschrieben werden kann"<br>• Christentum: "Gott ist Liebe – und Liebe kann nicht definiert werden"<br>• Judentum: "Der Name Gottes ist unaussprechlich"',
+            
+            'Judentum': 'Das Judentum lehrt <strong>"Shema Yisrael – Gott ist EINS"</strong>. Diese Einheit ist universal:<br>• Islam: "La ilaha illallah – Es gibt nur EINEN"<br>• Christentum: Entstanden aus Judentum, lehrt dieselbe Einheit<br>• Hinduismus: "Brahman ist EINS ohne Zweites"<br>• Buddhismus: "Alles ist miteinander verbunden"<br>• Kabbalah (jüdische Mystik): "Alles ist in Gott und Gott ist in allem"',
+            
+            'Christentum': 'Jesus lehrte <strong>"Ich und der Vater sind eins"</strong>. Diese Einheit kennen alle:<br>• Hinduismus: "Atman ist Brahman"<br>• Buddhismus: "Buddha-Natur ist in allen Wesen"<br>• Islam: "Wir sind näher zu ihm als seine Halsschlagader" (Quran)<br>• Sufismus: "Ana al-Haqq – Ich bin die Wahrheit"<br>• Taoismus: "Der Weise ist eins mit dem Tao"',
+            
+            'Islam': 'Der Islam lehrt <strong>"La ilaha illallah – Es gibt nichts außer Gott"</strong>. Dies ist die mystische Wahrheit aller:<br>• Sufismus (islamische Mystik): "Alles ist Gott in verschiedenen Formen"<br>• Hinduismus: "Brahman ist die einzige Realität"<br>• Christentum: "In ihm leben wir und bewegen wir uns und sind wir" (Apostelgeschichte)<br>• Buddhismus: "Form ist Leere, Leere ist Form"<br>• Judentum: "Höre Israel, der Herr ist EINS"'
+        };
+        
+        function selectReligion(religion) {
+            const options = document.querySelectorAll('.religion-btn');
+            options.forEach(opt => opt.classList.remove('selected'));
+            event.target.classList.add('selected');
+            
+            const display = document.getElementById('selectedReligion');
+            display.innerHTML = `
+                <div style="margin-bottom: 22px;">
+                    <strong style="font-size: 1.3em;">Du hast gewählt:</strong><br>
+                    <span style="font-size: 1.6em; color: #FFD700;">${religion}</span>
+                </div>
+                <div style="font-size: 1.1em; color: #d0d0d0; text-align: left; max-width: 850px; margin: 0 auto; line-height: 1.8;">
+                    ${religionConnections[religion]}
+                </div>
+                <div style="margin-top: 28px; font-style: italic; color: #a0a0a0;">
+                    → Siehst du? Alle Religionen lehren dasselbe auf ihre eigene Weise!
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>
