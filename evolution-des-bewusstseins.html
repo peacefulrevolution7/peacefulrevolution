@@ -4,108 +4,361 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Die Evolution des Bewusstseins - Peaceful Revolution</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    <title>Evolution des Bewusstseins - Peaceful Revolution</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles/main.css">
+</head>
+<body>
+    <div id="header"></div>
 
 ```
-    body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background: linear-gradient(135deg, #000000, #1a0033, #330066, #1a0033, #000000);
-        background-size: 400% 400%;
-        animation: gradientShift 15s ease infinite;
-        color: #fff;
-        line-height: 1.6;
-        overflow-x: hidden;
+<main class="container" style="padding-top: 60px;">
+    <div style="text-align: center; margin-bottom: 60px;">
+        <h1 style="font-size: 3.5em; margin-bottom: 20px; color: var(--primary-black);">
+            🌌 Evolution des Bewusstseins
+        </h1>
+        <p style="font-size: 1.3em; color: var(--text-secondary); max-width: 800px; margin: 0 auto;">
+            Vom Urknall bis heute – die Reise des Bewusstseins vom Unbewussten zur Einheit
+        </p>
+    </div>
+
+    <div style="display: flex; justify-content: center; gap: 15px; margin-bottom: 50px; flex-wrap: wrap;">
+        <button class="tab-btn active" onclick="switchTab('timeline')">Kosmische Timeline</button>
+        <button class="tab-btn" onclick="switchTab('stages')">3 Stufen</button>
+        <button class="tab-btn" onclick="switchTab('mystics')">Mystiker</button>
+        <button class="tab-btn" onclick="switchTab('signs')">Zeichen</button>
+        <button class="tab-btn" onclick="switchTab('sources')">Quellen</button>
+    </div>
+
+    <div id="timeline" class="tab-content active">
+        <div class="card">
+            <h2 style="color: var(--primary-green); margin-bottom: 30px;">Die kosmische Timeline</h2>
+            
+            <div style="margin: 40px 0;">
+                <div style="padding: 25px; background: var(--bg-green-light); border-left: 5px solid var(--primary-green); border-radius: 10px; margin-bottom: 20px;">
+                    <h3 style="color: var(--primary-green); margin-bottom: 10px;">⚛️ Vor 13,8 Milliarden Jahren: Der Urknall</h3>
+                    <p style="color: var(--text-primary); line-height: 1.8;">
+                        Das Universum entsteht. Energie wird zu Materie. Atome entstehen. Noch kein Bewusstsein – nur das Potential dazu.
+                    </p>
+                </div>
+
+                <div style="padding: 25px; background: var(--bg-green-light); border-left: 5px solid var(--primary-green); border-radius: 10px; margin-bottom: 20px;">
+                    <h3 style="color: var(--primary-green); margin-bottom: 10px;">🌍 Vor 4,5 Milliarden Jahren: Die Erde</h3>
+                    <p style="color: var(--text-primary); line-height: 1.8;">
+                        Unser Planet formt sich. Noch immer keine Lebewesen – aber die Bühne für Bewusstsein ist gebaut.
+                    </p>
+                </div>
+
+                <div style="padding: 25px; background: var(--bg-green-light); border-left: 5px solid var(--primary-green); border-radius: 10px; margin-bottom: 20px;">
+                    <h3 style="color: var(--primary-green); margin-bottom: 10px;">🦠 Vor 3,8 Milliarden Jahren: Leben!</h3>
+                    <p style="color: var(--text-primary); line-height: 1.8;">
+                        Erste einzellige Organismen. Das Universum beginnt, sich selbst zu erfahren – durch Leben.
+                    </p>
+                </div>
+
+                <div style="padding: 25px; background: var(--bg-green-light); border-left: 5px solid var(--primary-green); border-radius: 10px; margin-bottom: 20px;">
+                    <h3 style="color: var(--primary-green); margin-bottom: 10px;">🐟 Vor 500 Millionen Jahren: Nervensysteme</h3>
+                    <p style="color: var(--text-primary); line-height: 1.8;">
+                        Tiere mit Gehirnen entstehen. Bewusstsein wird komplexer – Schmerz, Freude, Instinkte.
+                    </p>
+                </div>
+
+                <div style="padding: 25px; background: var(--bg-green-light); border-left: 5px solid var(--primary-green); border-radius: 10px; margin-bottom: 20px;">
+                    <h3 style="color: var(--primary-green); margin-bottom: 10px;">🦍 Vor 6 Millionen Jahren: Primaten</h3>
+                    <p style="color: var(--text-primary); line-height: 1.8;">
+                        Unsere Vorfahren trennen sich vom Stammbaum der Affen. Größere Gehirne, soziales Bewusstsein.
+                    </p>
+                </div>
+
+                <div style="padding: 25px; background: var(--bg-green-light); border-left: 5px solid var(--primary-green); border-radius: 10px; margin-bottom: 20px;">
+                    <h3 style="color: var(--primary-green); margin-bottom: 10px;">🧠 Vor 300.000 Jahren: Homo Sapiens</h3>
+                    <p style="color: var(--text-primary); line-height: 1.8;">
+                        Wir entstehen. Selbstreflexion beginnt. "Wer bin ich?" wird zum ersten Mal gefragt.
+                    </p>
+                </div>
+
+                <div style="padding: 25px; background: var(--bg-green-light); border-left: 5px solid var(--primary-green); border-radius: 10px; margin-bottom: 20px;">
+                    <h3 style="color: var(--primary-green); margin-bottom: 10px;">🗣️ Vor 70.000 Jahren: Sprache</h3>
+                    <p style="color: var(--text-primary); line-height: 1.8;">
+                        Die kognitive Revolution. Sprache ermöglicht komplexe Gedanken, Geschichten, Mythen.
+                    </p>
+                </div>
+
+                <div style="padding: 25px; background: var(--bg-green-light); border-left: 5px solid var(--primary-green); border-radius: 10px; margin-bottom: 20px;">
+                    <h3 style="color: var(--primary-green); margin-bottom: 10px;">🙏 Vor 5.000 Jahren: Religion & Philosophie</h3>
+                    <p style="color: var(--text-primary); line-height: 1.8;">
+                        Menschen beginnen nach dem "Warum" zu fragen. Upanishaden, Buddha, Sokrates – das Bewusstsein erforscht sich selbst.
+                    </p>
+                </div>
+
+                <div style="padding: 25px; background: var(--bg-green-light); border-left: 5px solid var(--primary-gold); border-radius: 10px;">
+                    <h3 style="color: var(--primary-gold); margin-bottom: 10px;">✨ JETZT: Das große Erwachen</h3>
+                    <p style="color: var(--text-primary); line-height: 1.8; font-weight: 600;">
+                        Das Universum erkennt durch uns: Wir sind nicht getrennt. Wir sind EINS. Das ist die nächste Evolutionsstufe.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="stages" class="tab-content">
+        <div class="card">
+            <h2 style="color: var(--primary-green); margin-bottom: 30px;">Die 3 Stufen des Bewusstseins</h2>
+            
+            <div style="margin: 40px 0;">
+                <div style="padding: 30px; background: rgba(220, 53, 69, 0.1); border-left: 5px solid #dc3545; border-radius: 10px; margin-bottom: 30px;">
+                    <h3 style="color: #dc3545; margin-bottom: 15px;">Stufe 1: Ego-Bewusstsein (Die meisten sind hier)</h3>
+                    <p style="color: var(--text-primary); line-height: 1.8; margin-bottom: 15px;">
+                        <strong>Identität:</strong> "Ich bin mein Körper, mein Name, meine Geschichte."
+                    </p>
+                    <p style="color: var(--text-primary); line-height: 1.8; margin-bottom: 15px;">
+                        <strong>Weltbild:</strong> Ich vs. die Anderen. Wir vs. Sie. Mein Land vs. ihr Land.
+                    </p>
+                    <p style="color: var(--text-primary); line-height: 1.8; margin-bottom: 15px;">
+                        <strong>Gefühl:</strong> Getrenntheit, Angst, Konkurrenz, Mangel.
+                    </p>
+                    <p style="color: var(--text-primary); line-height: 1.8;">
+                        <strong>Beispiel:</strong> "Wenn ich gewinne, verlierst du. Dein Schmerz ist nicht mein Problem."
+                    </p>
+                </div>
+
+                <div style="padding: 30px; background: rgba(255, 193, 7, 0.1); border-left: 5px solid var(--primary-gold); border-radius: 10px; margin-bottom: 30px;">
+                    <h3 style="color: var(--primary-gold); margin-bottom: 15px;">Stufe 2: Erweiterndes Bewusstsein (8% sind hier)</h3>
+                    <p style="color: var(--text-primary); line-height: 1.8; margin-bottom: 15px;">
+                        <strong>Identität:</strong> "Ich bin mehr als mein Körper. Ich bin Bewusstsein."
+                    </p>
+                    <p style="color: var(--text-primary); line-height: 1.8; margin-bottom: 15px;">
+                        <strong>Weltbild:</strong> Empathie über Grenzen hinweg. Mitgefühl für Fremde.
+                    </p>
+                    <p style="color: var(--text-primary); line-height: 1.8; margin-bottom: 15px;">
+                        <strong>Gefühl:</strong> Verbundenheit, Mitgefühl, aber noch Trennung spürbar.
+                    </p>
+                    <p style="color: var(--text-primary); line-height: 1.8;">
+                        <strong>Beispiel:</strong> "Dein Leid berührt mich. Ich will helfen. Aber ich bin nicht du."
+                    </p>
+                </div>
+
+                <div style="padding: 30px; background: var(--bg-green-light); border-left: 5px solid var(--primary-green); border-radius: 10px;">
+                    <h3 style="color: var(--primary-green); margin-bottom: 15px;">Stufe 3: Einheits-Bewusstsein (Die Erleuchteten)</h3>
+                    <p style="color: var(--text-primary); line-height: 1.8; margin-bottom: 15px;">
+                        <strong>Identität:</strong> "Ich bin DU. Du bist ICH. Wir sind EINS."
+                    </p>
+                    <p style="color: var(--text-primary); line-height: 1.8; margin-bottom: 15px;">
+                        <strong>Weltbild:</strong> Keine Trennung. Dein Schmerz IST mein Schmerz.
+                    </p>
+                    <p style="color: var(--text-primary); line-height: 1.8; margin-bottom: 15px;">
+                        <strong>Gefühl:</strong> Unendliche Liebe, Frieden, Freiheit.
+                    </p>
+                    <p style="color: var(--text-primary); line-height: 1.8; font-weight: 600;">
+                        <strong>Beispiel:</strong> "Wenn du hungerst, hungere ich. Wenn du leidest, leide ich. Denn wir sind nicht zwei – wir sind EINS."
+                    </p>
+                </div>
+            </div>
+
+            <div style="padding: 30px; background: var(--bg-green-light); border-left: 5px solid var(--primary-green); border-radius: 10px; margin-top: 40px;">
+                <p style="color: var(--text-primary); line-height: 1.8; font-size: 1.2em; text-align: center;">
+                    <strong>Die Evolution des Bewusstseins ist:</strong><br><br>
+                    Stufe 1 → Stufe 2 → Stufe 3<br>
+                    Ego → Mitgefühl → Einheit<br>
+                    Ich → Wir → EINS
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div id="mystics" class="tab-content">
+        <div class="card">
+            <h2 style="color: var(--primary-green); margin-bottom: 30px;">Die Mystiker wussten es schon immer</h2>
+            
+            <div style="margin: 40px 0;">
+                <div style="padding: 25px; background: var(--bg-light); border-radius: 10px; margin-bottom: 20px;">
+                    <p style="font-size: 1.2em; font-style: italic; color: var(--text-primary); line-height: 1.8;">
+                        "Tat Tvam Asi" – Du bist DAS.<br>
+                        <span style="color: var(--text-secondary); font-size: 0.9em;">— Upanishaden (Hinduismus, ~800 v. Chr.)</span>
+                    </p>
+                </div>
+
+                <div style="padding: 25px; background: var(--bg-light); border-radius: 10px; margin-bottom: 20px;">
+                    <p style="font-size: 1.2em; font-style: italic; color: var(--text-primary); line-height: 1.8;">
+                        "Ich und der Vater sind eins."<br>
+                        <span style="color: var(--text-secondary); font-size: 0.9em;">— Jesus Christus (Christentum)</span>
+                    </p>
+                </div>
+
+                <div style="padding: 25px; background: var(--bg-light); border-radius: 10px; margin-bottom: 20px;">
+                    <p style="font-size: 1.2em; font-style: italic; color: var(--text-primary); line-height: 1.8;">
+                        "Du bist nicht ein Tropfen im Ozean. Du bist der gesamte Ozean in einem Tropfen."<br>
+                        <span style="color: var(--text-secondary); font-size: 0.9em;">— Rumi (Islam/Sufismus)</span>
+                    </p>
+                </div>
+
+                <div style="padding: 25px; background: var(--bg-light); border-radius: 10px; margin-bottom: 20px;">
+                    <p style="font-size: 1.2em; font-style: italic; color: var(--text-primary); line-height: 1.8;">
+                        "Form ist Leere, Leere ist Form."<br>
+                        <span style="color: var(--text-secondary); font-size: 0.9em;">— Herz-Sutra (Buddhismus)</span>
+                    </p>
+                </div>
+
+                <div style="padding: 25px; background: var(--bg-light); border-radius: 10px;">
+                    <p style="font-size: 1.2em; font-style: italic; color: var(--text-primary); line-height: 1.8;">
+                        "Atman ist Brahman" – Das individuelle Selbst ist das universelle Selbst.<br>
+                        <span style="color: var(--text-secondary); font-size: 0.9em;">— Vedanta (Hinduismus)</span>
+                    </p>
+                </div>
+            </div>
+
+            <div style="padding: 30px; background: var(--bg-green-light); border-left: 5px solid var(--primary-green); border-radius: 10px; margin-top: 40px;">
+                <p style="color: var(--text-primary); line-height: 1.8; font-size: 1.2em; text-align: center; font-weight: 600;">
+                    Alle Mystiker, alle Religionen, alle Zeiten:<br>
+                    Sie erkennen dieselbe Wahrheit – WIR SIND EINS.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div id="signs" class="tab-content">
+        <div class="card">
+            <h2 style="color: var(--primary-green); margin-bottom: 30px;">Zeichen des Erwachens</h2>
+            <p style="color: var(--text-secondary); margin-bottom: 30px; font-size: 1.1em;">
+                Bist du auf dem Weg? Diese Zeichen deuten darauf hin:
+            </p>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin: 40px 0;">
+                <div class="card" style="background: var(--bg-light);">
+                    <h3 style="color: var(--primary-green); margin-bottom: 15px;">✨ Du fühlst Verbundenheit</h3>
+                    <p style="color: var(--text-primary); line-height: 1.7;">
+                        Wenn du Nachrichten von Leid siehst, berührt es dich tief. Du kannst nicht mehr wegsehen.
+                    </p>
+                </div>
+
+                <div class="card" style="background: var(--bg-light);">
+                    <h3 style="color: var(--primary-green); margin-bottom: 15px;">🤔 Du hinterfragst</h3>
+                    <p style="color: var(--text-primary); line-height: 1.7;">
+                        "Warum ist die Welt so?" wird zur brennenden Frage. Oberflächliche Antworten reichen nicht mehr.
+                    </p>
+                </div>
+
+                <div class="card" style="background: var(--bg-light);">
+                    <h3 style="color: var(--primary-green); margin-bottom: 15px;">💔 Du leidest mit</h3>
+                    <p style="color: var(--text-primary); line-height: 1.7;">
+                        Fremdes Leid fühlt sich an wie eigenes. Die Trennung zwischen "mir" und "anderen" verschwimmt.
+                    </p>
+                </div>
+
+                <div class="card" style="background: var(--bg-light);">
+                    <h3 style="color: var(--primary-green); margin-bottom: 15px;">🌍 Du denkst global</h3>
+                    <p style="color: var(--text-primary); line-height: 1.7;">
+                        Nationalismus, Rassismus, "Wir vs. Sie" fühlt sich falsch an. Du siehst nur Menschen.
+                    </p>
+                </div>
+
+                <div class="card" style="background: var(--bg-light);">
+                    <h3 style="color: var(--primary-green); margin-bottom: 15px;">🧘 Du suchst Stille</h3>
+                    <p style="color: var(--text-primary); line-height: 1.7;">
+                        Meditation, Natur, Einsamkeit ziehen dich an. Du spürst: Da ist mehr als das Ego.
+                    </p>
+                </div>
+
+                <div class="card" style="background: var(--bg-light);">
+                    <h3 style="color: var(--primary-green); margin-bottom: 15px;">💡 Du hast Momente</h3>
+                    <p style="color: var(--text-primary); line-height: 1.7;">
+                        Kurze Augenblicke wo alles Sinn macht. Wo du WEISST: Wir sind verbunden.
+                    </p>
+                </div>
+            </div>
+
+            <div style="padding: 30px; background: var(--bg-green-light); border-left: 5px solid var(--primary-green); border-radius: 10px; margin-top: 40px;">
+                <p style="color: var(--text-primary); line-height: 1.8; font-size: 1.2em; text-align: center; font-weight: 600;">
+                    Wenn du 3 oder mehr dieser Zeichen erkennst:<br>
+                    Du bist auf Stufe 2 – im Prozess des Erwachens. 🌟
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div id="sources" class="tab-content">
+        <div class="card" style="background: rgba(0,0,0,0.02);">
+            <h2 style="color: var(--primary-green); margin-bottom: 30px;">📚 Quellen & Wissenschaftliche Grundlagen</h2>
+            
+            <div style="color: var(--text-primary); line-height: 2;">
+                <h3 style="color: var(--primary-green); margin: 25px 0 15px;">Bewusstseinsforschung:</h3>
+                <p style="margin-left: 20px;">
+                    • David Chalmers - "The Conscious Mind: In Search of a Fundamental Theory"<br>
+                    • Thomas Nagel - "What Is It Like to Be a Bat?"<br>
+                    • Daniel Dennett - "Consciousness Explained"<br>
+                    • Giulio Tononi - "Integrated Information Theory of Consciousness"
+                </p>
+                
+                <h3 style="color: var(--primary-green); margin: 25px 0 15px;">Evolution & Anthropologie:</h3>
+                <p style="margin-left: 20px;">
+                    • Yuval Noah Harari - "Sapiens: A Brief History of Humankind"<br>
+                    • Julian Jaynes - "The Origin of Consciousness in the Breakdown of the Bicameral Mind"<br>
+                    • Merlin Donald - "Origins of the Modern Mind"<br>
+                    • Robin Dunbar - "The Social Brain Hypothesis"
+                </p>
+                
+                <h3 style="color: var(--primary-green); margin: 25px 0 15px;">Mystik & Philosophie:</h3>
+                <p style="margin-left: 20px;">
+                    • Aldous Huxley - "The Perennial Philosophy"<br>
+                    • Ken Wilber - "A Theory of Everything", "Integral Spirituality"<br>
+                    • Eckhart Tolle - "The Power of Now"<br>
+                    • Alan Watts - "The Book: On the Taboo Against Knowing Who You Are"
+                </p>
+                
+                <h3 style="color: var(--primary-green); margin: 25px 0 15px;">Neurowissenschaft & Meditation:</h3>
+                <p style="margin-left: 20px;">
+                    • Richard Davidson - "The Emotional Life of Your Brain"<br>
+                    • Sam Harris - "Waking Up: A Guide to Spirituality Without Religion"<br>
+                    • Andrew Newberg - "How God Changes Your Brain"
+                </p>
+                
+                <h3 style="color: var(--primary-green); margin: 25px 0 15px;">Quantenphysik & Bewusstsein:</h3>
+                <p style="margin-left: 20px;">
+                    • Roger Penrose - "The Emperor's New Mind"<br>
+                    • Amit Goswami - "The Self-Aware Universe"<br>
+                    • Dean Radin - "The Conscious Universe"
+                </p>
+            </div>
+        </div>
+    </div>
+</main>
+
+<div id="footer"></div>
+
+<script src="assets/scripts/load-components.js"></script>
+<script>
+    function switchTab(tabName) {
+        document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.getElementById(tabName).classList.add('active');
+        event.target.classList.add('active');
+        window.scrollTo({ top: 300, behavior: 'smooth' });
     }
-    
-    @keyframes gradientShift {
-        0%, 100% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
-    }
-    
-    .container {
-        max-width: 1400px;
-        margin: 0 auto;
-        padding: 20px;
-    }
-    
-    header {
-        text-align: center;
-        padding: 80px 20px;
-        background: rgba(0,0,0,0.5);
-        margin-bottom: 60px;
-        border-radius: 20px;
-        backdrop-filter: blur(10px);
-    }
-    
-    h1 {
-        font-size: 3.5em;
-        margin-bottom: 20px;
-        background: linear-gradient(45deg, #FFD700, #FFA500, #FF69B4, #DA70D6);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        animation: shimmer 3s ease-in-out infinite;
-    }
-    
-    @keyframes shimmer {
-        0%, 100% { filter: brightness(1); }
-        50% { filter: brightness(1.3); }
-    }
-    
-    .subtitle {
-        font-size: 1.5em;
-        color: #b0b0b0;
-        margin-bottom: 30px;
-        font-style: italic;
-    }
-    
-    .quote-intro {
-        max-width: 800px;
-        margin: 30px auto;
-        padding: 30px;
-        background: rgba(255,215,0,0.1);
-        border-left: 4px solid #FFD700;
-        border-radius: 10px;
-        font-size: 1.2em;
-        line-height: 1.8;
-    }
-    
-    .nav-tabs {
-        display: flex;
-        justify-content: center;
-        gap: 15px;
-        margin-bottom: 50px;
-        flex-wrap: wrap;
-    }
-    
+</script>
+
+<style>
     .tab-btn {
-        padding: 15px 30px;
-        background: rgba(255,255,255,0.1);
-        border: 2px solid rgba(255,255,255,0.2);
-        color: white;
+        padding: 12px 24px;
+        background: white;
+        border: 2px solid var(--primary-green);
+        color: var(--primary-green);
         cursor: pointer;
-        border-radius: 30px;
+        border-radius: 25px;
         font-size: 1em;
+        font-weight: 500;
         transition: all 0.3s;
-        backdrop-filter: blur(5px);
     }
     
     .tab-btn:hover {
-        background: rgba(255,255,255,0.2);
-        transform: translateY(-3px);
-        box-shadow: 0 5px 20px rgba(255,215,0,0.3);
+        background: var(--primary-green);
+        color: white;
     }
     
     .tab-btn.active {
-        background: linear-gradient(45deg, #FFD700, #FFA500);
-        border-color: transparent;
-        box-shadow: 0 5px 25px rgba(255,215,0,0.5);
+        background: var(--primary-green);
+        color: white;
     }
     
     .tab-content {
@@ -114,1361 +367,14 @@
     
     .tab-content.active {
         display: block;
-        animation: fadeIn 0.6s;
+        animation: fadeIn 0.5s;
     }
     
     @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(30px); }
+        from { opacity: 0; transform: translateY(20px); }
         to { opacity: 1; transform: translateY(0); }
     }
-    
-    .card {
-        background: rgba(255,255,255,0.05);
-        border-radius: 20px;
-        padding: 40px;
-        margin-bottom: 40px;
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255,255,255,0.1);
-        box-shadow: 0 8px 32px rgba(0,0,0,0.3);
-    }
-    
-    .card h2 {
-        color: #FFD700;
-        margin-bottom: 25px;
-        font-size: 2.3em;
-        text-align: center;
-    }
-    
-    .card h3 {
-        color: #FFA500;
-        margin-top: 30px;
-        margin-bottom: 15px;
-        font-size: 1.8em;
-    }
-    
-    /* Timeline Styles */
-    .timeline {
-        position: relative;
-        padding: 40px 0;
-    }
-    
-    .timeline::before {
-        content: '';
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 4px;
-        height: 100%;
-        background: linear-gradient(180deg, #FFD700, #FFA500, #FF69B4, #DA70D6);
-    }
-    
-    .timeline-item {
-        position: relative;
-        margin: 50px 0;
-        padding: 0 50px;
-    }
-    
-    .timeline-item:nth-child(odd) {
-        text-align: right;
-        padding-right: 55%;
-    }
-    
-    .timeline-item:nth-child(even) {
-        text-align: left;
-        padding-left: 55%;
-    }
-    
-    .timeline-dot {
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 30px;
-        height: 30px;
-        border-radius: 50%;
-        background: linear-gradient(45deg, #FFD700, #FFA500);
-        border: 4px solid #000;
-        box-shadow: 0 0 20px rgba(255,215,0,0.6);
-        z-index: 10;
-    }
-    
-    .timeline-content {
-        background: rgba(255,255,255,0.08);
-        padding: 25px;
-        border-radius: 15px;
-        border: 1px solid rgba(255,215,0,0.3);
-        transition: all 0.3s;
-    }
-    
-    .timeline-content:hover {
-        background: rgba(255,255,255,0.12);
-        transform: scale(1.02);
-        box-shadow: 0 5px 25px rgba(255,215,0,0.3);
-    }
-    
-    .timeline-date {
-        font-size: 1.3em;
-        color: #FFD700;
-        font-weight: bold;
-        margin-bottom: 10px;
-    }
-    
-    .timeline-title {
-        font-size: 1.5em;
-        color: #FFA500;
-        margin-bottom: 10px;
-    }
-    
-    .timeline-desc {
-        color: #d0d0d0;
-        font-size: 1.05em;
-        line-height: 1.6;
-    }
-    
-    /* Three Stages */
-    .three-stages {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 30px;
-        margin: 40px 0;
-    }
-    
-    .stage {
-        background: rgba(255,255,255,0.05);
-        padding: 35px;
-        border-radius: 20px;
-        text-align: center;
-        border: 2px solid transparent;
-        transition: all 0.4s;
-        position: relative;
-        overflow: hidden;
-    }
-    
-    .stage::before {
-        content: '';
-        position: absolute;
-        top: -50%;
-        left: -50%;
-        width: 200%;
-        height: 200%;
-        background: radial-gradient(circle, rgba(255,215,0,0.1) 0%, transparent 70%);
-        opacity: 0;
-        transition: opacity 0.4s;
-    }
-    
-    .stage:hover::before {
-        opacity: 1;
-    }
-    
-    .stage.stage-1 {
-        border-color: #4CAF50;
-    }
-    
-    .stage.stage-2 {
-        border-color: #FF6B6B;
-    }
-    
-    .stage.stage-3 {
-        border-color: #FFD700;
-    }
-    
-    .stage:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 15px 40px rgba(255,215,0,0.3);
-    }
-    
-    .stage-icon {
-        font-size: 4em;
-        margin-bottom: 20px;
-    }
-    
-    .stage-title {
-        font-size: 1.8em;
-        margin-bottom: 15px;
-        font-weight: bold;
-    }
-    
-    .stage-1 .stage-title { color: #4CAF50; }
-    .stage-2 .stage-title { color: #FF6B6B; }
-    .stage-3 .stage-title { color: #FFD700; }
-    
-    .stage-desc {
-        color: #b0b0b0;
-        font-size: 1.05em;
-        line-height: 1.7;
-    }
-    
-    /* Mystical Traditions */
-    .tradition-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 25px;
-        margin: 30px 0;
-    }
-    
-    .tradition {
-        background: rgba(255,255,255,0.06);
-        padding: 30px;
-        border-radius: 15px;
-        border-left: 5px solid;
-        transition: all 0.3s;
-    }
-    
-    .tradition:hover {
-        background: rgba(255,255,255,0.1);
-        transform: translateX(5px);
-    }
-    
-    .tradition-name {
-        font-size: 1.4em;
-        font-weight: bold;
-        margin-bottom: 15px;
-    }
-    
-    .tradition-quote {
-        font-style: italic;
-        color: #d0d0d0;
-        margin-bottom: 15px;
-        line-height: 1.7;
-        border-left: 3px solid rgba(255,215,0,0.5);
-        padding-left: 15px;
-    }
-    
-    .tradition-explanation {
-        color: #a0a0a0;
-        font-size: 0.95em;
-    }
-    
-    .tradition:nth-child(1) { border-left-color: #FF6B35; }
-    .tradition:nth-child(1) .tradition-name { color: #FF6B35; }
-    
-    .tradition:nth-child(2) { border-left-color: #4ECDC4; }
-    .tradition:nth-child(2) .tradition-name { color: #4ECDC4; }
-    
-    .tradition:nth-child(3) { border-left-color: #FFD700; }
-    .tradition:nth-child(3) .tradition-name { color: #FFD700; }
-    
-    .tradition:nth-child(4) { border-left-color: #95E1D3; }
-    .tradition:nth-child(4) .tradition-name { color: #95E1D3; }
-    
-    .tradition:nth-child(5) { border-left-color: #F38181; }
-    .tradition:nth-child(5) .tradition-name { color: #F38181; }
-    
-    .tradition:nth-child(6) { border-left-color: #AA96DA; }
-    .tradition:nth-child(6) .tradition-name { color: #AA96DA; }
-    
-    /* Awakening Signs */
-    .sign-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 20px;
-        margin: 30px 0;
-    }
-    
-    .sign-card {
-        background: rgba(255,215,0,0.1);
-        padding: 25px;
-        border-radius: 12px;
-        border: 1px solid rgba(255,215,0,0.3);
-        text-align: center;
-        transition: all 0.3s;
-    }
-    
-    .sign-card:hover {
-        background: rgba(255,215,0,0.15);
-        transform: scale(1.05);
-    }
-    
-    .sign-icon {
-        font-size: 3em;
-        margin-bottom: 15px;
-    }
-    
-    .sign-title {
-        font-size: 1.2em;
-        color: #FFD700;
-        margin-bottom: 10px;
-        font-weight: bold;
-    }
-    
-    .sign-desc {
-        color: #c0c0c0;
-        font-size: 0.95em;
-    }
-    
-    /* The Cycle */
-    .cycle-container {
-        position: relative;
-        max-width: 800px;
-        margin: 50px auto;
-        padding: 40px;
-    }
-    
-    .cycle-circle {
-        width: 100%;
-        aspect-ratio: 1;
-        border-radius: 50%;
-        border: 4px solid rgba(255,215,0,0.3);
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: radial-gradient(circle, rgba(255,215,0,0.05) 0%, transparent 70%);
-    }
-    
-    .cycle-center {
-        text-align: center;
-        z-index: 10;
-    }
-    
-    .cycle-center-text {
-        font-size: 2em;
-        color: #FFD700;
-        font-weight: bold;
-    }
-    
-    .cycle-point {
-        position: absolute;
-        width: 150px;
-        text-align: center;
-        padding: 15px;
-        background: rgba(0,0,0,0.7);
-        border-radius: 10px;
-        border: 2px solid #FFD700;
-    }
-    
-    .cycle-point-title {
-        color: #FFD700;
-        font-weight: bold;
-        margin-bottom: 5px;
-    }
-    
-    .cycle-point-1 { top: -10px; left: 50%; transform: translateX(-50%); }
-    .cycle-point-2 { top: 50%; right: -80px; transform: translateY(-50%); }
-    .cycle-point-3 { bottom: -10px; left: 50%; transform: translateX(-50%); }
-    .cycle-point-4 { top: 50%; left: -80px; transform: translateY(-50%); }
-    
-    /* Interactive Name Selector */
-    .name-selector {
-        background: rgba(255,215,0,0.1);
-        padding: 40px;
-        border-radius: 20px;
-        margin: 40px 0;
-        border: 2px solid rgba(255,215,0,0.3);
-    }
-    
-    .name-selector h3 {
-        text-align: center;
-        color: #FFD700;
-        margin-bottom: 30px;
-        font-size: 2em;
-    }
-    
-    .name-options {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 15px;
-        justify-content: center;
-        margin-bottom: 30px;
-    }
-    
-    .name-option {
-        padding: 15px 30px;
-        background: rgba(255,255,255,0.1);
-        border: 2px solid rgba(255,215,0,0.5);
-        border-radius: 25px;
-        cursor: pointer;
-        transition: all 0.3s;
-        font-size: 1.1em;
-    }
-    
-    .name-option:hover {
-        background: rgba(255,215,0,0.2);
-        transform: scale(1.05);
-    }
-    
-    .name-option.selected {
-        background: linear-gradient(45deg, #FFD700, #FFA500);
-        border-color: transparent;
-        color: #000;
-        font-weight: bold;
-    }
-    
-    .selected-name-display {
-        text-align: center;
-        font-size: 1.8em;
-        color: #FFD700;
-        margin-top: 20px;
-        min-height: 60px;
-    }
-    
-    /* Highlight Box */
-    .highlight-box {
-        background: rgba(255,215,0,0.15);
-        border: 2px solid #FFD700;
-        border-radius: 15px;
-        padding: 30px;
-        margin: 30px 0;
-        text-align: center;
-    }
-    
-    .highlight-number {
-        font-size: 4em;
-        color: #FFD700;
-        font-weight: bold;
-        text-shadow: 0 0 20px rgba(255,215,0,0.5);
-    }
-    
-    .highlight-text {
-        font-size: 1.3em;
-        color: #fff;
-        margin-top: 15px;
-        line-height: 1.7;
-    }
-    
-    /* Peaceful Revolution */
-    .pr-section {
-        background: linear-gradient(135deg, rgba(255,215,0,0.1), rgba(255,105,180,0.1));
-        padding: 50px;
-        border-radius: 25px;
-        margin: 50px 0;
-        border: 3px solid rgba(255,215,0,0.5);
-        text-align: center;
-    }
-    
-    .pr-logo {
-        font-size: 3.5em;
-        margin-bottom: 20px;
-    }
-    
-    .pr-title {
-        font-size: 2.5em;
-        color: #FFD700;
-        margin-bottom: 20px;
-        font-weight: bold;
-    }
-    
-    .pr-description {
-        font-size: 1.3em;
-        color: #d0d0d0;
-        max-width: 900px;
-        margin: 0 auto 30px;
-        line-height: 1.8;
-    }
-    
-    .pr-mission {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 25px;
-        margin-top: 40px;
-    }
-    
-    .pr-mission-item {
-        background: rgba(0,0,0,0.3);
-        padding: 25px;
-        border-radius: 15px;
-        border: 1px solid rgba(255,215,0,0.3);
-    }
-    
-    .pr-mission-icon {
-        font-size: 2.5em;
-        margin-bottom: 15px;
-    }
-    
-    .pr-mission-text {
-        font-size: 1.1em;
-        color: #d0d0d0;
-    }
-    
-    @media (max-width: 768px) {
-        h1 {
-            font-size: 2em;
-        }
-        
-        .timeline::before {
-            left: 30px;
-        }
-        
-        .timeline-item:nth-child(odd),
-        .timeline-item:nth-child(even) {
-            text-align: left;
-            padding-left: 70px;
-            padding-right: 20px;
-        }
-        
-        .timeline-dot {
-            left: 30px;
-        }
-        
-        .cycle-point-1, .cycle-point-2, 
-        .cycle-point-3, .cycle-point-4 {
-            position: static;
-            transform: none;
-            margin: 15px 0;
-        }
-    }
 </style>
-```
-
-</head>
-<body>
-    <div class="container">
-        <header>
-            <h1>🌌 Die Evolution des Bewusstseins 🌌</h1>
-            <p class="subtitle">Vom Urknall zum kollektiven Erwachen</p>
-
-```
-        <div class="quote-intro">
-            <em>"Das Tao, das sich aussprechen lässt, ist nicht das ewige Tao.<br>
-            Der Name, der sich nennen lässt, ist nicht der ewige Name."</em><br>
-            — Laozi
-        </div>
-    </header>
-    
-    <div class="nav-tabs">
-        <button class="tab-btn active" onclick="switchTab('timeline')">⏳ Kosmische Timeline</button>
-        <button class="tab-btn" onclick="switchTab('stages')">🔄 Die 3 Stufen</button>
-        <button class="tab-btn" onclick="switchTab('traditions')">🕉️ Mystische Weisheit</button>
-        <button class="tab-btn" onclick="switchTab('now')">🌟 JETZT: Das Erwachen</button>
-        <button class="tab-btn" onclick="switchTab('revolution')">✌️ Peaceful Revolution</button>
-    </div>
-    
-    <!-- TAB 1: Timeline -->
-    <div id="timeline" class="tab-content active">
-        <div class="card">
-            <h2>Die Reise des Bewusstseins durch die Zeit</h2>
-            
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">13,8 Mrd. Jahre</div>
-                        <div class="timeline-title">🌌 Der Urknall</div>
-                        <div class="timeline-desc">
-                            Das Eine explodiert in die Vielen. Energie wird zu Materie.
-                            Die Quelle beginnt, sich selbst zu vergessen.
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">3,8 Mrd. Jahre</div>
-                        <div class="timeline-title">🦠 Leben entsteht</div>
-                        <div class="timeline-desc">
-                            Erste Einzeller. Materie beginnt sich zu organisieren.
-                            Noch kein Bewusstsein – nur chemische Reaktionen.
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">540 Mio. Jahre</div>
-                        <div class="timeline-title">🧠 Erste Nervensysteme</div>
-                        <div class="timeline-desc">
-                            Kambrische Explosion. Erste rudimentäre "Gefühle" entstehen:
-                            Schmerz, Hunger, Angst. Das Unbewusste beginnt zu fühlen.
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">200 Mio. Jahre</div>
-                        <div class="timeline-title">💗 Emotionen entstehen</div>
-                        <div class="timeline-desc">
-                            Erste Säugetiere. Limbisches System entwickelt sich.
-                            Tiere fühlen Liebe, Angst, Freude – aber ohne Selbstreflexion.
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">300.000 Jahre</div>
-                        <div class="timeline-title">👤 Homo Sapiens erscheint</div>
-                        <div class="timeline-desc">
-                            Größeres Gehirn. Präfrontaler Cortex wächst.
-                            Das Potential für Selbst-Bewusstsein ist da.
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">70.000 Jahre</div>
-                        <div class="timeline-title">🗣️ Die Kognitive Revolution</div>
-                        <div class="timeline-desc">
-                            <strong>DER WENDEPUNKT!</strong><br>
-                            Komplexe Sprache entwickelt sich. Abstrakte Konzepte entstehen:
-                            Götter, Zukunft, Vergangenheit, "ICH".<br>
-                            <strong>Das Ego wird geboren.</strong><br>
-                            Der Mensch "vergisst" dass er das Ganze ist und glaubt, ein getrenntes Ich zu sein.
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">10.000 Jahre</div>
-                        <div class="timeline-title">🏛️ Neolithische Revolution</div>
-                        <div class="timeline-desc">
-                            Sesshaftigkeit. Ackerbau. Privateigentum entsteht.<br>
-                            "MEINS" vs. "DEINS" – Das Ego verstärkt sich massiv.<br>
-                            Erste Zivilisationen, erste Hierarchien, erste Kriege.
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">2.500 Jahre</div>
-                        <div class="timeline-title">🧘 Die Achsenzeit</div>
-                        <div class="timeline-desc">
-                            Buddha, Laozi, Sokrates, Propheten – alle zur gleichen Zeit!<br>
-                            Erste Menschen <strong>erkennen die Illusion des Egos</strong>.<br>
-                            Die Weisheitstraditionen entstehen.
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">2.000 Jahre</div>
-                        <div class="timeline-title">✝️ Jesus & mystische Lehrer</div>
-                        <div class="timeline-desc">
-                            "Ich und der Vater sind eins" – Christusbewusstsein.<br>
-                            Mystiker in allen Traditionen lehren: Du BIST das, was du suchst.
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">500 Jahre</div>
-                        <div class="timeline-title">🔬 Wissenschaftliche Revolution</div>
-                        <div class="timeline-desc">
-                            Ego + Vernunft = Materialismus.<br>
-                            "Ich denke, also bin ich" (Descartes) – das Ego feiert sich selbst.<br>
-                            Spiritualität wird abgewertet.
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">200 Jahre</div>
-                        <div class="timeline-title">🏭 Industrielle Revolution</div>
-                        <div class="timeline-desc">
-                            Kapitalismus. Individualismus explodiert.<br>
-                            Maximale Trennung: Mensch von Natur, Ich von Du, Körper von Geist.<br>
-                            Das Ego erreicht seinen Höhepunkt.
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">100 Jahre</div>
-                        <div class="timeline-title">⚛️ Quantenphysik trifft Mystik</div>
-                        <div class="timeline-desc">
-                            Einstein, Heisenberg, Bohr: "Materie ist nur verdichtete Energie."<br>
-                            Wissenschaft beginnt zu entdecken, was Mystiker immer wussten:<br>
-                            <em>Alles ist miteinander verbunden. Der Beobachter erschafft die Realität.</em>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">50 Jahre</div>
-                        <div class="timeline-title">🌍 Globales Bewusstsein erwacht</div>
-                        <div class="timeline-desc">
-                            Internet verbindet die Menschheit. Östliche Weisheit erreicht den Westen.<br>
-                            Meditation, Yoga, Achtsamkeit werden Mainstream.<br>
-                            Menschen beginnen zu fragen: "Wer bin ICH wirklich?"
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">JETZT</div>
-                        <div class="timeline-title">🌟 DIE KRITISCHE MASSE</div>
-                        <div class="timeline-desc">
-                            <strong style="color: #FFD700; font-size: 1.2em;">
-                            Das kollektive Erwachen beginnt!
-                            </strong><br><br>
-                            Genug Menschen erkennen:<br>
-                            • Das Ego ist eine Illusion<br>
-                            • Wir sind nicht getrennt<br>
-                            • Bewusstsein IST alles was existiert<br>
-                            • Gott erfährt sich selbst durch uns<br><br>
-                            <em>Der Kreis schließt sich. Das Vergessene wird erinnert.</em>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <!-- TAB 2: Die 3 Stufen -->
-    <div id="stages" class="tab-content">
-        <div class="card">
-            <h2>Der Zyklus des Bewusstseins</h2>
-            <p style="text-align: center; font-size: 1.2em; color: #b0b0b0; margin-bottom: 40px;">
-                Die Reise von unbewusster Einheit über bewusste Trennung zur bewussten Einheit
-            </p>
-            
-            <div class="three-stages">
-                <div class="stage stage-1">
-                    <div class="stage-icon">🌱</div>
-                    <div class="stage-title">Stufe 1: Unbewusste Einheit</div>
-                    <div class="stage-desc">
-                        <strong>Wer:</strong> Stein, Pflanze, Tier<br><br>
-                        <strong>Zustand:</strong><br>
-                        • IST eins mit allem<br>
-                        • Lebt im JETZT<br>
-                        • Kein Ego, keine Trennung<br>
-                        • Kein Leiden (keine Gedanken)<br><br>
-                        <strong>ABER:</strong> Weiß es nicht!<br>
-                        Keine Selbstreflexion.
-                    </div>
-                </div>
-                
-                <div class="stage stage-2">
-                    <div class="stage-icon">👤</div>
-                    <div class="stage-title">Stufe 2: Bewusste Trennung</div>
-                    <div class="stage-desc">
-                        <strong>Wer:</strong> Der Mensch (Ego)<br><br>
-                        <strong>Zustand:</strong><br>
-                        • Fühlt sich getrennt<br>
-                        • Lebt in Vergangenheit/Zukunft<br>
-                        • "ICH" vs. "DU" vs. "WELT"<br>
-                        • Leiden durch Illusion der Trennung<br><br>
-                        <strong>ABER:</strong> Notwendig!<br>
-                        Nur durch Trennung kann Einheit ERFAHREN werden.
-                    </div>
-                </div>
-                
-                <div class="stage stage-3">
-                    <div class="stage-icon">🌟</div>
-                    <div class="stage-title">Stufe 3: Bewusste Einheit</div>
-                    <div class="stage-desc">
-                        <strong>Wer:</strong> Der Erwachte (Christusbewusstsein, Buddha-Natur)<br><br>
-                        <strong>Zustand:</strong><br>
-                        • WEISS dass alles eins ist<br>
-                        • Lebt in der Welt, aber nicht von der Welt<br>
-                        • Ego wird zum Werkzeug, nicht zum Meister<br>
-                        • Leiden endet, Liebe bleibt<br><br>
-                        <strong>DAS ZIEL:</strong><br>
-                        Gott erfährt sich selbst bewusst!
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="card">
-            <h2>Der ewige Kreislauf</h2>
-            
-            <div class="cycle-container">
-                <div class="cycle-circle">
-                    <div class="cycle-center">
-                        <div class="cycle-center-text">DAS<br>EINE</div>
-                    </div>
-                    
-                    <div class="cycle-point cycle-point-1">
-                        <div class="cycle-point-title">1. Einheit</div>
-                        <div>Reines Sein</div>
-                    </div>
-                    
-                    <div class="cycle-point cycle-point-2">
-                        <div class="cycle-point-title">2. Vergessen</div>
-                        <div>Ego entsteht</div>
-                    </div>
-                    
-                    <div class="cycle-point cycle-point-3">
-                        <div class="cycle-point-title">3. Leiden</div>
-                        <div>Sehnsucht erwacht</div>
-                    </div>
-                    
-                    <div class="cycle-point cycle-point-4">
-                        <div class="cycle-point-title">4. Erinnern</div>
-                        <div>Erwachen</div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="highlight-box" style="margin-top: 50px;">
-                <p class="highlight-text">
-                    <strong>"Das Universum ist ein Kreislauf von Vergessen und Erinnern.<br>
-                    Du bist Gott, der gerade träumt, ein Mensch zu sein."</strong>
-                </p>
-            </div>
-        </div>
-    </div>
-    
-    <!-- TAB 3: Mystische Traditionen -->
-    <div id="traditions" class="tab-content">
-        <div class="card">
-            <h2>Alle Wege führen zum Einen</h2>
-            <p style="text-align: center; font-size: 1.2em; color: #b0b0b0; margin-bottom: 40px;">
-                Verschiedene Worte, dieselbe Wahrheit
-            </p>
-            
-            <div class="name-selector">
-                <h3>🌟 Wähle DEINEN Namen für das Unbeschreibbare 🌟</h3>
-                <p style="text-align: center; color: #b0b0b0; margin-bottom: 25px;">
-                    Alle zeigen auf dasselbe – welches Wort spricht zu dir?
-                </p>
-                
-                <div class="name-options">
-                    <div class="name-option" onclick="selectName('Gott')">Gott</div>
-                    <div class="name-option" onclick="selectName('Das Tao')">Das Tao</div>
-                    <div class="name-option" onclick="selectName('Brahman')">Brahman</div>
-                    <div class="name-option" onclick="selectName('Allah')">Allah</div>
-                    <div class="name-option" onclick="selectName('Bewusstsein')">Bewusstsein</div>
-                    <div class="name-option" onclick="selectName('Das Eine')">Das Eine</div>
-                    <div class="name-option" onclick="selectName('Die Quelle')">Die Quelle</div>
-                    <div class="name-option" onclick="selectName('Liebe')">Liebe</div>
-                    <div class="name-option" onclick="selectName('Das Sein')">Das Sein</div>
-                    <div class="name-option" onclick="selectName('Das Absolute')">Das Absolute</div>
-                </div>
-                
-                <div class="selected-name-display" id="selectedName">
-                    Klicke auf einen Namen...
-                </div>
-            </div>
-            
-            <div class="tradition-grid">
-                <div class="tradition">
-                    <div class="tradition-name">🕉️ Hinduismus (Advaita Vedanta)</div>
-                    <div class="tradition-quote">
-                        "Tat Tvam Asi" – Du bist DAS.<br><br>
-                        "Brahman ist die einzige Realität. Die Welt ist Illusion (Maya).
-                        Das individuelle Selbst (Atman) ist nicht getrennt von Brahman."
-                    </div>
-                    <div class="tradition-explanation">
-                        → Gott spielt Verstecken mit sich selbst durch unzählige Formen.
-                    </div>
-                </div>
-                
-                <div class="tradition">
-                    <div class="tradition-name">☪️ Sufismus (Islamische Mystik)</div>
-                    <div class="tradition-quote">
-                        "Ich war ein verborgener Schatz und wollte erkannt werden,
-                        also erschuf ich die Schöpfung, damit ich erkannt werde."<br>
-                        — Hadith Qudsi
-                    </div>
-                    <div class="tradition-explanation">
-                        → Das Universum ist Gottes Spiegel. Jeder Mensch ein Reflexionspunkt.
-                    </div>
-                </div>
-                
-                <div class="tradition">
-                    <div class="tradition-name">✡️ Kabbalah (Jüdische Mystik)</div>
-                    <div class="tradition-quote">
-                        "Ein Sof (das Unendliche) zieht sich zurück (Tzimtzum),
-                        um Raum für Schöpfung zu schaffen.<br>
-                        Durch Tikkun Olam (Weltheilung) kehrt alles zur Quelle zurück."
-                    </div>
-                    <div class="tradition-explanation">
-                        → Gott limitiert sich freiwillig, um Vielfalt zu ermöglichen.
-                    </div>
-                </div>
-                
-                <div class="tradition">
-                    <div class="tradition-name">✝️ Christliche Mystik</div>
-                    <div class="tradition-quote">
-                        "Ich und der Vater sind eins." — Jesus<br><br>
-                        "Das Auge, mit dem ich Gott sehe, ist dasselbe Auge,
-                        mit dem Gott mich sieht." — Meister Eckhart
-                    </div>
-                    <div class="tradition-explanation">
-                        → Christusbewusstsein = Erkenntnis der Einheit mit dem Göttlichen.
-                    </div>
-                </div>
-                
-                <div class="tradition">
-                    <div class="tradition-name">☸️ Buddhismus</div>
-                    <div class="tradition-quote">
-                        "Form ist Leere, Leere ist Form."<br>
-                        "Das Selbst ist eine Illusion (Anatta).<br>
-                        Erleuchtung = Erkenntnis der Nicht-Trennung (Nirvana)."
-                    </div>
-                    <div class="tradition-explanation">
-                        → Durch Auflösung des Ego-Selbst erkennst du: Es gab nie Trennung.
-                    </div>
-                </div>
-                
-                <div class="tradition">
-                    <div class="tradition-name">☯️ Taoismus</div>
-                    <div class="tradition-quote">
-                        "Das Tao, das sich aussprechen lässt, ist nicht das ewige Tao."<br><br>
-                        "Der Weise tut nichts (Wu Wei), und doch bleibt nichts ungetan.<br>
-                        Er ist eins mit dem Fluss des Lebens."
-                    </div>
-                    <div class="tradition-explanation">
-                        → Die höchste Wahrheit ist unbeschreibbar. Sei wie Wasser – formlos, doch alles durchdringend.
-                    </div>
-                </div>
-            </div>
-            
-            <div class="highlight-box" style="margin-top: 50px;">
-                <p class="highlight-text">
-                    <strong>Alle Religionen sind Finger, die auf den Mond zeigen.<br>
-                    Kämpfe nicht über die Finger – schau auf den Mond!</strong><br><br>
-                    Die Wahrheit hat keine Religion.<br>
-                    Gott hat keine Nationalität.<br>
-                    Liebe braucht kein Etikett.
-                </p>
-            </div>
-        </div>
-    </div>
-    
-    <!-- TAB 4: JETZT - Das Erwachen -->
-    <div id="now" class="tab-content">
-        <div class="card">
-            <h2>🌟 Warum JETZT? Zeichen des kollektiven Erwachens 🌟</h2>
-            
-            <div class="highlight-box">
-                <div class="highlight-number">2024-2026</div>
-                <p class="highlight-text">
-                    Wir leben im <strong>kritischen Moment der menschlichen Evolution.</strong><br>
-                    Das Ego hat seinen Höhepunkt erreicht – und beginnt sich aufzulösen.
-                </p>
-            </div>
-            
-            <h3 style="text-align: center; margin-top: 50px;">Zeichen dass das kollektive Bewusstsein erwacht:</h3>
-            
-            <div class="sign-grid">
-                <div class="sign-card">
-                    <div class="sign-icon">🧘</div>
-                    <div class="sign-title">Meditation wird Mainstream</div>
-                    <div class="sign-desc">
-                        Millionen praktizieren täglich. Apps wie Headspace, Calm erreichen Massen.
-                        Achtsamkeit in Schulen & Firmen.
-                    </div>
-                </div>
-                
-                <div class="sign-card">
-                    <div class="sign-icon">📚</div>
-                    <div class="sign-title">Spirituelle Bestseller</div>
-                    <div class="sign-desc">
-                        Eckhart Tolle, Michael Singer, Ram Dass, Thich Nhat Hanh –
-                        Millionen lesen Bücher über Nicht-Dualität.
-                    </div>
-                </div>
-                
-                <div class="sign-card">
-                    <div class="sign-icon">🍄</div>
-                    <div class="sign-title">Psychedelika-Renaissance</div>
-                    <div class="sign-desc">
-                        Ayahuasca, Psilocybin, LSD – Menschen haben Ego-Tod-Erfahrungen
-                        und erkennen: "ICH bin das Universum!"
-                    </div>
-                </div>
-                
-                <div class="sign-card">
-                    <div class="sign-icon">⚛️</div>
-                    <div class="sign-title">Quantenphysik trifft Spiritualität</div>
-                    <div class="sign-desc">
-                        Wissenschaftler entdecken: Bewusstsein beeinflusst Materie.
-                        Alles ist Schwingung. Trennung ist Illusion.
-                    </div>
-                </div>
-                
-                <div class="sign-card">
-                    <div class="sign-icon">🌍</div>
-                    <div class="sign-title">Globales Bewusstsein</div>
-                    <div class="sign-desc">
-                        Internet verbindet Menschheit. Wir sehen: Leid in Gaza = unser Leid.
-                        Freude in Bali = unsere Freude. Trennung wird sichtbar absurd.
-                    </div>
-                </div>
-                
-                <div class="sign-card">
-                    <div class="sign-icon">💔</div>
-                    <div class="sign-title">Leidensdruck wächst</div>
-                    <div class="sign-desc">
-                        Depression, Burnout, Sinnkrise – das Ego-System bricht zusammen.
-                        Menschen fragen: "Ist das alles?" → Spirituelle Suche beginnt.
-                    </div>
-                </div>
-                
-                <div class="sign-card">
-                    <div class="sign-icon">🌱</div>
-                    <div class="sign-title">Umweltbewusstsein</div>
-                    <div class="sign-desc">
-                        Erkenntnis: Wir SIND die Natur, nicht getrennt davon.
-                        "Wenn die Erde leidet, leide ich."
-                    </div>
-                </div>
-                
-                <div class="sign-card">
-                    <div class="sign-icon">👶</div>
-                    <div class="sign-title">Neue Generation</div>
-                    <div class="sign-desc">
-                        Gen Z fragt: "Warum für ein System arbeiten, das die Welt zerstört?"
-                        Sie suchen Sinn, nicht nur Geld.
-                    </div>
-                </div>
-                
-                <div class="sign-card">
-                    <div class="sign-icon">🎨</div>
-                    <div class="sign-title">Kunst als Erwachen</div>
-                    <div class="sign-desc">
-                        Musik, Filme, Poesie thematisieren Einheit.
-                        "We are all one" wird Pop-Kultur.
-                    </div>
-                </div>
-                
-                <div class="sign-card">
-                    <div class="sign-icon">💰</div>
-                    <div class="sign-title">Kapitalismus-Kritik wächst</div>
-                    <div class="sign-desc">
-                        Menschen erkennen: Geld ist nur eine Zahl.
-                        Das System basiert auf Illusion. Alternative Wirtschaft entsteht.
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="card">
-            <h2>Die kritische Masse</h2>
-            
-            <div class="highlight-box">
-                <div class="highlight-number">100. Affe</div>
-                <p class="highlight-text">
-                    <strong>Forschung zeigt:</strong> Wenn eine kritische Masse (ca. 10-15%) einer Population
-                    ein neues Bewusstsein erreicht, kippt das GESAMTE System.<br><br>
-                    
-                    <strong>Wir sind nah dran!</strong><br>
-                    Schätzungen: 5-10% der Menschheit sind bereits "aufgewacht" oder auf dem Weg.<br><br>
-                    
-                    <em>Jeder Einzelne der erwacht, beschleunigt das kollektive Erwachen exponentiell.</em>
-                </p>
-            </div>
-        </div>
-        
-        <div class="card">
-            <h2>Warum gerade JETZT dieser Zeitpunkt?</h2>
-            
-            <h3>🔥 Die perfekte Krise</h3>
-            <p style="color: #d0d0d0; font-size: 1.1em; margin: 20px 0;">
-                • <strong>Klimakrise:</strong> Zeigt uns: Wir sind EINS mit der Erde<br>
-                • <strong>Pandemie:</strong> Zwang zur Innenschau, kollektive Pause<br>
-                • <strong>Wirtschaftskrise:</strong> "Geld ist nur eine Zahl" wird offensichtlich<br>
-                • <strong>KI-Revolution:</strong> "Was ist Bewusstsein?" wird zentrale Frage<br>
-                • <strong>Soziale Medien:</strong> Isolation + Verbindung = Paradox des Egos sichtbar<br>
-            </p>
-            
-            <div class="highlight-box" style="margin-top: 30px;">
-                <p class="highlight-text">
-                    <strong>"Nur durch maximale Dunkelheit erkennen wir das Licht."</strong><br><br>
-                    Das Ego musste seinen Höhepunkt erreichen (Individualismus, Kapitalismus, Trennung),
-                    damit wir erkennen: <em>Es funktioniert nicht. Es macht uns nicht glücklich.</em><br><br>
-                    <strong style="color: #FFD700; font-size: 1.3em;">
-                    Das Leiden ist der Katalysator des Erwachens.
-                    </strong>
-                </p>
-            </div>
-        </div>
-    </div>
-    
-    <!-- TAB 5: Peaceful Revolution -->
-    <div id="revolution" class="tab-content">
-        <div class="card">
-            <div class="pr-section">
-                <div class="pr-logo">✌️🌍💫</div>
-                <div class="pr-title">Peaceful Revolution</div>
-                <div class="pr-description">
-                    Die Friedliche Revolution ist kein politisches Programm.<br>
-                    Sie ist das <strong>kollektive Erwachen</strong> der Menschheit zur Erkenntnis:<br><br>
-                    <strong style="font-size: 1.3em; color: #FFD700;">
-                    Wir sind nicht getrennt. Wir sind EINS.<br>
-                    Du bist ich. Ich bin du. Wir sind Gott, der sich selbst erfährt.
-                    </strong>
-                </div>
-                
-                <div class="pr-mission">
-                    <div class="pr-mission-item">
-                        <div class="pr-mission-icon">🧠</div>
-                        <div class="pr-mission-text">
-                            <strong>Bewusstsein erhöhen</strong><br>
-                            Zeigen: Das Ego ist eine Illusion.
-                            Dein wahres Selbst ist grenzenlos.
-                        </div>
-                    </div>
-                    
-                    <div class="pr-mission-item">
-                        <div class="pr-mission-icon">💔➡️💗</div>
-                        <div class="pr-mission-text">
-                            <strong>Von Trennung zu Einheit</strong><br>
-                            Erkenne: Wenn ich dir schade, schade ich mir.
-                            Wenn ich dich liebe, liebe ich mich.
-                        </div>
-                    </div>
-                    
-                    <div class="pr-mission-item">
-                        <div class="pr-mission-icon">🌍</div>
-                        <div class="pr-mission-text">
-                            <strong>Systeme transformieren</strong><br>
-                            Nicht durch Kampf, sondern durch Bewusstsein.
-                            Wenn genug erwachen, kollabiert das alte System von selbst.
-                        </div>
-                    </div>
-                    
-                    <div class="pr-mission-item">
-                        <div class="pr-mission-icon">🕊️</div>
-                        <div class="pr-mission-text">
-                            <strong>Frieden von innen</strong><br>
-                            Weltfrieden beginnt in dir.
-                            Wenn du Frieden bist, strahlst du Frieden aus.
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="card">
-            <h2>Die Strategie: Nicht gegen, sondern für</h2>
-            
-            <div style="background: rgba(255,215,0,0.1); padding: 30px; border-radius: 15px; margin: 30px 0;">
-                <p style="font-size: 1.2em; color: #d0d0d0; line-height: 1.9;">
-                    <strong style="color: #FFD700;">❌ Alte Revolution:</strong><br>
-                    Kämpfe gegen das System. Macht gegen Macht. Gewalt gegen Gewalt.<br>
-                    → Erschafft nur neues Leid.<br><br>
-                    
-                    <strong style="color: #FFD700;">✅ Peaceful Revolution:</strong><br>
-                    Erwache aus der Illusion der Trennung.<br>
-                    Lebe die Wahrheit: Liebe, Mitgefühl, Einheit.<br>
-                    → Das System transformiert sich von selbst, weil niemand mehr mitmacht.<br><br>
-                    
-                    <em style="color: #FFD700; font-size: 1.1em;">
-                    "Sei die Veränderung, die du sehen willst." — Gandhi
-                    </em>
-                </p>
-            </div>
-        </div>
-        
-        <div class="card">
-            <h2>Deine Rolle in der Revolution</h2>
-            
-            <div class="highlight-box">
-                <p class="highlight-text">
-                    Du bist nicht hier, um die Welt zu retten.<br>
-                    Du bist hier, um <strong>dich selbst zu erinnern</strong>.<br><br>
-                    
-                    Wenn du erkennst wer du wirklich bist,<br>
-                    transformierst du automatisch alles um dich herum.<br><br>
-                    
-                    <strong style="font-size: 1.3em; color: #FFD700;">
-                    Du BIST die Revolution.
-                    </strong>
-                </p>
-            </div>
-            
-            <h3 style="margin-top: 50px; text-align: center;">Die 3 Schritte des Erwachens:</h3>
-            
-            <div class="three-stages" style="margin-top: 30px;">
-                <div class="stage stage-1">
-                    <div class="stage-icon">👁️</div>
-                    <div class="stage-title">1. Erkenne</div>
-                    <div class="stage-desc">
-                        Dein Ego ist nicht wer du bist.<br>
-                        Du bist das Bewusstsein, das das Ego beobachtet.<br>
-                        Du bist grenzenlos. Du bist eins mit allem.
-                    </div>
-                </div>
-                
-                <div class="stage stage-2">
-                    <div class="stage-icon">💗</div>
-                    <div class="stage-title">2. Verkörpere</div>
-                    <div class="stage-desc">
-                        Lebe aus dieser Erkenntnis.<br>
-                        Behandle jeden als dich selbst (weil sie es sind).<br>
-                        Liebe bedingungslos. Vergib radikal.
-                    </div>
-                </div>
-                
-                <div class="stage stage-3">
-                    <div class="stage-icon">🌟</div>
-                    <div class="stage-title">3. Strahle aus</div>
-                    <div class="stage-desc">
-                        Du musst nicht predigen.<br>
-                        Dein Sein IST die Lehre.<br>
-                        Menschen werden von deinem Licht angezogen.
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="card">
-            <h2>🌟 Die Vision 🌟</h2>
-            
-            <div class="highlight-box">
-                <p class="highlight-text" style="font-size: 1.3em;">
-                    Stell dir eine Welt vor, in der:<br><br>
-                    
-                    ✨ Jeder Mensch weiß: "Ich bin nicht getrennt"<br>
-                    ✨ Kriege unmöglich sind (wer kämpft gegen sich selbst?)<br>
-                    ✨ Ausbeutung endet (wer beutet sich selbst aus?)<br>
-                    ✨ Natur geheilt wird (weil wir SIND die Natur)<br>
-                    ✨ Geld dient, statt zu herrschen<br>
-                    ✨ Kunst, Liebe, Spiel das Leben bestimmen<br>
-                    ✨ Jeder Mensch sein volles Potential lebt<br><br>
-                    
-                    <strong style="font-size: 1.4em; color: #FFD700;">
-                    Das ist keine Utopie.<br>
-                    Das ist der natürliche Zustand erwachten Bewusstseins.
-                    </strong>
-                </p>
-            </div>
-        </div>
-        
-        <div class="card" style="text-align: center; padding: 60px 40px;">
-            <h2 style="font-size: 2.5em; margin-bottom: 30px;">✌️ Schließ dich an ✌️</h2>
-            
-            <p style="font-size: 1.4em; color: #d0d0d0; margin-bottom: 40px; line-height: 1.8;">
-                Peaceful Revolution ist keine Organisation.<br>
-                Es ist eine Bewegung des Bewusstseins.<br><br>
-                
-                Du bist bereits Teil davon,<br>
-                in dem Moment wo du erkennst:<br><br>
-                
-                <strong style="color: #FFD700; font-size: 1.3em;">
-                Ich bin nicht mein Ego.<br>
-                Ich bin das, was alles beobachtet.<br>
-                Ich bin Bewusstsein selbst.<br>
-                Ich bin EINS mit allem was ist.
-                </strong>
-            </p>
-            
-            <div style="font-size: 5em; margin: 30px 0;">
-                🙏✨💫
-            </div>
-            
-            <p style="font-size: 1.2em; color: #FFD700; font-style: italic;">
-                Namaste – Das Göttliche in mir grüßt das Göttliche in dir.<br>
-                Denn wir sind eins.
-            </p>
-        </div>
-    </div>
-    
-    <!-- Quellen -->
-    <div class="card" style="margin-top: 60px; background: rgba(0,0,0,0.5);">
-        <h2 style="color: #FFD700; margin-bottom: 30px; text-align: center;">📚 Quellen & Wissenschaftliche Grundlagen</h2>
-        
-        <div style="color: #d0d0d0; line-height: 2;">
-            <h3 style="color: #FFA500; margin: 25px 0 15px;">Bewusstseinsforschung:</h3>
-            <p style="margin-left: 20px;">
-                • David Chalmers - "The Conscious Mind: In Search of a Fundamental Theory"<br>
-                • Thomas Nagel - "What Is It Like to Be a Bat?"<br>
-                • Daniel Dennett - "Consciousness Explained"<br>
-                • Giulio Tononi - "Integrated Information Theory of Consciousness"
-            </p>
-            
-            <h3 style="color: #FFA500; margin: 25px 0 15px;">Evolution & Anthropologie:</h3>
-            <p style="margin-left: 20px;">
-                • Yuval Noah Harari - "Sapiens: A Brief History of Humankind"<br>
-                • Julian Jaynes - "The Origin of Consciousness in the Breakdown of the Bicameral Mind"<br>
-                • Merlin Donald - "Origins of the Modern Mind"<br>
-                • Robin Dunbar - "The Social Brain Hypothesis"
-            </p>
-            
-            <h3 style="color: #FFA500; margin: 25px 0 15px;">Mystik & Philosophie:</h3>
-            <p style="margin-left: 20px;">
-                • Aldous Huxley - "The Perennial Philosophy"<br>
-                • Ken Wilber - "A Theory of Everything", "Integral Spirituality"<br>
-                • Eckhart Tolle - "The Power of Now"<br>
-                • Alan Watts - "The Book: On the Taboo Against Knowing Who You Are"
-            </p>
-            
-            <h3 style="color: #FFA500; margin: 25px 0 15px;">Neurowissenschaft & Meditation:</h3>
-            <p style="margin-left: 20px;">
-                • Richard Davidson - "The Emotional Life of Your Brain"<br>
-                • Sam Harris - "Waking Up: A Guide to Spirituality Without Religion"<br>
-                • Andrew Newberg - "How God Changes Your Brain"
-            </p>
-            
-            <h3 style="color: #FFA500; margin: 25px 0 15px;">Quantenphysik & Bewusstsein:</h3>
-            <p style="margin-left: 20px;">
-                • Roger Penrose - "The Emperor's New Mind"<br>
-                • Amit Goswami - "The Self-Aware Universe"<br>
-                • Dean Radin - "The Conscious Universe"
-            </p>
-            
-            <p style="margin-top: 30px; padding: 20px; background: rgba(255,215,0,0.1); border-left: 4px solid #FFD700; border-radius: 8px;">
-                <strong>Hinweis:</strong> Diese Visualisierung kombiniert wissenschaftliche Theorien mit spirituellen Traditionen. 
-                Nicht alle Aussagen sind wissenschaftlicher Konsens, sondern repräsentieren verschiedene Perspektiven auf Bewusstsein.
-            </p>
-        </div>
-    </div>
-    
-    <div style="text-align: center; padding: 60px 20px; color: #666;">
-        <p style="font-size: 1.2em; margin-bottom: 20px;">
-            ✌️ <strong>peacefulrevolution.love</strong> ✌️
-        </p>
-        <p style="font-style: italic;">
-            "Du bist nicht ein Tropfen im Ozean.<br>
-            Du bist der gesamte Ozean in einem Tropfen." — Rumi
-        </p>
-    </div>
-</div>
-
-<script>
-    function switchTab(tabName) {
-        // Hide all tabs
-        const tabs = document.querySelectorAll('.tab-content');
-        tabs.forEach(tab => tab.classList.remove('active'));
-        
-        // Remove active class from all buttons
-        const buttons = document.querySelectorAll('.tab-btn');
-        buttons.forEach(btn => btn.classList.remove('active'));
-        
-        // Show selected tab
-        document.getElementById(tabName).classList.add('active');
-        
-        // Highlight selected button
-        event.target.classList.add('active');
-        
-        // Scroll to top
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-    
-    function selectName(name) {
-        // Remove selected class from all options
-        const options = document.querySelectorAll('.name-option');
-        options.forEach(opt => opt.classList.remove('selected'));
-        
-        // Add selected class to clicked option
-        event.target.classList.add('selected');
-        
-        // Update display
-        const display = document.getElementById('selectedName');
-        display.innerHTML = `
-            <strong style="font-size: 1.2em;">Du hast gewählt:</strong><br>
-            <span style="font-size: 1.5em; color: #FFD700;">${name}</span><br>
-            <em style="font-size: 0.9em; color: #a0a0a0;">
-            Aber erinnere dich: Alle Namen sind nur Finger, die auf den Mond zeigen.
-            </em>
-        `;
-    }
-</script>
 ```
 
 </body>
