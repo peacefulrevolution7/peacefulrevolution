@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warum passiert es nicht? - Die unbequeme Wahrheit</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #2c0735, #1a1a2e, #0f3460);
+            background-size: 400% 400%;
+            animation: gradientShift 20s ease infinite;
+            color: #fff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 80px 20px 60px;
+            background: rgba(0,0,0,0.6);
+            margin-bottom: 60px;
+            border-radius: 25px;
+            backdrop-filter: blur(15px);
+            border: 2px solid rgba(255,193,7,0.3);
+        }
+        
+        h1 {
+            font-size: 3.8em;
+            margin-bottom: 25px;
+            background: linear-gradient(45deg, #ffc107, #ff9800, #ff5722);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 4s ease-in-out infinite;
+        }
+        
+        @keyframes shimmer {
+            0%, 100% { filter: brightness(1); }
+            50% { filter: brightness(1.4); }
+        }
+        
+        .subtitle {
+            font-size: 1.6em;
+            color: #b0b0b0;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+        
+        .big-question {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 50px;
+            background: rgba(255,193,7,0.15);
+            border: 3px solid #ffc107;
+            border-radius: 20px;
+            text-align: center;
+        }
+        
+        .big-question h2 {
+            font-size: 2.5em;
+            color: #ffc107;
+            margin-bottom: 25px;
+        }
+        
+        .big-question p {
+            font-size: 1.4em;
+            line-height: 1.9;
+            color: #d0d0d0;
+        }
+        
+        .nav-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+        
+        .tab-btn {
+            padding: 15px 30px;
+            background: rgba(255,255,255,0.1);
+            border: 2px solid rgba(255,255,255,0.2);
+            color: white;
+            cursor: pointer;
+            border-radius: 30px;
+            font-size: 1em;
+            transition: all 0.3s;
+            backdrop-filter: blur(5px);
+        }
+        
+        .tab-btn:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(255,193,7,0.3);
+        }
+        
+        .tab-btn.active {
+            background: linear-gradient(45deg, #ffc107, #ff9800);
+            border-color: transparent;
+            box-shadow: 0 5px 25px rgba(255,193,7,0.5);
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.6s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 40px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+        }
+        
+        .card h2 {
+            color: #ffc107;
+            margin-bottom: 25px;
+            font-size: 2.3em;
+            text-align: center;
+        }
+        
+        .card h3 {
+            color: #ff9800;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+        
+        /* Reason Cards */
+        .reason-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+        }
+        
+        .reason-card {
+            background: rgba(255,255,255,0.08);
+            padding: 35px;
+            border-radius: 18px;
+            border-left: 5px solid;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        
+        .reason-card:hover {
+            background: rgba(255,255,255,0.13);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(255,193,7,0.3);
+        }
+        
+        .reason-card.psychological { border-left-color: #9c27b0; }
+        .reason-card.economic { border-left-color: #4caf50; }
+        .reason-card.political { border-left-color: #2196f3; }
+        .reason-card.evolutionary { border-left-color: #ff9800; }
+        .reason-card.spiritual { border-left-color: #ffc107; }
+        .reason-card.media { border-left-color: #f44336; }
+        
+        .reason-icon {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .reason-title {
+            font-size: 1.7em;
+            font-weight: bold;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .psychological .reason-title { color: #ce93d8; }
+        .economic .reason-title { color: #81c784; }
+        .political .reason-title { color: #64b5f6; }
+        .evolutionary .reason-title { color: #ffb74d; }
+        .spiritual .reason-title { color: #ffd54f; }
+        .media .reason-title { color: #e57373; }
+        
+        .reason-description {
+            color: #d0d0d0;
+            line-height: 1.8;
+            font-size: 1.08em;
+        }
+        
+        .reason-example {
+            background: rgba(0,0,0,0.4);
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 20px;
+            font-style: italic;
+            color: #b0b0b0;
+        }
+        
+        /* Truth Box */
+        .truth-box {
+            background: rgba(255,87,34,0.15);
+            border: 3px solid #ff5722;
+            border-radius: 20px;
+            padding: 40px;
+            margin: 40px 0;
+            text-align: center;
+        }
+        
+        .truth-box h3 {
+            font-size: 2.5em;
+            color: #ff5722;
+            margin-bottom: 25px;
+        }
+        
+        .truth-text {
+            font-size: 1.35em;
+            color: #fff;
+            line-height: 1.9;
+        }
+        
+        /* Hope Section */
+        .hope-section {
+            background: linear-gradient(135deg, rgba(76,175,80,0.2), rgba(139,195,74,0.2));
+            padding: 50px;
+            border-radius: 25px;
+            margin: 50px 0;
+            border: 3px solid rgba(76,175,80,0.5);
+        }
+        
+        .hope-title {
+            font-size: 2.8em;
+            color: #4caf50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .hope-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+        
+        .hope-item {
+            background: rgba(0,0,0,0.3);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(76,175,80,0.3);
+        }
+        
+        .hope-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .hope-text {
+            font-size: 1.15em;
+            color: #d0d0d0;
+            text-align: center;
+            line-height: 1.7;
+        }
+        
+        /* Interactive Elements */
+        .reveal-section {
+            background: rgba(255,193,7,0.1);
+            padding: 40px;
+            border-radius: 20px;
+            margin: 40px 0;
+            border: 2px solid rgba(255,193,7,0.3);
+        }
+        
+        .reveal-question {
+            font-size: 1.5em;
+            color: #ffc107;
+            margin-bottom: 25px;
+            text-align: center;
+            cursor: pointer;
+            padding: 20px;
+            background: rgba(0,0,0,0.3);
+            border-radius: 12px;
+            transition: all 0.3s;
+        }
+        
+        .reveal-question:hover {
+            background: rgba(0,0,0,0.5);
+            transform: scale(1.02);
+        }
+        
+        .reveal-answer {
+            display: none;
+            font-size: 1.2em;
+            color: #d0d0d0;
+            line-height: 1.8;
+            margin-top: 20px;
+            padding: 25px;
+            background: rgba(0,0,0,0.4);
+            border-radius: 12px;
+        }
+        
+        .reveal-answer.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+        
+        /* Layers Visual */
+        .layers-container {
+            position: relative;
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        
+        .layer {
+            background: rgba(255,255,255,0.08);
+            padding: 30px;
+            margin: 15px 0;
+            border-radius: 15px;
+            border-left: 5px solid;
+            position: relative;
+            transition: all 0.3s;
+        }
+        
+        .layer:hover {
+            transform: translateX(10px);
+            background: rgba(255,255,255,0.13);
+        }
+        
+        .layer.surface { border-left-color: #4caf50; }
+        .layer.middle { border-left-color: #ff9800; }
+        .layer.deep { border-left-color: #f44336; }
+        
+        .layer-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: rgba(255,193,7,0.5);
+            position: absolute;
+            left: -15px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        
+        .layer-title {
+            font-size: 1.6em;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        
+        .surface .layer-title { color: #81c784; }
+        .middle .layer-title { color: #ffb74d; }
+        .deep .layer-title { color: #e57373; }
+        
+        /* Stats */
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .stat-box {
+            background: rgba(255,255,255,0.08);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            border: 2px solid rgba(255,193,7,0.3);
+            transition: all 0.3s;
+        }
+        
+        .stat-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255,193,7,0.4);
+        }
+        
+        .stat-number {
+            font-size: 3.5em;
+            font-weight: bold;
+            color: #ffc107;
+            margin-bottom: 15px;
+        }
+        
+        .stat-label {
+            font-size: 1.1em;
+            color: #d0d0d0;
+        }
+        
+        /* Call to Action */
+        .cta-section {
+            background: linear-gradient(135deg, rgba(255,193,7,0.2), rgba(255,152,0,0.2));
+            padding: 60px;
+            border-radius: 25px;
+            margin: 60px 0;
+            border: 3px solid rgba(255,193,7,0.5);
+            text-align: center;
+        }
+        
+        .cta-title {
+            font-size: 3em;
+            color: #ffc107;
+            margin-bottom: 30px;
+        }
+        
+        .cta-text {
+            font-size: 1.4em;
+            color: #d0d0d0;
+            line-height: 1.9;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2em; }
+            .reason-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>❓ Warum passiert es nicht? ❓</h1>
+            <p class="subtitle">Die unbequeme Wahrheit darüber, warum wir Leid nicht beenden – obwohl wir es könnten</p>
+        </header>
+        
+        <div class="big-question">
+            <h2>🤔 Die Frage, die alles entlarvt:</h2>
+            <p>
+                Wir haben <strong>$450 Billionen</strong> globales Vermögen.<br>
+                Es würde nur <strong>$355 Milliarden/Jahr</strong> (0,08%) kosten,<br>
+                um Hunger, extreme Armut, Wassermangel, fehlende Gesundheitsversorgung und Bildung zu beenden.<br><br>
+                
+                <strong style="font-size: 1.3em; color: #ffc107;">
+                Warum zum Teufel tun wir es dann nicht?!
+                </strong>
+            </p>
+        </div>
+        
+        <div class="nav-tabs">
+            <button class="tab-btn active" onclick="switchTab('reasons')">💡 Die Gründe</button>
+            <button class="tab-btn" onclick="switchTab('layers')">🧅 Die Schichten</button>
+            <button class="tab-btn" onclick="switchTab('truth')">🔥 Die Wahrheit</button>
+            <button class="tab-btn" onclick="switchTab('hope')">🌟 Die Hoffnung</button>
+        </div>
+        
+        <!-- TAB 1: Die Gründe -->
+        <div id="reasons" class="tab-content active">
+            <div class="card">
+                <h2>Die 9 Gründe warum wir es nicht tun</h2>
+                <p style="text-align: center; font-size: 1.2em; color: #b0b0b0; margin-bottom: 40px;">
+                    Nicht EINER davon rechtfertigt es – aber alle zusammen erklären es
+                </p>
+                
+                <div class="reason-grid">
+                    <div class="reason-card psychological">
+                        <div class="reason-icon">🧠</div>
+                        <div class="reason-title">1. Fehlende Empathie durch Distanz</div>
+                        <div class="reason-description">
+                            Unser Gehirn ist für Stammesgruppen (~150 Menschen) gemacht.<br>
+                            8 Milliarden überfordern unser Mitgefühl.<br><br>
+                            <strong>"Ein Tod ist eine Tragödie, eine Million Tote sind Statistik."</strong>
+                        </div>
+                        <div class="reason-example">
+                            💡 Beispiel:<br>
+                            Dein Nachbar hungert → Du hilfst sofort<br>
+                            Kind in Afrika hungert → Zu abstrakt, zu weit weg
+                        </div>
+                    </div>
+                    
+                    <div class="reason-card psychological">
+                        <div class="reason-icon">😵</div>
+                        <div class="reason-title">2. Kognitive Dissonanz</div>
+                        <div class="reason-description">
+                            <strong>Wissen:</strong> "828 Millionen hungern"<br>
+                            <strong>Fühlen:</strong> *scrollt weiter auf Instagram*<br><br>
+                            Zu schmerzhaft anzuerkennen → also verdrängen wir.<br>
+                            "Ich kann eh nichts ändern" (erlernte Hilflosigkeit)
+                        </div>
+                        <div class="reason-example">
+                            💡 Psychologie:<br>
+                            Wenn Realität und Handeln nicht übereinstimmen,<br>
+                            verdrängen wir die Realität statt unser Handeln zu ändern.
+                        </div>
+                    </div>
+                    
+                    <div class="reason-card economic">
+                        <div class="reason-icon">💰</div>
+                        <div class="reason-title">3. Das System profitiert von Armut</div>
+                        <div class="reason-description">
+                            <strong>Billige Arbeitskraft:</strong><br>
+                            Bangladesh: Näherinnen für $3/Tag<br>
+                            Wenn $15/Tag → Dein H&M-Shirt kostet $50 statt $10<br><br>
+                            
+                            <strong>Ressourcen-Ausbeutung:</strong><br>
+                            Kongo arm → Coltan billig<br>
+                            Kongo reich → verlangt faire Preise<br>
+                            → Dein Smartphone teurer
+                        </div>
+                        <div class="reason-example">
+                            🔥 Harte Wahrheit:<br>
+                            Westlicher Konsum basiert auf ihrer Armut.<br>
+                            Firmen WOLLEN dass sie arm bleiben!
+                        </div>
+                    </div>
+                    
+                    <div class="reason-card economic">
+                        <div class="reason-icon">🏦</div>
+                        <div class="reason-title">4. Schuldenknechtschaft</div>
+                        <div class="reason-description">
+                            Arme Länder haben Schulden bei IWF/Weltbank.<br><br>
+                            
+                            <strong>Der Kreislauf:</strong><br>
+                            1. Nehmen Kredit<br>
+                            2. Zahlen Zinsen (an westliche Banken)<br>
+                            3. Bleiben arm<br>
+                            4. Brauchen neuen Kredit<br>
+                            5. Repeat forever
+                        </div>
+                        <div class="reason-example">
+                            💡 Beispiel Haiti:<br>
+                            Mussten Frankreich für ihre EIGENE Freiheit bezahlen!<br>
+                            Schulden bis 1947 abbezahlt.<br>
+                            → Jetzt ärmstes Land der westl. Hemisphäre
+                        </div>
+                    </div>
+                    
+                    <div class="reason-card political">
+                        <div class="reason-icon">👑</div>
+                        <div class="reason-title">5. "Teile und herrsche"</div>
+                        <div class="reason-description">
+                            Menschen die ums Überleben kämpfen:<br>
+                            • Keine Zeit für Revolution<br>
+                            • Keine Energie für Politik<br>
+                            • Akzeptieren jede Arbeit<br><br>
+                            
+                            <strong>Arme Menschen = kontrollierbare Menschen</strong>
+                        </div>
+                        <div class="reason-example">
+                            🔥 Macht-Logik:<br>
+                            Wenn alle gebildet, satt und gesund sind,<br>
+                            hinterfragen sie das System.<br>
+                            → Elite will das NICHT.
+                        </div>
+                    </div>
+                    
+                    <div class="reason-card political">
+                        <div class="reason-icon">🔫</div>
+                        <div class="reason-title">6. Waffenverkäufe</div>
+                        <div class="reason-description">
+                            Konflikte = Profit für Rüstungsindustrie<br><br>
+                            
+                            USA, Russland, China, Deutschland, Frankreich...<br>
+                            → Verkaufen Waffen an BEIDE Seiten<br><br>
+                            
+                            <strong>Frieden = schlecht fürs Geschäft</strong>
+                        </div>
+                        <div class="reason-example">
+                            💰 Zahlen:<br>
+                            Globale Militärausgaben: $2.200 Mrd./Jahr<br>
+                            Davon profitieren: Rüstungskonzerne<br>
+                            Frieden würde diese Industrie zerstören.
+                        </div>
+                    </div>
+                    
+                    <div class="reason-card evolutionary">
+                        <div class="reason-icon">🧬</div>
+                        <div class="reason-title">7. "In-Group vs. Out-Group"</div>
+                        <div class="reason-description">
+                            Evolution programmierte uns:<br>
+                            <strong>"Meine Familie/Stamm > Andere"</strong><br><br>
+                            
+                            Heute:<br>
+                            • "Meine Nation > andere Nationen"<br>
+                            • "Meine Rasse > andere Rassen"<br>
+                            • "Meine Religion > andere Religionen"<br><br>
+                            
+                            Empathie endet an Gruppengrenzen.
+                        </div>
+                        <div class="reason-example">
+                            🧠 Psychologie:<br>
+                            Wir fühlen mehr für "unsere Leute".<br>
+                            Andere = abstrakt, nicht real.<br>
+                            Das war mal Überlebensvorteil – jetzt Hindernis.
+                        </div>
+                    </div>
+                    
+                    <div class="reason-card spiritual">
+                        <div class="reason-icon">👤</div>
+                        <div class="reason-title">8. Das Ego (Trennung)</div>
+                        <div class="reason-description">
+                            <strong>Ego sagt:</strong> "ICH bin getrennt von DIR"<br>
+                            → "Dein Leiden ist nicht mein Problem"<br><br>
+                            
+                            <strong>Erwachtes Bewusstsein:</strong> "Wir sind EINS"<br>
+                            → "Dein Leiden IST mein Leiden"<br><br>
+                            
+                            Solange Ego dominiert → keine echte Lösung.
+                        </div>
+                        <div class="reason-example">
+                            ✨ Peaceful Revolution:<br>
+                            Wenn genug Menschen ERKENNEN dass wir eins sind,<br>
+                            wird ihr Leid automatisch unser Problem.<br>
+                            → Dann ändert sich alles.
+                        </div>
+                    </div>
+                    
+                    <div class="reason-card media">
+                        <div class="reason-icon">📺</div>
+                        <div class="reason-title">9. Armut wird "normalisiert"</div>
+                        <div class="reason-description">
+                            <strong>Nachrichten:</strong> "Wieder Hungersnot in Afrika"<br>
+                            <strong>Reaktion:</strong> "Schon wieder? Das ist halt so dort."<br><br>
+                            
+                            → Gewöhnung statt Empörung<br><br>
+                            
+                            <strong>"Die sind selbst schuld"-Narrativ:</strong><br>
+                            "Korrupte Regierungen"<br>
+                            "Faule Menschen"<br>
+                            → Verschleiert koloniale Wurzeln
+                        </div>
+                        <div class="reason-example">
+                            📰 Medien-Trick:<br>
+                            Problem wird als "normal" dargestellt.<br>
+                            Wir gewöhnen uns dran.<br>
+                            → Dringlichkeit verschwindet.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Weitere systemische Gründe</h2>
+                
+                <div class="reason-grid">
+                    <div class="reason-card political">
+                        <div class="reason-icon">🗳️</div>
+                        <div class="reason-title">Kurzfristige Politik</div>
+                        <div class="reason-description">
+                            Demokratie = 4-Jahres-Zyklen<br><br>
+                            "Weltarmut beenden" → bringt keine Stimmen<br>
+                            "Steuern senken" → bringt Stimmen<br><br>
+                            Langfristige Lösungen werden nicht umgesetzt.
+                        </div>
+                    </div>
+                    
+                    <div class="reason-card economic">
+                        <div class="reason-icon">💼</div>
+                        <div class="reason-title">Lobbying</div>
+                        <div class="reason-description">
+                            Konzerne zahlen Milliarden an Politiker:<br><br>
+                            "Bitte keine Mindestlöhne in Bangladesh"<br>
+                            "Bitte keine Ressourcen-Steuern in Kongo"<br><br>
+                            → Politik dient Konzernen, nicht Menschen
+                        </div>
+                    </div>
+                    
+                    <div class="reason-card psychological">
+                        <div class="reason-icon">😱</div>
+                        <div class="reason-title">Angst vor Veränderung</div>
+                        <div class="reason-description">
+                            <strong>Westler denken:</strong><br>
+                            "Wenn DIE reich werden, werden WIR ärmer"<br><br>
+                            
+                            <strong>Wahrheit:</strong><br>
+                            Problem sind Ultra-Reiche, nicht Arme.<br>
+                            Es gibt GENUG für alle!<br><br>
+                            
+                            Aber Angst ist irrational.
+                        </div>
+                    </div>
+                    
+                    <div class="reason-card political">
+                        <div class="reason-icon">⚙️</div>
+                        <div class="reason-title">Systemische Trägheit</div>
+                        <div class="reason-description">
+                            "Es war schon immer so"<br><br>
+                            Kolonialismus → Neokolonialismus → Globalisierung<br><br>
+                            Menschen in Macht profitieren vom Status Quo.<br>
+                            <strong>"Warum ändern was für UNS funktioniert?"</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- TAB 2: Die Schichten -->
+        <div id="layers" class="tab-content">
+            <div class="card">
+                <h2>🧅 Die 3 Schichten der Wahrheit</h2>
+                <p style="text-align: center; font-size: 1.2em; color: #b0b0b0; margin-bottom: 40px;">
+                    Je tiefer du gehst, desto unbequemer wird es
+                </p>
+                
+                <div class="layers-container">
+                    <div class="layer surface">
+                        <div class="layer-number">1</div>
+                        <div class="layer-title">🌱 Oberflächliche Ebene: "Wir wissen es nicht besser"</div>
+                        <div style="color: #d0d0d0; line-height: 1.8; margin-top: 15px;">
+                            <strong>Was die meisten glauben:</strong><br>
+                            • "Armut ist kompliziert"<br>
+                            • "Wir tun ja schon was (Entwicklungshilfe)"<br>
+                            • "Die sind selbst schuld (korrupt/faul)"<br>
+                            • "Wir haben nicht genug Geld"<br><br>
+                            
+                            <strong style="color: #81c784;">→ Unwissenheit & Propaganda</strong>
+                        </div>
+                    </div>
+                    
+                    <div class="layer middle">
+                        <div class="layer-number">2</div>
+                        <div class="layer-title">⚠️ Mittlere Ebene: "Wir profitieren davon"</div>
+                        <div style="color: #d0d0d0; line-height: 1.8; margin-top: 15px;">
+                            <strong>Was manche ahnen:</strong><br>
+                            • Unser Wohlstand basiert auf billiger Arbeit dort<br>
+                            • Unsere Smartphones brauchen Konflikt-Mineralien<br>
+                            • Unsere Kleidung nähen Kinder/Unterbezahlte<br>
+                            • Kolonialismus hat Spuren hinterlassen<br><br>
+                            
+                            <strong style="color: #ffb74d;">→ Unbequeme Wahrheit, aber noch akzeptabel</strong>
+                        </div>
+                    </div>
+                    
+                    <div class="layer deep">
+                        <div class="layer-number">3</div>
+                        <div class="layer-title">🔥 Tiefe Ebene: "Wir WOLLEN es so"</div>
+                        <div style="color: #d0d0d0; line-height: 1.8; margin-top: 15px;">
+                            <strong>Die härteste Wahrheit:</strong><br>
+                            • Das System ist DESIGNED um sie arm zu halten<br>
+                            • Elite will keine gebildeten, satten Menschen (schwer kontrollierbar)<br>
+                            • Westlicher Lebensstandard ERFORDERT ihre Armut<br>
+                            • Wir könnten morgen ändern – wir WOLLEN nicht<br><br>
+                            
+                            <strong style="color: #e57373; font-size: 1.2em;">
+                            → Nicht Versehen. Nicht Unwissenheit. ABSICHT.
+                            </strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>💬 Interaktiv: Stelle die schweren Fragen</h2>
+                
+                <div class="reveal-section">
+                    <div class="reveal-question" onclick="toggleReveal(1)">
+                        ❓ Frage 1: "Ist es wirklich Absicht oder nur ein Nebeneffekt?"
+                    </div>
+                    <div class="reveal-answer" id="reveal1">
+                        <strong>Die unbequeme Antwort:</strong><br><br>
+                        
+                        Für die MEISTEN Menschen: Nebeneffekt (Unwissenheit)<br>
+                        Für KONZERNE & ELITEN: Absicht (Profit-Maximierung)<br><br>
+                        
+                        <strong>Beispiel:</strong><br>
+                        Apple WEISS dass Coltan aus Konflikt-Zonen kommt.<br>
+                        Apple KÖNNTE faire Preise zahlen → Kongo stabilisiert sich.<br>
+                        Apple TUT ES NICHT → weil teurer.<br><br>
+                        
+                        <em style="color: #ffc107;">
+                        → Wenn du weißt und nicht änderst, ist es Absicht.
+                        </em>
+                    </div>
+                </div>
+                
+                <div class="reveal-section">
+                    <div class="reveal-question" onclick="toggleReveal(2)">
+                        ❓ Frage 2: "Bin ich schuld?"
+                    </div>
+                    <div class="reveal-answer" id="reveal2">
+                        <strong>Die differenzierte Antwort:</strong><br><br>
+                        
+                        <strong style="color: #4caf50;">NEIN</strong> – Du hast das System nicht erschaffen.<br>
+                        <strong style="color: #ffc107;">ABER</strong> – Du profitierst davon (wenn du im Westen lebst).<br>
+                        <strong style="color: #ff5722;">UND</strong> – Jetzt wo du es weißt, hast du Verantwortung.<br><br>
+                        
+                        <strong>Nicht Schuld – aber Verantwortung.</strong><br><br>
+                        
+                        <em style="color: #4caf50;">
+                        Du kannst nicht ändern dass du privilegiert geboren wurdest.<br>
+                        Du KANNST ändern was du damit machst.
+                        </em>
+                    </div>
+                </div>
+                
+                <div class="reveal-section">
+                    <div class="reveal-question" onclick="toggleReveal(3)">
+                        ❓ Frage 3: "Was passiert wenn wir es wirklich ändern?"
+                    </div>
+                    <div class="reveal-answer" id="reveal3">
+                        <strong>Die realistische Antwort:</strong><br><br>
+                        
+                        <strong>Kurzfristig (5-10 Jahre):</strong><br>
+                        • Dein T-Shirt kostet $40 statt $10<br>
+                        • Dein Smartphone kostet $1.500 statt $1.000<br>
+                        • Aber: Millionen entkommen Armut<br><br>
+                        
+                        <strong>Langfristig (20-50 Jahre):</strong><br>
+                        • Neue Märkte entstehen (sattes Afrika kauft Autos, Elektronik...)<br>
+                        • Innovation steigt (mehr gebildete Menschen = mehr Erfindungen)<br>
+                        • Konflikte enden → Ressourcen frei für Entwicklung<br>
+                        • Klimakrise adressierbar (arme Länder können mitziehen)<br><br>
+                        
+                        <em style="color: #4caf50; font-size: 1.2em;">
+                        → Alle gewinnen. Außer die 0,1% Ultra-Reichen.
+                        </em>
+                    </div>
+                </div>
+                
+                <div class="reveal-section">
+                    <div class="reveal-question" onclick="toggleReveal(4)">
+                        ❓ Frage 4: "Warum sollten Reiche zustimmen?"
+                    </div>
+                    <div class="reveal-answer" id="reveal4">
+                        <strong>Die strategische Antwort:</strong><br><br>
+                        
+                        <strong style="color: #ff5722;">Sie werden nicht freiwillig zustimmen.</strong><br><br>
+                        
+                        Veränderung kommt durch:<br>
+                        1. <strong>Kritische Masse:</strong> 10-15% erwachen → System kippt<br>
+                        2. <strong>Politischer Druck:</strong> Genug Menschen fordern Wandel<br>
+                        3. <strong>Wirtschaftlicher Zwang:</strong> Boykotte, ethischer Konsum<br>
+                        4. <strong>Technologische Disruption:</strong> Dezentralisierung (Blockchain, KI...)<br><br>
+                        
+                        <em style="color: #ffc107;">
+                        Elite hat noch nie freiwillig Macht abgegeben.<br>
+                        Aber wenn genug Menschen aufwachen, haben sie keine Wahl.
+                        </em>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- TAB 3: Die Wahrheit -->
+        <div id="truth" class="tab-content">
+            <div class="card">
+                <div class="truth-box">
+                    <h3>🔥 DIE EINE WAHRE ANTWORT 🔥</h3>
+                    <div class="truth-text">
+                        Alle 9+ Gründe zusammengefasst:<br><br>
+                        
+                        <strong style="font-size: 1.4em; color: #ff5722;">
+                        "Weil die Menschen in Machtpositionen vom System profitieren,<br>
+                        und die Mehrheit entweder nicht weiß, nicht glaubt, nicht fühlt,<br>
+                        oder sich zu hilflos/überfordert fühlt um etwas zu ändern."
+                        </strong>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Die harte Mathematik der Gleichgültigkeit</h2>
+                
+                <div class="stat-grid">
+                    <div class="stat-box">
+                        <div class="stat-number">0,08%</div>
+                        <div class="stat-label">Des Weltvermögens würde reichen<br>um alle Probleme zu lösen</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">99,92%</div>
+                        <div class="stat-label">Behalten wir stattdessen<br>während Millionen sterben</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">25.000</div>
+                        <div class="stat-label">Menschen sterben TÄGLICH<br>an Hunger (vermeidbar!)</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">$2.200 Mrd.</div>
+                        <div class="stat-label">Geben wir fürs Militär aus<br>(genug für 6 Jahre Lösung!)</div>
+                    </div>
+                </div>
+                
+                <div style="background: rgba(255,87,34,0.15); padding: 40px; border-radius: 20px; margin-top: 40px; border: 2px solid #ff5722;">
+                    <h3 style="color: #ff5722; text-align: center; margin-bottom: 25px; font-size: 2em;">
+                        Die erschreckende Wahrheit
+                    </h3>
+                    <p style="font-size: 1.3em; color: #d0d0d0; line-height: 1.9; text-align: center;">
+                        Wir HABEN die Technologie.<br>
+                        Wir HABEN das Geld.<br>
+                        Wir HABEN die Lösungen.<br><br>
+                        
+                        Was uns fehlt ist nicht Ressourcen.<br>
+                        <strong style="color: #ff5722; font-size: 1.3em;">
+                        Was uns fehlt ist der kollektive WILLE.
+                        </strong><br><br>
+                        
+                        Und der Wille fehlt, weil:<br>
+                        • Die Reichen profitieren vom Status Quo<br>
+                        • Die Armen haben keine Stimme<br>
+                        • Die Mitte ist abgelenkt/überfordert/gleichgültig<br><br>
+                        
+                        <em style="color: #ffc107;">
+                        Das ist keine Naturkatastrophe.<br>
+                        Das ist eine kollektive ENTSCHEIDUNG.
+                        </em>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- TAB 4: Die Hoffnung -->
+        <div id="hope" class="tab-content">
+            <div class="card">
+                <div class="hope-section">
+                    <div class="hope-title">🌟 ABER – Es ändert sich JETZT! 🌟</div>
+                    <p style="text-align: center; font-size: 1.4em; color: #d0d0d0; margin-bottom: 40px;">
+                        Warum gerade JETZT Grund zur Hoffnung besteht
+                    </p>
+                    
+                    <div class="hope-grid">
+                        <div class="hope-item">
+                            <div class="hope-icon">📱</div>
+                            <div class="hope-text">
+                                <strong>Information ist nicht mehr kontrollierbar</strong><br><br>
+                                Internet, soziale Medien, Whistleblower<br>
+                                Die Wahrheit kommt raus (Panama Papers!)
+                            </div>
+                        </div>
+                        
+                        <div class="hope-item">
+                            <div class="hope-icon">👶</div>
+                            <div class="hope-text">
+                                <strong>Junge Generation wacht auf</strong><br><br>
+                                Gen Z fragt: "Warum akzeptieren wir das?"<br>
+                                Klimabewegung, BLM = Zeichen des Wandels
+                            </div>
+                        </div>
+                        
+                        <div class="hope-item">
+                            <div class="hope-icon">📊</div>
+                            <div class="hope-text">
+                                <strong>Kritische Masse nähert sich</strong><br><br>
+                                5-10% sind "aufgewacht"<br>
+                                Bei 10-15% kippt das System (100. Affe!)
+                            </div>
+                        </div>
+                        
+                        <div class="hope-item">
+                            <div class="hope-icon">💔</div>
+                            <div class="hope-text">
+                                <strong>Leidensdruck steigt</strong><br><br>
+                                Klimakrise macht Ungerechtigkeit sichtbar<br>
+                                Pandemie zeigte: Wir SIND verbunden
+                            </div>
+                        </div>
+                        
+                        <div class="hope-item">
+                            <div class="hope-icon">🌍</div>
+                            <div class="hope-text">
+                                <strong>Globales Bewusstsein erwacht</strong><br><br>
+                                Menschen erkennen: Leid dort = Leid hier<br>
+                                Empathie überwindet Grenzen
+                            </div>
+                        </div>
+                        
+                        <div class="hope-item">
+                            <div class="hope-icon">🤖</div>
+                            <div class="hope-text">
+                                <strong>Technologie als Hebel</strong><br><br>
+                                KI kann Lösungen beschleunigen<br>
+                                Erneuerbare Energie wird billig<br>
+                                Dezentralisierung ermächtigt Menschen
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Die Welle beginnt</h2>
+                
+                <div style="background: rgba(76,175,80,0.15); padding: 40px; border-radius: 20px; margin: 30px 0; border: 2px solid #4caf50;">
+                    <p style="font-size: 1.3em; color: #d0d0d0; line-height: 1.9;">
+                        <strong style="color: #4caf50; font-size: 1.4em;">
+                        Wir leben im kritischen Moment der Geschichte.
+                        </strong><br><br>
+                        
+                        Zum ersten Mal JEMALS:<br>
+                        • Haben wir genug Ressourcen für ALLE<br>
+                        • Sind wir global vernetzt<br>
+                        • Können Informationen nicht mehr unterdrückt werden<br>
+                        • Erkennen Menschen weltweit die Wahrheit<br><br>
+                        
+                        <strong>Die Frage ist nicht mehr OB es sich ändert.</strong><br>
+                        <strong style="color: #4caf50;">Die Frage ist WANN – und WIE SCHNELL.</strong><br><br>
+                        
+                        <em style="color: #ffc107; font-size: 1.2em;">
+                        Jeder Mensch der ERKENNT beschleunigt den Wandel exponentiell.
+                        </em>
+                    </p>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="cta-section">
+                    <div class="cta-title">💫 Du bist Teil der Lösung 💫</div>
+                    <div class="cta-text">
+                        Du musst nicht die Welt retten.<br>
+                        Du musst nur <strong>ERKENNEN</strong>.<br><br>
+                        
+                        Erkenne, dass:<br>
+                        • Wir EINS sind (ihr Leid = unser Leid)<br>
+                        • Wir GENUG haben (für alle!)<br>
+                        • Das System ÄNDERBAR ist (nicht gottgegeben)<br>
+                        • DEINE Stimme zählt (kritische Masse!)<br><br>
+                        
+                        <strong style="font-size: 1.4em; color: #ffc107;">
+                        Wenn du erkennst, handelst du automatisch anders.<br>
+                        Du konsumierst bewusster.<br>
+                        Du wählst gerechter.<br>
+                        Du liebst umfassender.
+                        </strong><br><br>
+                        
+                        <em style="font-size: 1.2em;">
+                        Das ist Peaceful Revolution:<br>
+                        Nicht gegen das System kämpfen,<br>
+                        sondern aus der Illusion der Trennung erwachen.
+                        </em>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Quellen -->
+        <div class="card" style="margin-top: 60px; background: rgba(0,0,0,0.4);">
+            <h2 style="color: #ffc107; margin-bottom: 30px; text-align: center;">📚 Quellen & Forschung</h2>
+            
+            <div style="color: #d0d0d0; line-height: 2;">
+                <h3 style="color: #ff9800; margin: 25px 0 15px;">Psychologie & Kognitive Wissenschaft:</h3>
+                <p style="margin-left: 20px;">
+                    • Paul Slovic - "The Psychophysics of Catastrophe" (Desensibilisierung gegenüber Leid)<br>
+                    • Leon Festinger - "Cognitive Dissonance Theory"<br>
+                    • Martin Seligman - "Learned Helplessness" Studies<br>
+                    • Henri Tajfel - "Social Identity Theory" (In-Group vs. Out-Group)
+                </p>
+                
+                <h3 style="color: #ff9800; margin: 25px 0 15px;">Wirtschaft & Systemkritik:</h3>
+                <p style="margin-left: 20px;">
+                    • Naomi Klein - "The Shock Doctrine"<br>
+                    • Thomas Piketty - "Capital in the Twenty-First Century"<br>
+                    • Ha-Joon Chang - "23 Things They Don't Tell You About Capitalism"<br>
+                    • Jason Hickel - "The Divide: Global Inequality from Conquest to Free Markets"
+                </p>
+                
+                <h3 style="color: #ff9800; margin: 25px 0 15px;">Kritische Masse & Sozialer Wandel:</h3>
+                <p style="margin-left: 20px;">
+                    • Damon Centola et al. (2018) - "Experimental evidence for tipping points in social convention" <em>Science</em><br>
+                    • Mark Granovetter (1978) - "Threshold Models of Collective Behavior"<br>
+                    • Erica Chenoweth - "Why Civil Resistance Works" (3,5% Rule)
+                </p>
+                
+                <h3 style="color: #ff9800; margin: 25px 0 15px;">Medien & Propaganda:</h3>
+                <p style="margin-left: 20px;">
+                    • Edward Herman & Noam Chomsky - "Manufacturing Consent"<br>
+                    • Robert Cialdini - "Influence: The Psychology of Persuasion"
+                </p>
+                
+                <h3 style="color: #ff9800; margin: 25px 0 15px;">Globale Daten:</h3>
+                <p style="margin-left: 20px;">
+                    • UN World Food Programme - Hunger Statistics<br>
+                    • World Bank - Poverty Data<br>
+                    • SIPRI - Global Military Expenditure Database<br>
+                    • Tax Justice Network - Offshore Finance Reports
+                </p>
+            </div>
+        </div>
+        
+        <div style="text-align: center; padding: 60px 20px; color: #666;">
+            <p style="font-size: 1.2em; margin-bottom: 20px;">
+                ✌️ <strong>peacefulrevolution.love</strong> ✌️
+            </p>
+            <p style="font-style: italic; font-size: 1.1em;">
+                "Die Welt wird nicht bedroht von Menschen die böse sind,<br>
+                sondern von denen die das Böse zulassen." — Albert Einstein
+            </p>
+        </div>
+    </div>
+    
+    <script>
+        function switchTab(tabName) {
+            const tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        function toggleReveal(id) {
+            const answer = document.getElementById('reveal' + id);
+            answer.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

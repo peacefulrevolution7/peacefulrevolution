@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Globale Vermögensverteilung - Die unsichtbaren Billionen</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            color: #fff;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            background: rgba(0,0,0,0.3);
+            margin-bottom: 40px;
+            border-radius: 10px;
+        }
+        
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #f093fb, #f5576c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .subtitle {
+            font-size: 1.3em;
+            color: #a0a0a0;
+            margin-bottom: 30px;
+        }
+        
+        .nav-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .tab-btn {
+            padding: 15px 30px;
+            background: rgba(255,255,255,0.1);
+            border: 2px solid rgba(255,255,255,0.2);
+            color: white;
+            cursor: pointer;
+            border-radius: 25px;
+            font-size: 1.1em;
+            transition: all 0.3s;
+        }
+        
+        .tab-btn:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+        
+        .tab-btn.active {
+            background: linear-gradient(45deg, #f093fb, #f5576c);
+            border-color: transparent;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .card h2 {
+            color: #f093fb;
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+        
+        .card h3 {
+            color: #f5576c;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+        
+        .wealth-bar {
+            height: 50px;
+            background: linear-gradient(90deg, #11998e, #38ef7d);
+            margin: 10px 0;
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .wealth-bar.ultra-rich {
+            background: linear-gradient(90deg, #f093fb, #f5576c);
+        }
+        
+        .wealth-bar.rich {
+            background: linear-gradient(90deg, #ffd89b, #19547b);
+        }
+        
+        .wealth-bar.middle {
+            background: linear-gradient(90deg, #667eea, #764ba2);
+        }
+        
+        .wealth-bar.poor {
+            background: linear-gradient(90deg, #434343, #000000);
+        }
+        
+        .wealth-label {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-weight: bold;
+            font-size: 1.1em;
+            z-index: 10;
+        }
+        
+        .wealth-amount {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        
+        .billionaire-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .billionaire-card {
+            background: rgba(255,255,255,0.08);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #f093fb;
+        }
+        
+        .billionaire-name {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #f5576c;
+            margin-bottom: 5px;
+        }
+        
+        .billionaire-worth {
+            font-size: 1.5em;
+            color: #f093fb;
+            margin-bottom: 5px;
+        }
+        
+        .billionaire-source {
+            color: #a0a0a0;
+            font-size: 0.9em;
+        }
+        
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .comparison-item {
+            background: rgba(255,255,255,0.08);
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .comparison-item:hover {
+            transform: scale(1.05);
+        }
+        
+        .comparison-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            background: linear-gradient(45deg, #f093fb, #f5576c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+        
+        .comparison-label {
+            color: #a0a0a0;
+            font-size: 1.1em;
+        }
+        
+        .offshore-map {
+            background: rgba(0,0,0,0.3);
+            padding: 30px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .offshore-location {
+            padding: 15px;
+            margin: 10px 0;
+            background: rgba(255,255,255,0.05);
+            border-left: 4px solid #f5576c;
+            border-radius: 5px;
+        }
+        
+        .offshore-name {
+            font-weight: bold;
+            font-size: 1.2em;
+            color: #f093fb;
+        }
+        
+        .offshore-amount {
+            font-size: 1.4em;
+            color: #f5576c;
+            margin: 5px 0;
+        }
+        
+        .pie-chart {
+            width: 100%;
+            max-width: 500px;
+            margin: 30px auto;
+        }
+        
+        .stat-highlight {
+            background: rgba(245, 87, 108, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #f5576c;
+        }
+        
+        .stat-number {
+            font-size: 3em;
+            font-weight: bold;
+            color: #f093fb;
+        }
+        
+        .interactive-slider {
+            width: 100%;
+            margin: 30px 0;
+        }
+        
+        input[type="range"] {
+            width: 100%;
+            height: 8px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 5px;
+            outline: none;
+        }
+        
+        input[type="range"]::-webkit-slider-thumb {
+            width: 25px;
+            height: 25px;
+            background: linear-gradient(45deg, #f093fb, #f5576c);
+            cursor: pointer;
+            border-radius: 50%;
+        }
+        
+        .tooltip {
+            background: rgba(0,0,0,0.9);
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-size: 0.9em;
+            margin-top: 10px;
+            border-left: 3px solid #f093fb;
+        }
+        
+        .reality-check {
+            background: rgba(255, 200, 0, 0.15);
+            border: 2px solid rgba(255, 200, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .reality-check h3 {
+            color: #ffd700;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+            
+            .nav-tabs {
+                flex-direction: column;
+            }
+            
+            .tab-btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Die unsichtbaren Billionen</h1>
+            <p class="subtitle">Eine Reise durch die globale Vermögensverteilung</p>
+            <p style="color: #666; font-size: 0.9em; margin-top: 10px;">
+                💡 Hinweis: Alle Zahlen sind nur digitale Einträge in Datenbanken
+            </p>
+        </header>
+        
+        <div class="nav-tabs">
+            <button class="tab-btn active" onclick="switchTab('wealth')">💰 Wer hat wie viel?</button>
+            <button class="tab-btn" onclick="switchTab('location')">🗺️ Wo liegt das Geld?</button>
+            <button class="tab-btn" onclick="switchTab('comparison')">📏 Größenvergleiche</button>
+            <button class="tab-btn" onclick="switchTab('digital')">💻 Die digitale Illusion</button>
+        </div>
+        
+        <!-- TAB 1: Vermögensverteilung -->
+        <div id="wealth" class="tab-content active">
+            <div class="card">
+                <h2>Die reichsten Menschen der Welt</h2>
+                <p style="color: #a0a0a0; margin-bottom: 20px;">Stand: 2024-2026 (Schätzungen)</p>
+                
+                <div class="billionaire-list">
+                    <div class="billionaire-card">
+                        <div class="billionaire-name">1. Elon Musk</div>
+                        <div class="billionaire-worth">~$400 Mrd.</div>
+                        <div class="billionaire-source">Tesla, SpaceX, X/Twitter</div>
+                    </div>
+                    <div class="billionaire-card">
+                        <div class="billionaire-name">2. Bernard Arnault</div>
+                        <div class="billionaire-worth">~$230 Mrd.</div>
+                        <div class="billionaire-source">LVMH (Louis Vuitton, Dior...)</div>
+                    </div>
+                    <div class="billionaire-card">
+                        <div class="billionaire-name">3. Jeff Bezos</div>
+                        <div class="billionaire-worth">~$220 Mrd.</div>
+                        <div class="billionaire-source">Amazon</div>
+                    </div>
+                    <div class="billionaire-card">
+                        <div class="billionaire-name">4. Mark Zuckerberg</div>
+                        <div class="billionaire-worth">~$200 Mrd.</div>
+                        <div class="billionaire-source">Meta (Facebook, Instagram)</div>
+                    </div>
+                    <div class="billionaire-card">
+                        <div class="billionaire-name">5. Larry Ellison</div>
+                        <div class="billionaire-worth">~$195 Mrd.</div>
+                        <div class="billionaire-source">Oracle</div>
+                    </div>
+                    <div class="billionaire-card">
+                        <div class="billionaire-name">6. Warren Buffett</div>
+                        <div class="billionaire-worth">~$150 Mrd.</div>
+                        <div class="billionaire-source">Berkshire Hathaway</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Globale Vermögensverteilung</h2>
+                <p style="color: #a0a0a0; margin-bottom: 20px;">Gesamtvermögen der Welt: ~$450 Billionen</p>
+                
+                <div style="margin: 30px 0;">
+                    <div class="wealth-bar ultra-rich" style="width: 45%;">
+                        <span class="wealth-label">Reichste 1%</span>
+                        <span class="wealth-amount">~$203 Billionen (45%)</span>
+                    </div>
+                    
+                    <div class="wealth-bar rich" style="width: 40%;">
+                        <span class="wealth-label">Obere 10%</span>
+                        <span class="wealth-amount">~$360 Billionen (80% gesamt)</span>
+                    </div>
+                    
+                    <div class="wealth-bar middle" style="width: 15%;">
+                        <span class="wealth-label">Mittlere 40%</span>
+                        <span class="wealth-amount">~$68 Billionen (15%)</span>
+                    </div>
+                    
+                    <div class="wealth-bar poor" style="width: 5%;">
+                        <span class="wealth-label">Ärmste 50%</span>
+                        <span class="wealth-amount">~$23 Billionen (5%)</span>
+                    </div>
+                </div>
+                
+                <div class="stat-highlight">
+                    <div class="stat-number">3,5 Milliarden</div>
+                    <p>Menschen (die ärmere Hälfte der Menschheit) besitzen zusammen weniger als die reichsten 8 Personen.</p>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Die unsichtbaren Reichen</h2>
+                <p style="color: #a0a0a0; margin-bottom: 20px;">Diese erscheinen NICHT auf Forbes-Listen</p>
+                
+                <h3>👑 Königshäuser & Diktatoren</h3>
+                <div class="offshore-location">
+                    <div class="offshore-name">Saudi-Königsfamilie</div>
+                    <div class="offshore-amount">~$1,4 Billionen (geschätzt)</div>
+                    <p style="color: #a0a0a0;">Über hunderte Familienmitglieder verteilt</p>
+                </div>
+                
+                <div class="offshore-location">
+                    <div class="offshore-name">Vladimir Putin</div>
+                    <div class="offshore-amount">$70-200 Mrd. (geschätzt)</div>
+                    <p style="color: #a0a0a0;">Versteckt durch Strohmänner (Oligarchen)</p>
+                </div>
+                
+                <div class="offshore-location">
+                    <div class="offshore-name">Thai-König Maha Vajiralongkorn</div>
+                    <div class="offshore-amount">~$40 Mrd.</div>
+                    <p style="color: #a0a0a0;">Reichstes Staatsoberhaupt</p>
+                </div>
+                
+                <h3>🏰 Alte Geld-Dynastien</h3>
+                <div class="offshore-location">
+                    <div class="offshore-name">Walton-Familie (Walmart)</div>
+                    <div class="offshore-amount">~$250 Mrd. gesamt</div>
+                    <p style="color: #a0a0a0;">Verteilt auf Erben, jeder einzeln nicht in Top 10</p>
+                </div>
+                
+                <div class="offshore-location">
+                    <div class="offshore-name">Rothschild-Familie</div>
+                    <div class="offshore-amount">Unbekannt (Schätzungen variieren stark)</div>
+                    <p style="color: #a0a0a0;">Über 200 Jahre, hunderte Nachkommen, komplexe Trusts</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- TAB 2: Wo liegt das Geld -->
+        <div id="location" class="tab-content">
+            <div class="card">
+                <h2>Wo sind die Billionen versteckt?</h2>
+                
+                <div class="comparison-grid">
+                    <div class="comparison-item">
+                        <div class="comparison-number">$140B</div>
+                        <div class="comparison-label">Aktien & Börse<br>(größter Anteil)</div>
+                    </div>
+                    <div class="comparison-item">
+                        <div class="comparison-number">$32B</div>
+                        <div class="comparison-label">Offshore-Steueroasen<br>(Panama Papers)</div>
+                    </div>
+                    <div class="comparison-item">
+                        <div class="comparison-number">$280B</div>
+                        <div class="comparison-label">Immobilien<br>(weltweit)</div>
+                    </div>
+                    <div class="comparison-item">
+                        <div class="comparison-number">$8B</div>
+                        <div class="comparison-label">Physisches Bargeld<br>(nur 8%!)</div>
+                    </div>
+                    <div class="comparison-item">
+                        <div class="comparison-number">$20B</div>
+                        <div class="comparison-label">Investment Fonds<br>(BlackRock, Vanguard...)</div>
+                    </div>
+                    <div class="comparison-item">
+                        <div class="comparison-number">$2B</div>
+                        <div class="comparison-label">Kunst & Luxusgüter<br>(schwer zu bewerten)</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>🏝️ Die größten Offshore-Steueroasen</h2>
+                <p style="color: #a0a0a0; margin-bottom: 20px;">Hier verschwinden Billionen aus dem Steuersystem</p>
+                
+                <div class="offshore-map">
+                    <div class="offshore-location">
+                        <div class="offshore-name">🇰🇾 Cayman Islands</div>
+                        <div class="offshore-amount">~$4 Billionen</div>
+                        <p style="color: #a0a0a0;">100.000 registrierte Firmen bei 65.000 Einwohnern</p>
+                    </div>
+                    
+                    <div class="offshore-location">
+                        <div class="offshore-name">🇨🇭 Schweiz</div>
+                        <div class="offshore-amount">~$2,7 Billionen</div>
+                        <p style="color: #a0a0a0;">Traditionelles Bankgeheimnis (gelockert seit 2018)</p>
+                    </div>
+                    
+                    <div class="offshore-location">
+                        <div class="offshore-name">🇱🇺 Luxemburg</div>
+                        <div class="offshore-amount">~$4,5 Billionen</div>
+                        <p style="color: #a0a0a0;">Größter Investmentfonds-Standort Europas</p>
+                    </div>
+                    
+                    <div class="offshore-location">
+                        <div class="offshore-name">🇧🇲 Bermuda</div>
+                        <div class="offshore-amount">~$2 Billionen</div>
+                        <p style="color: #a0a0a0;">0% Körperschaftssteuer</p>
+                    </div>
+                    
+                    <div class="offshore-location">
+                        <div class="offshore-name">🇵🇦 Panama</div>
+                        <div class="offshore-amount">Unbekannt</div>
+                        <p style="color: #a0a0a0;">Panama Papers (2016): 11,5 Mio. Dokumente geleakt</p>
+                    </div>
+                    
+                    <div class="offshore-location">
+                        <div class="offshore-name">🇬🇧 British Virgin Islands</div>
+                        <div class="offshore-amount">~$1,5 Billionen</div>
+                        <p style="color: #a0a0a0;">450.000 registrierte Firmen bei 30.000 Einwohnern</p>
+                    </div>
+                </div>
+                
+                <div class="reality-check">
+                    <h3>⚠️ Reality Check</h3>
+                    <p><strong>Diese $32 Billionen in Steueroasen bedeuten:</strong></p>
+                    <ul style="margin-left: 20px; margin-top: 10px;">
+                        <li>Jährlich ~$200 Mrd. entgangene Steuereinnahmen weltweit</li>
+                        <li>Genug um extreme Armut mehrfach zu beenden</li>
+                        <li>Mehr als das BIP von USA + China kombiniert</li>
+                        <li><strong>Existiert nur als Zahlen in Datenbanken</strong></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>💼 Die mächtigsten Investment-Firmen</h2>
+                <p style="color: #a0a0a0; margin-bottom: 20px;">Diese verwalten mehr Geld als die meisten Länder besitzen</p>
+                
+                <div class="offshore-location">
+                    <div class="offshore-name">BlackRock</div>
+                    <div class="offshore-amount">~$10 Billionen</div>
+                    <p style="color: #a0a0a0;">Größter Vermögensverwalter der Welt</p>
+                </div>
+                
+                <div class="offshore-location">
+                    <div class="offshore-name">Vanguard</div>
+                    <div class="offshore-amount">~$8 Billionen</div>
+                    <p style="color: #a0a0a0;">Zweitgrößter Vermögensverwalter</p>
+                </div>
+                
+                <div class="offshore-location">
+                    <div class="offshore-name">State Street</div>
+                    <div class="offshore-amount">~$4 Billionen</div>
+                    <p style="color: #a0a0a0;">Drittgrößter Vermögensverwalter</p>
+                </div>
+                
+                <div class="stat-highlight">
+                    <p><strong>Diese 3 Firmen zusammen verwalten:</strong></p>
+                    <div class="stat-number">$22 Billionen</div>
+                    <p>Das ist mehr als das BIP von USA ($25B) und sie besitzen Anteile an praktisch ALLEN großen Konzernen weltweit.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- TAB 3: Größenvergleiche -->
+        <div id="comparison" class="tab-content">
+            <div class="card">
+                <h2>🤯 Absurde Größenvergleiche</h2>
+                <p style="color: #a0a0a0; margin-bottom: 20px;">Um die Dimensionen wirklich zu verstehen...</p>
+                
+                <h3>⏱️ Zeit-Vergleiche</h3>
+                <div class="comparison-grid">
+                    <div class="comparison-item">
+                        <div class="comparison-number">11,5 Tage</div>
+                        <div class="comparison-label">1 Million Sekunden</div>
+                    </div>
+                    <div class="comparison-item">
+                        <div class="comparison-number">31,7 Jahre</div>
+                        <div class="comparison-label">1 Milliarde Sekunden</div>
+                    </div>
+                    <div class="comparison-item">
+                        <div class="comparison-number">31.700 Jahre</div>
+                        <div class="comparison-label">1 Billion Sekunden</div>
+                    </div>
+                    <div class="comparison-item" style="background: rgba(245, 87, 108, 0.2);">
+                        <div class="comparison-number">12.680 Jahre</div>
+                        <div class="comparison-label">Elon Musk's Vermögen<br>in Sekunden ($400 Mrd.)</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>🌍 Milliardäre vs. Länder-BIPs</h2>
+                <p style="color: #a0a0a0; margin-bottom: 20px;">Einzelpersonen reicher als ganze Nationen</p>
+                
+                <div style="margin: 30px 0;">
+                    <div class="offshore-location">
+                        <div class="offshore-name">Elon Musk ($400 Mrd.)</div>
+                        <p style="color: #a0a0a0;">= BIP von Norwegen ($580 Mrd.) oder Nigeria ($440 Mrd.)</p>
+                    </div>
+                    
+                    <div class="offshore-location">
+                        <div class="offshore-name">Jeff Bezos ($220 Mrd.)</div>
+                        <p style="color: #a0a0a0;">= BIP von Portugal ($280 Mrd.) oder Neuseeland ($250 Mrd.)</p>
+                    </div>
+                    
+                    <div class="offshore-location">
+                        <div class="offshore-name">Bill Gates ($140 Mrd.)</div>
+                        <p style="color: #a0a0a0;">= BIP von Ungarn ($180 Mrd.) oder Marokko ($140 Mrd.)</p>
+                    </div>
+                    
+                    <div class="offshore-location">
+                        <div class="offshore-name">Top 10 Milliardäre zusammen (~$2 Billionen)</div>
+                        <p style="color: #a0a0a0;">= BIP von Italien ($2,2B) oder Brasilien ($2,1B)</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>💸 Was könnte man damit kaufen?</h2>
+                
+                <h3>Mit Elon Musk's Vermögen ($400 Mrd.):</h3>
+                <div class="comparison-grid">
+                    <div class="comparison-item">
+                        <div class="comparison-number">40 Mio.</div>
+                        <div class="comparison-label">Durchschnittshäuser<br>(à $10.000)</div>
+                    </div>
+                    <div class="comparison-item">
+                        <div class="comparison-number">400x</div>
+                        <div class="comparison-label">Alle Obdachlosen in USA<br>ein Haus geben</div>
+                    </div>
+                    <div class="comparison-item">
+                        <div class="comparison-number">13 Jahre</div>
+                        <div class="comparison-label">Weltweiten Hunger beenden<br>($30 Mrd./Jahr laut UN)</div>
+                    </div>
+                    <div class="comparison-item">
+                        <div class="comparison-number">4 Mio.</div>
+                        <div class="comparison-label">Menschen 100 Jahre lang<br>je $1000/Monat zahlen</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>📊 Wenn die Welt 100 Menschen wäre...</h2>
+                
+                <div class="stat-highlight">
+                    <p><strong>1 Person</strong> hätte $45 Dollar</p>
+                    <p><strong>9 weitere Personen</strong> hätten zusammen $35 Dollar</p>
+                    <p><strong>40 Personen</strong> hätten zusammen $15 Dollar</p>
+                    <p><strong>50 Personen</strong> hätten zusammen $5 Dollar</p>
+                    <p style="margin-top: 20px; color: #f5576c;"><strong>Die reichste Person hätte mehr als die ärmsten 50 zusammen.</strong></p>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>🏃 Räumliche Vorstellung</h2>
+                <p style="color: #a0a0a0; margin-bottom: 20px;">Wenn man $100-Scheine stapelt...</p>
+                
+                <div class="comparison-grid">
+                    <div class="comparison-item">
+                        <div class="comparison-number">10 cm</div>
+                        <div class="comparison-label">$1 Million<br>gestapelt</div>
+                    </div>
+                    <div class="comparison-item">
+                        <div class="comparison-number">100 Meter</div>
+                        <div class="comparison-label">$1 Milliarde<br>gestapelt</div>
+                    </div>
+                    <div class="comparison-item">
+                        <div class="comparison-number">100 km</div>
+                        <div class="comparison-label">$1 Billion<br>gestapelt</div>
+                    </div>
+                    <div class="comparison-item" style="background: rgba(245, 87, 108, 0.2);">
+                        <div class="comparison-number">40 km</div>
+                        <div class="comparison-label">Elon Musk's Vermögen<br>gestapelt (Stratosphäre!)</div>
+                    </div>
+                </div>
+                
+                <div class="reality-check">
+                    <h3>💡 Perspektive</h3>
+                    <p>Wenn du <strong>$10.000 pro TAG</strong> verdienen würdest (ohne einen Cent auszugeben):</p>
+                    <ul style="margin-left: 20px; margin-top: 10px;">
+                        <li>Nach 274 Jahren: $1 Milliarde</li>
+                        <li>Nach 274.000 Jahren: $1 Billion</li>
+                        <li>Nach 109.589 Jahren: Elon Musk's aktuelles Vermögen</li>
+                    </ul>
+                    <p style="margin-top: 15px; color: #f5576c;"><strong>Das ist länger als Homo Sapiens existiert.</strong></p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- TAB 4: Die digitale Illusion -->
+        <div id="digital" class="tab-content">
+            <div class="card">
+                <h2>💻 Die Wahrheit: Es sind nur Zahlen</h2>
+                
+                <div class="stat-highlight">
+                    <div class="stat-number">92%</div>
+                    <p><strong>des gesamten Geldes existiert nur digital.</strong></p>
+                    <p style="margin-top: 10px;">Nur ~8% ist physisches Bargeld. Der Rest? Einträge in Datenbanken.</p>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Was bedeutet "Jeff Bezos hat $220 Milliarden"?</h2>
+                
+                <div class="reality-check">
+                    <h3>❌ NICHT das:</h3>
+                    <ul style="margin-left: 20px;">
+                        <li>Er hat $220 Mrd. auf dem Bankkonto</li>
+                        <li>Es gibt irgendwo Geldscheine mit seinem Namen</li>
+                        <li>Er könnte morgen alles zu Bargeld machen</li>
+                    </ul>
+                </div>
+                
+                <div style="background: rgba(76, 175, 80, 0.2); padding: 20px; border-radius: 10px; margin: 20px 0; border-left: 4px solid #4CAF50;">
+                    <h3 style="color: #4CAF50;">✅ SONDERN das:</h3>
+                    <ul style="margin-left: 20px;">
+                        <li>Er besitzt ~10% der Amazon-Aktien</li>
+                        <li>Diese Aktien sind im <strong>elektronischen Handelsregister</strong> eingetragen</li>
+                        <li>Der "Wert" entsteht durch: <em>andere Leute würden X dafür zahlen</em></li>
+                        <li>Wenn er alle auf einmal verkaufen würde → Kurs bricht ein → "Wert" sinkt</li>
+                        <li><strong>Existiert nur als digitaler Eintrag</strong></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>🏦 Wie Banken Geld aus dem Nichts erschaffen</h2>
+                
+                <div class="offshore-location">
+                    <div class="offshore-name" style="color: #fff;">Schritt 1: Du brauchst einen Kredit</div>
+                    <p style="color: #a0a0a0;">Du gehst zur Bank und bittest um 100.000€ für ein Haus.</p>
+                </div>
+                
+                <div class="offshore-location">
+                    <div class="offshore-name" style="color: #fff;">Schritt 2: Bank tippt Zahlen ein</div>
+                    <p style="color: #a0a0a0;">Die Bank schreibt in ihrem Computer: "Dein Konto: +100.000€"</p>
+                    <p style="color: #f5576c; margin-top: 10px;"><strong>→ BOOM! Geld existiert jetzt, das vorher NICHT da war!</strong></p>
+                </div>
+                
+                <div class="offshore-location">
+                    <div class="offshore-name" style="color: #fff;">Schritt 3: Du arbeitest Jahre</div>
+                    <p style="color: #a0a0a0;">Du zahlst 100.000€ + Zinsen (z.B. 30.000€) über 20 Jahre zurück.</p>
+                </div>
+                
+                <div class="offshore-location">
+                    <div class="offshore-name" style="color: #fff;">Schritt 4: Geld verschwindet wieder</div>
+                    <p style="color: #a0a0a0;">Bank löscht die Zahl. Die Zinsen behält sie als Gewinn.</p>
+                </div>
+                
+                <div class="stat-highlight">
+                    <p><strong>Fakt:</strong></p>
+                    <div class="stat-number">97%</div>
+                    <p>des Geldes wird durch Kredite erschaffen, NICHT durch Zentralbanken!</p>
+                    <p style="margin-top: 15px;">Wenn alle Schulden getilgt würden, gäbe es fast kein Geld mehr.</p>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>🌊 Offshore-Vermögen: Schrödingers Geld</h2>
+                
+                <p style="color: #a0a0a0; margin-bottom: 20px;">Panama Papers enthüllten: "$32 Billionen in Steueroasen"</p>
+                
+                <div class="reality-check">
+                    <h3>Was bedeutet das wirklich?</h3>
+                    <ul style="margin-left: 20px; margin-top: 10px;">
+                        <li>Digitale Konten auf den Cayman Islands zeigen diese Zahlen</li>
+                        <li>Niemand hat dieses Geld "ausgegeben" oder "benutzt"</li>
+                        <li>Es liegt nicht "irgendwo rum" in einem Tresor</li>
+                        <li>Es sind <strong>Einträge in Datenbanken</strong></li>
+                        <li>Wenn alle gleichzeitig abheben wollten → das Geld wäre nicht da!</li>
+                    </ul>
+                </div>
+                
+                <div class="stat-highlight" style="margin-top: 20px;">
+                    <p style="color: #f093fb;"><strong>"Wert" existiert nur, solange alle GLAUBEN, dass er existiert.</strong></p>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>📉 Aktienvermögen: Theoretisches Geld</h2>
+                
+                <div class="offshore-location">
+                    <div class="offshore-name">Das Paradox von Elon Musk's $400 Mrd.</div>
+                    <p style="margin-top: 10px;">
+                        <strong style="color: #fff;">NICHT:</strong> 400 Milliarden Dollar die irgendwo liegen<br><br>
+                        <strong style="color: #4CAF50;">SONDERN:</strong><br>
+                        • X Millionen Tesla-Aktien<br>
+                        • Aktueller Preis: Y Dollar pro Stück<br>
+                        • Multiplikation: X × Y = $400 Mrd.<br><br>
+                        <strong style="color: #f5576c;">ABER:</strong><br>
+                        • Morgen könnte Tesla-Kurs um 50% fallen<br>
+                        • → Musk "verliert" $200 Mrd.<br>
+                        • <em>Dieses Geld ist nicht "weg" – es war nie "da"!</em>
+                    </p>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>🤔 Die philosophische Frage</h2>
+                
+                <div class="stat-highlight">
+                    <h3 style="color: #ffd700;">"Wenn es nur Zahlen sind – warum ändern wir sie nicht einfach?"</h3>
+                    
+                    <p style="margin-top: 20px; color: #fff;">Genau DAS passiert ständig:</p>
+                    
+                    <div style="margin: 20px 0;">
+                        <h4 style="color: #f093fb;">Beispiel 1: Quantitative Easing (2008-2020)</h4>
+                        <p style="color: #a0a0a0;">
+                            • Zentralbanken (Fed, EZB) schreiben Billionen "auf Konten"<br>
+                            • Kaufen damit Staatsanleihen/Aktien<br>
+                            • Geld existiert jetzt – erschaffen aus Luft<br>
+                            • Kritiker: "Das ist doch aus Luft!"<br>
+                            • Antwort: <em>"Ja. Genau wie 97% des Geldes."</em>
+                        </p>
+                    </div>
+                    
+                    <div style="margin: 20px 0;">
+                        <h4 style="color: #f093fb;">Beispiel 2: Schuldenschnitt</h4>
+                        <p style="color: #a0a0a0;">
+                            • Griechenland 2012: Schulden von €400 Mrd.<br>
+                            • Gläubiger: "OK, wir löschen 50%"<br>
+                            • €200 Mrd. verschwinden – per Mausklick<br>
+                        </p>
+                    </div>
+                    
+                    <div style="margin: 20px 0;">
+                        <h4 style="color: #f093fb;">Beispiel 3: Vermögenssteuer (Szenario)</h4>
+                        <p style="color: #a0a0a0;">
+                            • Vorschlag: 2% Steuer auf Vermögen >$50 Mio.<br>
+                            • Bezos zahlt: $4 Mrd./Jahr<br>
+                            • NICHT: Er transportiert Geldkoffer<br>
+                            • SONDERN: Zahl auf seinem Konto ↓, Staatskonto ↑<br>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>⚖️ Warum ändern wir die Zahlen nicht einfach?</h2>
+                
+                <h3>1. Vertrauen ins System</h3>
+                <p style="color: #a0a0a0;">
+                    Wenn der Staat beliebig Zahlen ändert → Hyperinflation (Simbabwe, Venezuela)<br>
+                    System funktioniert nur, solange alle mitspielen.
+                </p>
+                
+                <h3 style="margin-top: 20px;">2. Machtfrage</h3>
+                <p style="color: #a0a0a0;">
+                    WER entscheidet, welche Zahlen geändert werden?<br>
+                    Aktuell: Zentralbanken (nicht demokratisch gewählt!) + Märkte (= die mit viel Kapital)
+                </p>
+                
+                <h3 style="margin-top: 20px;">3. Internationale Abhängigkeit</h3>
+                <p style="color: #a0a0a0;">
+                    Ein Land allein kann's nicht ändern.<br>
+                    Kapital fließt dorthin, wo es am besten behandelt wird (Steueroasen!).
+                </p>
+            </div>
+            
+            <div class="card">
+                <h2>💭 Zum Nachdenken</h2>
+                
+                <div class="reality-check">
+                    <p style="font-size: 1.2em; line-height: 1.8;">
+                        <strong>"Das gesamte globale Finanzsystem basiert auf einem kollektiven Glauben."</strong><br><br>
+                        
+                        Geld hat keinen intrinsischen Wert.<br>
+                        Es ist wertvoll, weil wir GLAUBEN, dass es wertvoll ist.<br><br>
+                        
+                        Die $450 Billionen globales Vermögen?<br>
+                        → Größtenteils digitale Einträge in Datenbanken.<br><br>
+                        
+                        Die Frage ist nicht: <em>"Wie viel Geld gibt es?"</em><br>
+                        Die Frage ist: <em>"Wer kontrolliert die Datenbanken?"</em>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Quellen -->
+        <div class="card" style="margin-top: 60px; background: rgba(0,0,0,0.4);">
+            <h2 style="color: #ffc107; margin-bottom: 30px; text-align: center;">📚 Quellen & Datengrundlagen</h2>
+            
+            <div style="color: #d0d0d0; line-height: 2;">
+                <h3 style="color: #ff9800; margin: 25px 0 15px;">Vermögensdaten:</h3>
+                <p style="margin-left: 20px;">
+                    • <strong>Credit Suisse Global Wealth Report 2023</strong> - Globales Vermögen & Verteilung<br>
+                    • <strong>Forbes Billionaires List 2024</strong> - Milliardäre & ihre Vermögen<br>
+                    • <strong>Oxfam "Inequality Report"</strong> - Vermögensungleichheit global<br>
+                    • <strong>Weltbank - World Development Indicators</strong> - Globale Wirtschaftsdaten
+                </p>
+                
+                <h3 style="color: #ff9800; margin: 25px 0 15px;">Steueroasen & Offshore-Gelder:</h3>
+                <p style="margin-left: 20px;">
+                    • <strong>Tax Justice Network</strong> - "The State of Tax Justice 2023"<br>
+                    • <strong>Panama Papers (2016)</strong> - International Consortium of Investigative Journalists (ICIJ)<br>
+                    • <strong>Paradise Papers (2017)</strong> - ICIJ<br>
+                    • Gabriel Zucman - "The Hidden Wealth of Nations" (2015)
+                </p>
+                
+                <h3 style="color: #ff9800; margin: 25px 0 15px;">Digitales Geld & Banksystem:</h3>
+                <p style="margin-left: 20px;">
+                    • Bank for International Settlements (BIS) - "Money in the digital age"<br>
+                    • Federal Reserve - "The Payment System"<br>
+                    • European Central Bank (ECB) - Geldmengendaten (M0, M1, M2, M3)
+                </p>
+                
+                <h3 style="color: #ff9800; margin: 25px 0 15px;">Armut & Entwicklung:</h3>
+                <p style="margin-left: 20px;">
+                    • UN World Food Programme - "Hunger Statistics 2024"<br>
+                    • Weltbank - "Poverty and Shared Prosperity Report"<br>
+                    • IMF - "World Economic Outlook Database"
+                </p>
+                
+                <p style="margin-top: 30px; padding: 20px; background: rgba(255,193,7,0.1); border-left: 4px solid #ffc107; border-radius: 8px;">
+                    <strong>Hinweis:</strong> Alle Zahlen sind Schätzungen basierend auf öffentlich verfügbaren Daten. 
+                    Wahre Vermögenswerte (besonders Offshore) sind schwer zu ermitteln und könnten höher liegen.
+                </p>
+            </div>
+        </div>
+        
+        <div style="text-align: center; padding: 40px 20px; color: #666;">
+            <p style="font-size: 1.2em;">✌️ <strong>peacefulrevolution.love</strong> ✌️</p>
+            <p style="margin-top: 20px; font-size: 0.9em;">Erstellt für Bildungszwecke • 2024</p>
+        </div>
+    </div>
+    
+    <script>
+        function switchTab(tabName) {
+            // Hide all tabs
+            const tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            
+            // Remove active class from all buttons
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            
+            // Show selected tab
+            document.getElementById(tabName).classList.add('active');
+            
+            // Highlight selected button
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>
