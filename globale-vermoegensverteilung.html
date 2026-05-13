@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Die unsichtbaren Billionen - Peaceful Revolution</title>
+    <title>Globale Vermögensverteilung - Die unsichtbaren Billionen</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -19,127 +19,88 @@
         <h1 style="font-size: 3.5em; margin-bottom: 20px; color: var(--primary-black);">
             💰 Die unsichtbaren Billionen
         </h1>
-        <p style="font-size: 1.3em; color: var(--text-secondary); max-width: 800px; margin: 0 auto;">
-            Wie globale Vermögensverteilung funktioniert – und warum 0,08% des Reichtums alle Probleme lösen würde
+        <p style="font-size: 1.3em; color: var(--text-secondary); max-width: 900px; margin: 0 auto;">
+            Globale Vermögensverteilung verstehen – Wer besitzt was, wo liegt das Geld, und warum sehen wir es nie?
         </p>
     </div>
 
     <div style="display: flex; justify-content: center; gap: 15px; margin-bottom: 50px; flex-wrap: wrap;">
-        <button class="tab-btn active" onclick="switchTab('billionaires')">Top Billionäre</button>
-        <button class="tab-btn" onclick="switchTab('distribution')">Vermögensverteilung</button>
-        <button class="tab-btn" onclick="switchTab('offshore')">Offshore & Steuern</button>
-        <button class="tab-btn" onclick="switchTab('sources')">Quellen</button>
+        <button class="tab-btn active" onclick="switchTab('wealth')">💰 Wer hat wie viel?</button>
+        <button class="tab-btn" onclick="switchTab('location')">🗺️ Wo liegt das Geld?</button>
+        <button class="tab-btn" onclick="switchTab('comparison')">📏 Größenvergleiche</button>
+        <button class="tab-btn" onclick="switchTab('digital')">💻 Die digitale Illusion</button>
+        <button class="tab-btn" onclick="switchTab('sources')">📚 Quellen</button>
     </div>
 
-    <div id="billionaires" class="tab-content active">
+    <div id="wealth" class="tab-content active">
         <div class="card">
-            <h2 style="color: var(--primary-green); margin-bottom: 30px;">Die reichsten Menschen der Welt (2024/2025)</h2>
-            
-            <div style="margin: 40px 0;">
-                <div style="padding: 25px; background: var(--bg-light); border-left: 5px solid var(--primary-green); border-radius: 10px; margin-bottom: 20px;">
-                    <h3 style="color: var(--primary-green); margin-bottom: 10px;">1. Elon Musk</h3>
-                    <p style="color: var(--text-primary); line-height: 1.8;">
-                        <strong>Vermögen:</strong> ~$240 Milliarden<br>
-                        <strong>Quelle:</strong> Tesla, SpaceX, X (Twitter)
-                    </p>
-                </div>
-
-                <div style="padding: 25px; background: var(--bg-light); border-left: 5px solid var(--primary-green); border-radius: 10px; margin-bottom: 20px;">
-                    <h3 style="color: var(--primary-green); margin-bottom: 10px;">2. Bernard Arnault</h3>
-                    <p style="color: var(--text-primary); line-height: 1.8;">
-                        <strong>Vermögen:</strong> ~$230 Milliarden<br>
-                        <strong>Quelle:</strong> LVMH (Louis Vuitton, Dior, etc.)
-                    </p>
-                </div>
-
-                <div style="padding: 25px; background: var(--bg-light); border-left: 5px solid var(--primary-green); border-radius: 10px; margin-bottom: 20px;">
-                    <h3 style="color: var(--primary-green); margin-bottom: 10px;">3. Jeff Bezos</h3>
-                    <p style="color: var(--text-primary); line-height: 1.8;">
-                        <strong>Vermögen:</strong> ~$195 Milliarden<br>
-                        <strong>Quelle:</strong> Amazon
-                    </p>
-                </div>
-
-                <div style="padding: 25px; background: var(--bg-light); border-left: 5px solid var(--primary-green); border-radius: 10px; margin-bottom: 20px;">
-                    <h3 style="color: var(--primary-green); margin-bottom: 10px;">4. Mark Zuckerberg</h3>
-                    <p style="color: var(--text-primary); line-height: 1.8;">
-                        <strong>Vermögen:</strong> ~$177 Milliarden<br>
-                        <strong>Quelle:</strong> Meta (Facebook, Instagram, WhatsApp)
-                    </p>
-                </div>
-
-                <div style="padding: 25px; background: var(--bg-light); border-left: 5px solid var(--primary-green); border-radius: 10px;">
-                    <h3 style="color: var(--primary-green); margin-bottom: 10px;">5. Larry Ellison</h3>
-                    <p style="color: var(--text-primary); line-height: 1.8;">
-                        <strong>Vermögen:</strong> ~$158 Milliarden<br>
-                        <strong>Quelle:</strong> Oracle
-                    </p>
-                </div>
-            </div>
-
-            <div style="padding: 40px; background: var(--bg-green-light); border-radius: 15px; margin-top: 50px; text-align: center;">
-                <p style="font-size: 1.3em; color: var(--text-primary); line-height: 2;">
-                    <strong>Die Top 5 allein besitzen:</strong><br>
-                    <span style="font-size: 1.5em; color: var(--primary-green); font-weight: 700;">~$1.000 Milliarden</span><br><br>
-                    Das ist mehr als das BIP von 180 Ländern zusammen.
-                </p>
-            </div>
-        </div>
-    </div>
-
-    <div id="distribution" class="tab-content">
-        <div class="card">
-            <h2 style="color: var(--primary-green); margin-bottom: 30px;">Die globale Vermögensverteilung</h2>
+            <h2 style="color: var(--primary-green); margin-bottom: 30px;">💰 Wer hat wie viel? Die globale Vermögenspyramide</h2>
             
             <div style="padding: 40px; background: rgba(220, 53, 69, 0.1); border-left: 5px solid #dc3545; border-radius: 15px; margin-bottom: 40px;">
                 <h3 style="color: #dc3545; margin-bottom: 20px; text-align: center;">Die schockierende Wahrheit</h3>
                 <div style="text-align: center; margin: 30px 0;">
                     <p style="font-size: 2em; font-weight: 700; color: #dc3545; margin-bottom: 10px;">1%</p>
-                    <p style="font-size: 1.2em; color: var(--text-primary); margin-bottom: 30px;">der Weltbevölkerung besitzt</p>
+                    <p style="font-size: 1.2em; color: var(--text-primary); margin-bottom: 30px;">der Weltbevölkerung (80 Millionen Menschen) besitzt</p>
                     <p style="font-size: 2.5em; font-weight: 700; color: #dc3545; margin-bottom: 10px;">45%</p>
                     <p style="font-size: 1.2em; color: var(--text-primary);">des globalen Vermögens</p>
                 </div>
             </div>
 
-            <h3 style="color: var(--primary-green); margin: 40px 0 25px;">Die Pyramide:</h3>
+            <h3 style="color: var(--primary-green); margin: 40px 0 25px;">Die Vermögenspyramide im Detail:</h3>
 
             <div style="margin: 40px 0;">
                 <div style="padding: 30px; background: rgba(220, 53, 69, 0.1); border-left: 5px solid #dc3545; border-radius: 10px; margin-bottom: 20px;">
-                    <h3 style="color: #dc3545; margin-bottom: 15px;">TOP 1% (80 Millionen Menschen)</h3>
-                    <p style="color: var(--text-primary); line-height: 1.8;">
+                    <h3 style="color: #dc3545; margin-bottom: 15px;">TOP 1% – Die Ultrareichen</h3>
+                    <p style="color: var(--text-primary); line-height: 1.8; margin-bottom: 15px;">
+                        <strong>Personen:</strong> ~80 Millionen Menschen<br>
                         <strong>Besitzen:</strong> 45% des globalen Vermögens (~$200 Billionen)<br>
-                        <strong>Das sind:</strong> Die Milliardäre und Multi-Millionäre
+                        <strong>Das sind:</strong> Milliardäre, Centi-Millionäre, Ultra-High-Net-Worth Individuals
+                    </p>
+                    <p style="color: var(--text-secondary); line-height: 1.7; font-style: italic;">
+                        Die Top 10 Milliardäre allein besitzen über $1,5 Billionen – mehr als das BIP von 180 Ländern zusammen.
                     </p>
                 </div>
 
                 <div style="padding: 30px; background: rgba(255, 193, 7, 0.1); border-left: 5px solid var(--primary-gold); border-radius: 10px; margin-bottom: 20px;">
-                    <h3 style="color: var(--primary-gold); margin-bottom: 15px;">TOP 10% (800 Millionen Menschen)</h3>
-                    <p style="color: var(--text-primary); line-height: 1.8;">
+                    <h3 style="color: var(--primary-gold); margin-bottom: 15px;">TOP 10% – Die Wohlhabenden</h3>
+                    <p style="color: var(--text-primary); line-height: 1.8; margin-bottom: 15px;">
+                        <strong>Personen:</strong> ~800 Millionen Menschen<br>
                         <strong>Besitzen:</strong> 85% des globalen Vermögens<br>
-                        <strong>Das sind:</strong> Obere Mittelschicht in reichen Ländern
+                        <strong>Das sind:</strong> Obere Mittelschicht in reichen Ländern, erfolgreiche Unternehmer, gut verdienende Professionals
+                    </p>
+                    <p style="color: var(--text-secondary); line-height: 1.7; font-style: italic;">
+                        Ein Haus in Kalifornien, eine Wohnung in München, oder ein gut gefülltes Aktiendepot – du gehörst schon zu den Top 10%.
                     </p>
                 </div>
 
                 <div style="padding: 30px; background: var(--bg-light); border-left: 5px solid #6c757d; border-radius: 10px; margin-bottom: 20px;">
-                    <h3 style="color: #6c757d; margin-bottom: 15px;">50% der Mitte (4 Milliarden Menschen)</h3>
-                    <p style="color: var(--text-primary); line-height: 1.8;">
+                    <h3 style="color: #6c757d; margin-bottom: 15px;">Die Mitte – 50% der Menschheit</h3>
+                    <p style="color: var(--text-primary); line-height: 1.8; margin-bottom: 15px;">
+                        <strong>Personen:</strong> ~4 Milliarden Menschen<br>
                         <strong>Besitzen:</strong> 14% des globalen Vermögens<br>
-                        <strong>Das sind:</strong> Normale Arbeiter, kleine Ersparnisse
+                        <strong>Das sind:</strong> Normale Arbeiter, kleine Ersparnisse, ein Auto, vielleicht ein kleines Haus
+                    </p>
+                    <p style="color: var(--text-secondary); line-height: 1.7; font-style: italic;">
+                        Die meisten Menschen weltweit: Sie arbeiten, überleben, aber große Sprünge sind unmöglich.
                     </p>
                 </div>
 
                 <div style="padding: 30px; background: rgba(108, 117, 125, 0.1); border-left: 5px solid #6c757d; border-radius: 10px;">
-                    <h3 style="color: #6c757d; margin-bottom: 15px;">BOTTOM 50% (4 Milliarden Menschen)</h3>
-                    <p style="color: var(--text-primary); line-height: 1.8;">
+                    <h3 style="color: #6c757d; margin-bottom: 15px;">BOTTOM 50% – Die Armen</h3>
+                    <p style="color: var(--text-primary); line-height: 1.8; margin-bottom: 15px;">
+                        <strong>Personen:</strong> ~4 Milliarden Menschen<br>
                         <strong>Besitzen:</strong> 1% des globalen Vermögens<br>
-                        <strong>Das sind:</strong> Die Armen, Verschuldeten, Hungernden
+                        <strong>Das sind:</strong> Die Verschuldeten, die Hungernden, die ohne Zugang zu Grundversorgung
+                    </p>
+                    <p style="color: var(--text-secondary); line-height: 1.7; font-style: italic;">
+                        828 Millionen Menschen hungern. Milliarden leben von weniger als $5,50 am Tag. Sie besitzen fast nichts.
                     </p>
                 </div>
             </div>
 
             <div style="padding: 40px; background: var(--bg-green-light); border-radius: 15px; margin-top: 50px; text-align: center;">
                 <p style="font-size: 1.3em; color: var(--text-primary); line-height: 2; font-weight: 600;">
-                    4 MILLIARDEN Menschen teilen sich 1% des Vermögens.<br>
+                    4 MILLIARDEN Menschen teilen sich 1%.<br>
                     80 MILLIONEN Menschen besitzen 45%.<br><br>
                     <span style="color: var(--primary-green);">Das ist keine Ungerechtigkeit. Das ist mathematischer Wahnsinn.</span>
                 </p>
@@ -147,46 +108,81 @@
         </div>
     </div>
 
-    <div id="offshore" class="tab-content">
+    <div id="location" class="tab-content">
         <div class="card">
-            <h2 style="color: var(--primary-green); margin-bottom: 30px;">Offshore-Vermögen & Steuerflucht</h2>
+            <h2 style="color: var(--primary-green); margin-bottom: 30px;">🗺️ Wo liegt das Geld? Offshore-Vermögen & Steueroasen</h2>
             
             <div style="padding: 40px; background: rgba(220, 53, 69, 0.1); border-left: 5px solid #dc3545; border-radius: 15px; margin-bottom: 40px;">
                 <h3 style="color: #dc3545; margin-bottom: 20px; text-align: center;">Die versteckten Billionen</h3>
                 <div style="text-align: center; margin: 30px 0;">
                     <p style="font-size: 2.5em; font-weight: 700; color: #dc3545; margin-bottom: 10px;">$32 Billionen</p>
-                    <p style="font-size: 1.2em; color: var(--text-primary);">versteckt in Offshore-Steueroasen</p>
+                    <p style="font-size: 1.2em; color: var(--text-primary); margin-bottom: 20px;">versteckt in Offshore-Steueroasen</p>
+                    <p style="font-size: 1em; color: var(--text-secondary); line-height: 1.7;">
+                        Das ist mehr als das BIP der USA und China zusammen. Und es ist unsichtbar.
+                    </p>
                 </div>
             </div>
 
-            <h3 style="color: var(--primary-green); margin: 40px 0 25px;">Die größten Steueroasen:</h3>
+            <h3 style="color: var(--primary-green); margin: 40px 0 25px;">Die größten Steueroasen der Welt:</h3>
 
             <div style="margin: 40px 0;">
                 <div style="padding: 25px; background: var(--bg-light); border-radius: 10px; margin-bottom: 15px;">
                     <h4 style="color: var(--primary-green); margin-bottom: 10px;">🏝️ Cayman Islands</h4>
-                    <p style="color: var(--text-primary); line-height: 1.7;">
-                        Geschätztes verstecktes Vermögen: ~$5 Billionen
+                    <p style="color: var(--text-primary); line-height: 1.7; margin-bottom: 10px;">
+                        <strong>Geschätztes verstecktes Vermögen:</strong> ~$5 Billionen
+                    </p>
+                    <p style="color: var(--text-secondary); line-height: 1.6;">
+                        Mehr registrierte Firmen als Einwohner. Die Briefkastenfirmen-Hauptstadt der Welt.
                     </p>
                 </div>
 
                 <div style="padding: 25px; background: var(--bg-light); border-radius: 10px; margin-bottom: 15px;">
                     <h4 style="color: var(--primary-green); margin-bottom: 10px;">🇨🇭 Schweiz</h4>
-                    <p style="color: var(--text-primary); line-height: 1.7;">
-                        Geschätztes verstecktes Vermögen: ~$3 Billionen
+                    <p style="color: var(--text-primary); line-height: 1.7; margin-bottom: 10px;">
+                        <strong>Geschätztes verstecktes Vermögen:</strong> ~$3 Billionen
+                    </p>
+                    <p style="color: var(--text-secondary); line-height: 1.6;">
+                        Das berühmte Schweizer Bankgeheimnis. Zwar offiziell gelockert, aber noch immer ein Magnet für verstecktes Geld.
                     </p>
                 </div>
 
                 <div style="padding: 25px; background: var(--bg-light); border-radius: 10px; margin-bottom: 15px;">
                     <h4 style="color: var(--primary-green); margin-bottom: 10px;">🇱🇺 Luxemburg</h4>
-                    <p style="color: var(--text-primary); line-height: 1.7;">
-                        Geschätztes verstecktes Vermögen: ~$2 Billionen
+                    <p style="color: var(--text-primary); line-height: 1.7; margin-bottom: 10px;">
+                        <strong>Geschätztes verstecktes Vermögen:</strong> ~$2 Billionen
+                    </p>
+                    <p style="color: var(--text-secondary); line-height: 1.6;">
+                        Europas Steuerparadies. Amazon, Apple, und Co. zahlen hier kaum Steuern.
                     </p>
                 </div>
 
                 <div style="padding: 25px; background: var(--bg-light); border-radius: 10px; margin-bottom: 15px;">
                     <h4 style="color: var(--primary-green); margin-bottom: 10px;">🇵🇦 Panama</h4>
-                    <p style="color: var(--text-primary); line-height: 1.7;">
-                        Berühmt durch die Panama Papers – Millionen Briefkastenfirmen
+                    <p style="color: var(--text-primary); line-height: 1.7; margin-bottom: 10px;">
+                        <strong>Berühmt durch:</strong> Panama Papers – 11,5 Millionen Dokumente, die Offshore-Strukturen aufdeckten
+                    </p>
+                    <p style="color: var(--text-secondary); line-height: 1.6;">
+                        Politiker, Diktatoren, Milliardäre – alle versteckten hier Geld. Die Enthüllung war nur die Spitze des Eisbergs.
+                    </p>
+                </div>
+
+                <div style="padding: 25px; background: var(--bg-light); border-radius: 10px; margin-bottom: 15px;">
+                    <h4 style="color: var(--primary-green); margin-bottom: 10px;">🇧🇲 Bermuda</h4>
+                    <p style="color: var(--text-primary); line-height: 1.7; margin-bottom: 10px;">
+                        <strong>Spezialität:</strong> 0% Körperschaftssteuer
+                    </p>
+                    <p style="color: var(--text-secondary); line-height: 1.6;">
+                        Google, Facebook, und andere Tech-Giganten nutzen Bermuda für "Steuervermeidung" – völlig legal.
+                    </p>
+                </div>
+
+                <div style="padding: 25px; background: var(--bg-light); border-radius: 10px;">
+                    <h4 style="color: var(--primary-green); margin-bottom: 10px;">🇮🇪 Irland / 🇳🇱 Niederlande</h4>
+                    <p style="color: var(--text-primary); line-height: 1.7; margin-bottom: 10px;">
+                        <strong>Europas legale Steueroasen</strong>
+                    </p>
+                    <p style="color: var(--text-secondary); line-height: 1.6;">
+                        Der "Double Irish Dutch Sandwich" – eine Steuervermeidungs-Strategie, die Milliarden an Steuern spart.
                     </p>
                 </div>
             </div>
@@ -198,12 +194,13 @@
                     <p style="margin-bottom: 15px;">
                         <strong>$30 Milliarden/Jahr:</strong> Welthunger beenden (laut UN)<br>
                         <strong>$100 Milliarden/Jahr:</strong> Globale Gesundheitsversorgung für alle<br>
-                        <strong>$200 Milliarden/Jahr:</strong> Klimawandel stoppen & regenerative Energien weltweit
+                        <strong>$200 Milliarden/Jahr:</strong> Klimawandel stoppen & regenerative Energien weltweit<br>
+                        <strong>$50 Milliarden/Jahr:</strong> Bildung für jedes Kind weltweit
                     </p>
                     <p style="text-align: center; margin-top: 30px; font-size: 1.3em; font-weight: 600; color: var(--primary-green);">
-                        Das wären zusammen ~$330 Milliarden/Jahr<br>
-                        = 1% der Offshore-Gelder<br>
-                        = 0,08% des globalen Vermögens
+                        Das wären zusammen ~$380 Milliarden/Jahr<br>
+                        = 1,2% der Offshore-Gelder<br>
+                        = 0,1% des globalen Vermögens
                     </p>
                 </div>
             </div>
@@ -219,6 +216,200 @@
         </div>
     </div>
 
+    <div id="comparison" class="tab-content">
+        <div class="card">
+            <h2 style="color: var(--primary-green); margin-bottom: 30px;">📏 Größenvergleiche – Wie viel ist eine Billion?</h2>
+            
+            <p style="font-size: 1.2em; color: var(--text-secondary); margin-bottom: 40px;">
+                Zahlen wie "32 Billionen" oder "1% besitzt 45%" sind schwer zu begreifen. Lass uns sie greifbar machen:
+            </p>
+
+            <div style="margin: 40px 0;">
+                <div style="padding: 30px; background: var(--bg-light); border-radius: 10px; margin-bottom: 25px;">
+                    <h3 style="color: var(--primary-green); margin-bottom: 15px;">⏱️ Zeit als Maßstab</h3>
+                    <p style="color: var(--text-primary); line-height: 1.8; margin-bottom: 15px;">
+                        <strong>1 Million Sekunden</strong> = ~11,5 Tage<br>
+                        <strong>1 Milliarde Sekunden</strong> = ~31,7 Jahre<br>
+                        <strong>1 Billion Sekunden</strong> = ~31.700 Jahre
+                    </p>
+                    <p style="color: var(--text-secondary); line-height: 1.7; font-style: italic;">
+                        Wenn du mit dem Zählen bei 1 Million anfängst und nicht aufhörst, würdest du in ~11 Tagen fertig sein. 
+                        Bei 1 Billion bräuchtest du 31.700 Jahre. Das ist länger als die gesamte aufgezeichnete Menschheitsgeschichte.
+                    </p>
+                </div>
+
+                <div style="padding: 30px; background: var(--bg-light); border-radius: 10px; margin-bottom: 25px;">
+                    <h3 style="color: var(--primary-green); margin-bottom: 15px;">💵 Dollar-Scheine stapeln</h3>
+                    <p style="color: var(--text-primary); line-height: 1.8; margin-bottom: 15px;">
+                        <strong>1 Million Dollar</strong> in $100-Scheinen = ein kleiner Koffer<br>
+                        <strong>1 Milliarde Dollar</strong> in $100-Scheinen = 10 Paletten<br>
+                        <strong>1 Billion Dollar</strong> in $100-Scheinen = 10.000 Paletten (eine ganze Lagerhalle)
+                    </p>
+                    <p style="color: var(--text-secondary); line-height: 1.7; font-style: italic;">
+                        Elon Musks Vermögen ($240 Milliarden) würde 2.400 Lagerhallen füllen.
+                    </p>
+                </div>
+
+                <div style="padding: 30px; background: var(--bg-light); border-radius: 10px; margin-bottom: 25px;">
+                    <h3 style="color: var(--primary-green); margin-bottom: 15px;">🌍 Vergleich mit Länder-BIPs</h3>
+                    <p style="color: var(--text-primary); line-height: 1.8; margin-bottom: 15px;">
+                        <strong>Jeff Bezos' Vermögen</strong> (~$195 Mrd.) > BIP von Ungarn, Neuseeland, oder Vietnam<br>
+                        <strong>Die Top 10 Milliardäre</strong> (~$1,5 Billionen) > BIP von Spanien, Mexiko, Indonesien<br>
+                        <strong>Offshore-Vermögen</strong> ($32 Billionen) > BIP der USA + China kombiniert
+                    </p>
+                    <p style="color: var(--text-secondary); line-height: 1.7; font-style: italic;">
+                        10 Menschen besitzen mehr als 200 Millionen Menschen erwirtschaften.
+                    </p>
+                </div>
+
+                <div style="padding: 30px; background: var(--bg-light); border-radius: 10px; margin-bottom: 25px;">
+                    <h3 style="color: var(--primary-green); margin-bottom: 15px;">🏃 Laufen vs. Fliegen</h3>
+                    <p style="color: var(--text-primary); line-height: 1.8; margin-bottom: 15px;">
+                        Wenn du $1 pro Sekunde verdienst:<br>
+                        <strong>1 Million Dollar</strong> = 11,5 Tage<br>
+                        <strong>1 Milliarde Dollar</strong> = 31,7 Jahre<br>
+                        <strong>Jeff Bezos' Vermögen</strong> = 6.181 Jahre
+                    </p>
+                    <p style="color: var(--text-secondary); line-height: 1.7; font-style: italic;">
+                        Du müsstest im Jahr 3843 v. Chr. angefangen haben zu sparen – zur Zeit der ersten ägyptischen Hieroglyphen.
+                    </p>
+                </div>
+
+                <div style="padding: 30px; background: var(--bg-light); border-radius: 10px;">
+                    <h3 style="color: var(--primary-green); margin-bottom: 15px;">🎯 Der "Pixel-Vergleich"</h3>
+                    <p style="color: var(--text-primary); line-height: 1.8; margin-bottom: 15px;">
+                        Stell dir vor, ein Pixel = $1.000:<br>
+                        <strong>Durchschnittlicher Jahresverdienst</strong> (~$50k) = 50 Pixel (1 kleines Quadrat)<br>
+                        <strong>1 Million Dollar</strong> = 1.000 Pixel (1 mittleres Bild)<br>
+                        <strong>Jeff Bezos</strong> = 195 Millionen Pixel (ein riesiges 4K-Video)
+                    </p>
+                    <p style="color: var(--text-secondary); line-height: 1.7; font-style: italic;">
+                        Dein Jahresverdienst ist ein winziger Punkt. Sein Vermögen ist ein ganzer Kinofilm.
+                    </p>
+                </div>
+            </div>
+
+            <div style="padding: 40px; background: var(--bg-green-light); border-radius: 15px; margin-top: 50px; text-align: center;">
+                <p style="font-size: 1.3em; color: var(--text-primary); line-height: 2; font-weight: 600;">
+                    Diese Größenordnungen sind absurd.<br>
+                    Kein Mensch kann sich 1 Billion vorstellen.<br><br>
+                    <span style="color: var(--primary-green);">Und genau das ist das Problem:<br>
+                    Wenn wir die Zahlen nicht begreifen können, können wir die Ungerechtigkeit nicht fühlen.</span>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div id="digital" class="tab-content">
+        <div class="card">
+            <h2 style="color: var(--primary-green); margin-bottom: 30px;">💻 Die digitale Illusion – Geld existiert nur noch als Zahl</h2>
+            
+            <div style="padding: 40px; background: rgba(220, 53, 69, 0.1); border-left: 5px solid #dc3545; border-radius: 15px; margin-bottom: 40px;">
+                <h3 style="color: #dc3545; margin-bottom: 20px; text-align: center;">Die schockierende Wahrheit über Geld</h3>
+                <div style="text-align: center; margin: 30px 0;">
+                    <p style="font-size: 2.5em; font-weight: 700; color: #dc3545; margin-bottom: 10px;">92%</p>
+                    <p style="font-size: 1.2em; color: var(--text-primary); margin-bottom: 20px;">des weltweiten Geldes existiert nur digital</p>
+                    <p style="font-size: 1em; color: var(--text-secondary); line-height: 1.7;">
+                        Nur 8% sind physisches Bargeld. Der Rest? Einträge in Datenbanken. Bits und Bytes. Zahlen auf Bildschirmen.
+                    </p>
+                </div>
+            </div>
+
+            <h3 style="color: var(--primary-green); margin: 40px 0 25px;">Was bedeutet das konkret?</h3>
+
+            <div style="margin: 40px 0;">
+                <div style="padding: 30px; background: var(--bg-light); border-radius: 10px; margin-bottom: 25px;">
+                    <h3 style="color: var(--primary-green); margin-bottom: 15px;">🏦 Banken erschaffen Geld aus dem Nichts</h3>
+                    <p style="color: var(--text-primary); line-height: 1.8; margin-bottom: 15px;">
+                        Wenn du einen Kredit über $100.000 aufnimmst, druckt die Bank kein Geld.<br>
+                        Sie tippt einfach "$100.000" in dein Konto ein. <strong>Das Geld existiert vorher nicht.</strong>
+                    </p>
+                    <p style="color: var(--text-secondary); line-height: 1.7; font-style: italic;">
+                        Das nennt sich "Fractional Reserve Banking" – Banken müssen nur ~10% ihrer verliehenen Gelder tatsächlich besitzen. 
+                        Der Rest ist digitale Schöpfung.
+                    </p>
+                </div>
+
+                <div style="padding: 30px; background: var(--bg-light); border-radius: 10px; margin-bottom: 25px;">
+                    <h3 style="color: var(--primary-green); margin-bottom: 15px;">💳 Dein Kontostand ist nur eine Zahl</h3>
+                    <p style="color: var(--text-primary); line-height: 1.8; margin-bottom: 15px;">
+                        Wenn du auf dein Bankkonto schaust und "$5.000" siehst, existieren diese $5.000 nirgendwo physisch.<br>
+                        Sie sind ein Eintrag in einer Datenbank. <strong>Ein Versprechen</strong>, dass du diesen Wert abrufen kannst.
+                    </p>
+                    <p style="color: var(--text-secondary); line-height: 1.7; font-style: italic;">
+                        Wenn plötzlich alle Menschen ihr Geld gleichzeitig abheben wollten (ein "Bank Run"), würde das System zusammenbrechen. 
+                        Es gibt nicht genug physisches Geld dafür.
+                    </p>
+                </div>
+
+                <div style="padding: 30px; background: var(--bg-light); border-radius: 10px; margin-bottom: 25px;">
+                    <h3 style="color: var(--primary-green); margin-bottom: 15px;">🌐 Globale Transaktionen: Nur Zahlen verschieben</h3>
+                    <p style="color: var(--text-primary); line-height: 1.8; margin-bottom: 15px;">
+                        Wenn Apple $100 Milliarden von einem Konto in Irland auf ein Konto in den USA überweist, bewegt sich kein Geld.<br>
+                        Eine Zahl wird in Irland kleiner. Eine Zahl wird in den USA größer. <strong>Fertig.</strong>
+                    </p>
+                    <p style="color: var(--text-secondary); line-height: 1.7; font-style: italic;">
+                        Täglich werden ~$6,6 Billionen global transferiert. Fast alles digital. Fast nichts davon "echt".
+                    </p>
+                </div>
+
+                <div style="padding: 30px; background: var(--bg-light); border-radius: 10px; margin-bottom: 25px;">
+                    <h3 style="color: var(--primary-green); margin-bottom: 15px;">📊 Aktienmärkte: Zahlen, die Zahlen repräsentieren</h3>
+                    <p style="color: var(--text-primary); line-height: 1.8; margin-bottom: 15px;">
+                        Wenn Teslas Aktienkurs steigt und Elon Musk $50 Milliarden "reicher" wird, hat er kein neues Geld bekommen.<br>
+                        Sein Vermögen ist ein theoretischer Wert. <strong>Es existiert nur, wenn er verkauft.</strong>
+                    </p>
+                    <p style="color: var(--text-secondary); line-height: 1.7; font-style: italic;">
+                        Milliardäre sind "reich auf dem Papier" – ihre Vermögen sind Schätzungen basierend auf Aktienkursen und Unternehmenswerten.
+                    </p>
+                </div>
+
+                <div style="padding: 30px; background: var(--bg-light); border-radius: 10px;">
+                    <h3 style="color: var(--primary-green); margin-bottom: 15px;">🔐 Kryptowährungen: Die radikalste Form digitalen Geldes</h3>
+                    <p style="color: var(--text-primary); line-height: 1.8; margin-bottom: 15px;">
+                        Bitcoin, Ethereum & Co. existieren nur als Code.<br>
+                        Kein Staat, keine Bank, keine physische Basis. <strong>Pure mathematische Abstraktion.</strong>
+                    </p>
+                    <p style="color: var(--text-secondary); line-height: 1.7; font-style: italic;">
+                        Trotzdem: Bitcoin-Marktkapitalisierung = ~$1,2 Billionen. Mehr als das BIP von Spanien. Für digitale Zahlen ohne physische Existenz.
+                    </p>
+                </div>
+            </div>
+
+            <div style="padding: 40px; background: var(--bg-green-light); border-radius: 15px; margin-top: 50px;">
+                <h3 style="color: var(--primary-green); margin-bottom: 25px; text-align: center;">Warum ist das wichtig?</h3>
+                
+                <div style="color: var(--text-primary); line-height: 2; font-size: 1.1em;">
+                    <p style="margin-bottom: 20px;">
+                        <strong>1. Geld ist eine Illusion</strong><br>
+                        Es existiert nur, weil wir daran glauben. Es ist ein kollektives Versprechen, eine soziale Vereinbarung.
+                    </p>
+                    <p style="margin-bottom: 20px;">
+                        <strong>2. Reichtum ist unsichtbar</strong><br>
+                        Die $32 Billionen in Steueroasen? Zahlen in Datenbanken. Die Milliardäre? Aktienkurse auf Bildschirmen.
+                    </p>
+                    <p style="margin-bottom: 20px;">
+                        <strong>3. Das System ist anfällig</strong><br>
+                        Wenn das Vertrauen bricht (wie 2008), kollabiert alles. Weil nichts davon "real" ist.
+                    </p>
+                    <p style="font-weight: 600; color: var(--primary-green); text-align: center; margin-top: 30px; font-size: 1.2em;">
+                        Wenn 92% des Geldes nur digital existiert,<br>
+                        dann ist Armut eine digitale Entscheidung.<br><br>
+                        Wir könnten die Zahlen ändern. Jederzeit.
+                    </p>
+                </div>
+            </div>
+
+            <div style="padding: 40px; background: rgba(220, 53, 69, 0.1); border-radius: 15px; margin-top: 40px; text-align: center;">
+                <p style="font-size: 1.3em; color: var(--text-primary); line-height: 2; font-weight: 600;">
+                    828 Millionen Menschen hungern.<br>
+                    Nicht weil es nicht genug gibt.<br><br>
+                    <span style="color: #dc3545;">Sondern weil ihre Konten die falsche Zahl zeigen.</span>
+                </p>
+            </div>
+        </div>
+    </div>
+
     <div id="sources" class="tab-content">
         <div class="card" style="background: rgba(0,0,0,0.02);">
             <h2 style="color: var(--primary-green); margin-bottom: 30px;">📚 Quellen & Daten</h2>
@@ -229,7 +420,8 @@
                     • Credit Suisse - "Global Wealth Report" (jährlich)<br>
                     • Oxfam - "An Economy for the 99%" Reports<br>
                     • World Inequality Database (WID.world)<br>
-                    • Thomas Piketty - "Capital in the Twenty-First Century"
+                    • Thomas Piketty - "Capital in the Twenty-First Century"<br>
+                    • World Bank - Global Wealth Database
                 </p>
                 
                 <h3 style="color: var(--primary-green); margin: 25px 0 15px;">Milliardäre & Top-Vermögen:</h3>
@@ -245,14 +437,24 @@
                     • Gabriel Zucman - "The Hidden Wealth of Nations"<br>
                     • Panama Papers (ICIJ - International Consortium of Investigative Journalists)<br>
                     • Paradise Papers (ICIJ)<br>
-                    • Nicholas Shaxson - "Treasure Islands"
+                    • Nicholas Shaxson - "Treasure Islands"<br>
+                    • James S. Henry - "The Price of Offshore Revisited"
+                </p>
+                
+                <h3 style="color: var(--primary-green); margin: 25px 0 15px;">Digitales Geld & Finanzsystem:</h3>
+                <p style="margin-left: 20px;">
+                    • Bank for International Settlements (BIS) - Statistics on payment systems<br>
+                    • IMF - "Digital Money Across Borders"<br>
+                    • Yuval Noah Harari - "Sapiens" (Kapitel über Geld als Fiktion)<br>
+                    • David Graeber - "Debt: The First 5,000 Years"
                 </p>
                 
                 <h3 style="color: var(--primary-green); margin: 25px 0 15px;">Lösungskosten:</h3>
                 <p style="margin-left: 20px;">
                     • UN Food and Agriculture Organization - Cost to end world hunger<br>
                     • World Health Organization - Universal Healthcare Cost Estimates<br>
-                    • IPCC Reports - Climate Action Costs
+                    • IPCC Reports - Climate Action Costs<br>
+                    • UNESCO - Education for All Financing Estimates
                 </p>
             </div>
         </div>
